@@ -1,0 +1,14 @@
+{
+    "name": "haven-client-generator",
+    "version": "0.0.0",
+    "description": "Use OpenAPI to generate clients for the Haven Money API",
+    "author": "Haven Money",
+    "private": true,
+    "dependencies": {
+        "@openapitools/openapi-generator-cli": "^0.0.14-4.0.2"
+    },
+    "scripts": {
+      "build-go": "./node_modules/.bin/openapi-generator generate -i open-api.yaml -g go -c configs/golang.json -o golang/haven/ && ./golang/fix_optional.sh",
+      "build": "yarn build-go"
+    }
+}

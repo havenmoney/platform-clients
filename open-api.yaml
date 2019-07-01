@@ -1,0 +1,1028 @@
+openapi: 3.0.1
+info:
+  title: Haven Money API
+  version: '1.0'
+paths:
+  /v1/tokens:
+    post:
+      operationId: postV1Tokens
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TenantServiceAccountAgentLoginRequest'
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantServiceAccountAgentLoginResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictServiceError'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundServiceError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedServiceError'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestServiceError'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+        default:
+          description: unknown
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+  /v1/annotations/{TransactionId}:
+    post:
+      operationId: postV1AnnotationsTransactionid
+      parameters:
+      - name: TransactionId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddAnnotationRequest'
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddAnnotationResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictServiceError'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundServiceError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedServiceError'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestServiceError'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+        default:
+          description: unknown
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+  /v1/transactions/batch:
+    post:
+      operationId: postV1TransactionsBatch
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UploadBatchTransactionsRequest'
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictServiceError'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundServiceError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedServiceError'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestServiceError'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+        default:
+          description: unknown
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+  /v1/transactions/online:
+    post:
+      operationId: postV1TransactionsOnline
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CleanSingleTransactionRequest'
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CleanSingleTransactionResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictServiceError'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundServiceError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedServiceError'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestServiceError'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+        default:
+          description: unknown
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+  /v1/transactions/{EndUserId}:
+    get:
+      operationId: getV1TransactionsEnduserid
+      parameters:
+      - name: EndUserId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetTransactionsResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictServiceError'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundServiceError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedServiceError'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestServiceError'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+        default:
+          description: unknown
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+  /v1/transactions/{TransactionId}:
+    delete:
+      operationId: deleteV1TransactionsTransactionid
+      parameters:
+      - name: TransactionId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictServiceError'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundServiceError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedServiceError'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestServiceError'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+        default:
+          description: unknown
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+  /v1/users/{EndUserId}:
+    delete:
+      operationId: deleteV1UsersEnduserid
+      parameters:
+      - name: EndUserId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictServiceError'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundServiceError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedServiceError'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestServiceError'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+        default:
+          description: unknown
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+  /v1/webhooks/{WebhookId}:
+    delete:
+      operationId: deleteV1WebhooksWebhookid
+      parameters:
+      - name: WebhookId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictServiceError'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundServiceError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedServiceError'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestServiceError'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+        default:
+          description: unknown
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+  /v1/webhooks:
+    get:
+      operationId: getV1Webhooks
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetWebhooksResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictServiceError'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundServiceError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedServiceError'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestServiceError'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+        default:
+          description: unknown
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+    post:
+      operationId: postV1Webhooks
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateWebhookRequest'
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateWebhookResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictServiceError'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundServiceError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedServiceError'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestServiceError'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+        default:
+          description: unknown
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+  /v1/merchants/{MerchantId}:
+    get:
+      operationId: getV1MerchantsMerchantid
+      parameters:
+      - name: MerchantId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetMerchantResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictServiceError'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundServiceError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedServiceError'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestServiceError'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+        default:
+          description: unknown
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+components:
+  schemas:
+    CreateWebhookRequest:
+      required:
+      - callback
+      - subscriptions
+      type: object
+      properties:
+        callback:
+          type: string
+        subscriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/WebhookSubscription'
+    TenantServiceAccountAgentLoginRequest:
+      required:
+      - id
+      - secret
+      type: object
+      properties:
+        id:
+          type: string
+        secret:
+          type: string
+    CreateWebhookResponse:
+      required:
+      - webhook
+      type: object
+      properties:
+        webhook:
+          $ref: '#/components/schemas/Webhook'
+    BadRequestServiceError:
+      required:
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+    OpenHours:
+      required:
+      - __dummy
+      type: object
+      properties:
+        __dummy:
+          type: string
+    LatLong:
+      required:
+      - latitude
+      - longitude
+      type: object
+      properties:
+        latitude:
+          type: string
+        longitude:
+          type: string
+    Address:
+      required:
+      - line1
+      - city
+      - state
+      - zip
+      type: object
+      properties:
+        line1:
+          type: string
+        line2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zip:
+          type: string
+        coordinates:
+          $ref: '#/components/schemas/LatLong'
+    BootstrapStrategy:
+      type: string
+      enum:
+      - user-exact
+      - user-fuzzy
+      - account-exact
+      - account-fuzzy
+      - none
+    CleanSingleTransactionResponse:
+      required:
+      - transaction
+      type: object
+      properties:
+        transaction:
+          $ref: '#/components/schemas/CleanTransaction'
+    RawMerchantStore:
+      type: object
+      properties:
+        mid:
+          type: string
+        name:
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+    RawTransaction:
+      required:
+      - id
+      - account
+      - user
+      - rawMemo
+      - amount
+      - categories
+      - kind
+      - state
+      type: object
+      properties:
+        id:
+          type: string
+        account:
+          type: string
+        user:
+          type: string
+        rawMemo:
+          type: string
+        merchant:
+          $ref: '#/components/schemas/RawMerchant'
+        store:
+          $ref: '#/components/schemas/RawMerchantStore'
+        network:
+          type: string
+        userTransactedAt:
+          type: string
+          format: date-time
+        amount:
+          type: string
+        categories:
+          type: array
+          items:
+            type: string
+        kind:
+          $ref: '#/components/schemas/TransactionKind'
+        state:
+          $ref: '#/components/schemas/TransactionState'
+    GetMerchantResponse:
+      type: object
+      properties:
+        merchant:
+          $ref: '#/components/schemas/Merchant'
+    WebhookSubscription:
+      type: string
+      enum:
+      - TRANSACTIONS
+      - INSTITUTIONS
+    RawMerchant:
+      type: object
+      properties:
+        mid:
+          type: string
+        mcc:
+          type: string
+        name:
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+    Webhook:
+      required:
+      - id
+      - callback
+      - secret
+      type: object
+      properties:
+        id:
+          type: string
+        callback:
+          type: string
+        secret:
+          type: string
+    EmptyResponse:
+      type: object
+      properties:
+        a:
+          type: integer
+    CleanTransaction:
+      required:
+      - id
+      - account
+      - user
+      - memo
+      - rawMemo
+      - amount
+      - categories
+      - cleanCategory
+      - excludeFromBreakdowns
+      - historical
+      type: object
+      properties:
+        id:
+          type: string
+        account:
+          type: string
+        user:
+          type: string
+        memo:
+          type: string
+        rawMemo:
+          type: string
+        network:
+          type: string
+        userTransactedAt:
+          type: string
+          format: date-time
+        amount:
+          type: string
+        categories:
+          type: array
+          items:
+            type: string
+        cleanCategory:
+          $ref: '#/components/schemas/CleanCategory'
+        url:
+          type: string
+        image:
+          type: string
+        backgroundImage:
+          type: string
+        excludeFromBreakdowns:
+          type: boolean
+        merchant:
+          type: string
+        merchantAddress:
+          $ref: '#/components/schemas/Address'
+        historical:
+          type: array
+          items:
+            type: string
+    ConflictServiceError:
+      required:
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+    AddAnnotationResponse:
+      required:
+      - transactions
+      type: object
+      properties:
+        transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/CleanTransaction'
+    AddAnnotationRequest:
+      required:
+      - bootstrap
+      type: object
+      properties:
+        category:
+          $ref: '#/components/schemas/CleanCategory'
+        memo:
+          type: string
+        excludeFromBreakdowns:
+          type: boolean
+        bootstrap:
+          $ref: '#/components/schemas/BootstrapStrategy'
+    NotFoundServiceError:
+      required:
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+    UploadBatchTransactionsRequest:
+      required:
+      - transactions
+      type: object
+      properties:
+        transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/RawTransaction'
+    GetWebhooksResponse:
+      required:
+      - webhooks
+      type: object
+      properties:
+        webhooks:
+          type: array
+          items:
+            $ref: '#/components/schemas/Webhook'
+    GetTransactionsResponse:
+      required:
+      - transactions
+      type: object
+      properties:
+        transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/CleanTransaction'
+    Merchant:
+      required:
+      - id
+      - name
+      - category
+      - updatedAt
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+        hours:
+          $ref: '#/components/schemas/OpenHours'
+        image:
+          type: string
+        category:
+          $ref: '#/components/schemas/CleanCategory'
+        phone:
+          type: string
+        url:
+          type: string
+        facebook:
+          type: string
+        twitter:
+          type: string
+        instagram:
+          type: string
+        yelp:
+          type: string
+        updatedAt:
+          type: string
+          format: date-time
+    CleanCategory:
+      type: string
+      enum:
+      - Arts
+      - Music
+      - Movies & Television
+      - Newspaper & Magazines
+      - Other Entertainment
+      - Deposit
+      - Withdrawal
+      - Dividends
+      - Buy
+      - Sell
+      - Other Investments
+      - Gas & Fuel
+      - Parking
+      - Maintenance & Repairs
+      - Auto Payment
+      - Auto Insurance
+      - Public Transportation
+      - Other Car
+      - Air Travel
+      - Lodging
+      - Ride Share & Rental
+      - Other Travel
+      - Account Maintenance
+      - Overdraft Fee
+      - Insufficient Funds Fee
+      - ATM Fee
+      - Check Order Fee
+      - Interest Charged Fee
+      - Foreign Transaction Fee
+      - Wire Fee
+      - Excessive Transactions Fee
+      - Late Fee
+      - Card Membership Fee
+      - Other Fee
+      - Rent
+      - Mortgage
+      - Other Housing
+      - Rent Reimbursement
+      - Credit card payment
+      - ATM Withdrawals
+      - Internal Transfer
+      - External Transfer
+      - Other Transfer
+      - Loan Payment
+      - Services
+      - Internet
+      - Phone Bill
+      - Utilities
+      - TV
+      - Other Bills
+      - Paycheck
+      - Interest
+      - Reimbursement
+      - Other Income
+      - Tuition
+      - Student Loan
+      - Other Education
+      - Health Insurance
+      - Gym
+      - Dentist
+      - Doctor
+      - Pharmacy
+      - Other Health & Fitness
+      - Groceries
+      - Coffee
+      - Restaurants
+      - Alcohol
+      - Other Food & Dining
+      - Taxes
+      - Gifts & Donations
+      - Shopping
+      - Other
+    TenantServiceAccountAgentLoginResponse:
+      required:
+      - token
+      - expiry
+      type: object
+      properties:
+        token:
+          type: string
+        expiry:
+          type: string
+          format: date-time
+    TransactionState:
+      type: string
+      enum:
+      - PENDING
+      - COMPLETED
+      - REVERSED
+      - ERROR
+    UnauthorizedServiceError:
+      required:
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+    UncaughtExceptionServiceError:
+      required:
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+    CleanSingleTransactionRequest:
+      required:
+      - transaction
+      type: object
+      properties:
+        transaction:
+          $ref: '#/components/schemas/RawTransaction'
+    TransactionKind:
+      type: string
+      enum:
+      - ACH
+      - FEE
+      - DEBIT_CARD
+      - CREDIT_CARD
+      - REVERSAL
+      - CHARGE_BACK
+      - UNKNOWN
