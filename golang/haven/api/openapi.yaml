@@ -630,12 +630,12 @@ components:
       type: object
     OpenHours:
       example:
-        __dummy: __dummy
+        __ask_your_acct_manager: __ask_your_acct_manager
       properties:
-        __dummy:
+        __ask_your_acct_manager:
           type: string
       required:
-      - __dummy
+      - __ask_your_acct_manager
       type: object
     LatLong:
       example:
@@ -825,7 +825,7 @@ components:
         merchant:
           image: image
           hours:
-            __dummy: __dummy
+            __ask_your_acct_manager: __ask_your_acct_manager
           address:
             zip: zip
             city: city
@@ -1249,7 +1249,7 @@ components:
       example:
         image: image
         hours:
-          __dummy: __dummy
+          __ask_your_acct_manager: __ask_your_acct_manager
         address:
           zip: zip
           city: city

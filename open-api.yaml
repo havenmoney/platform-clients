@@ -614,10 +614,10 @@ components:
           type: string
     OpenHours:
       required:
-      - __dummy
+      - __ask_your_acct_manager
       type: object
       properties:
-        __dummy:
+        __ask_your_acct_manager:
           type: string
     LatLong:
       required:
