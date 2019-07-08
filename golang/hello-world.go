@@ -25,7 +25,7 @@ func main() {
 	// Upload a transaction
 	now := time.Now().UTC()
 	network := "VISA"
-	_, _, err := client.DefaultApi.PostV1TransactionsOnline(ctx, haven.CleanSingleTransactionRequest{
+	_, _, err := client.DefaultApi.UpsertOneTransaction(ctx, haven.CleanSingleTransactionRequest{
 		Transaction: haven.RawTransaction{
 			Id:               "123",
 			Account:          "a1",
@@ -48,14 +48,14 @@ func main() {
 	}
 
 	// Read back the transaction we wrote.
-	transactions, _, err := client.DefaultApi.GetV1TransactionsEnduserid(ctx, "u1")
+	transactions, _, err := client.DefaultApi.GetTransactions(ctx, "u1")
 	if err != nil {
 		fmt.Println("failed to fetch transactions", err)
 		return
 	}
 	fmt.Printf("Downloaded %d transactions for user u1\n", len(transactions.Transactions))
 
-	_, _, err = client.DefaultApi.DeleteV1UsersEnduserid(ctx, "u1")
+	_, _, err = client.DefaultApi.DeleteForUser(ctx, "u1")
 
 	if err != nil {
 		fmt.Println("Could not delete for user", err)
@@ -63,7 +63,7 @@ func main() {
 	}
 
 	// Example of a 400 Bad Request
-	_, _, err = client.DefaultApi.PostV1TransactionsOnline(ctx, haven.CleanSingleTransactionRequest{
+	_, _, err = client.DefaultApi.UpsertOneTransaction(ctx, haven.CleanSingleTransactionRequest{
 		Transaction: haven.RawTransaction{
 			Id:               "123",
 			Account:          "a1",

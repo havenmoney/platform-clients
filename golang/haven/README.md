@@ -32,17 +32,17 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**DeleteV1TransactionsTransactionid**](docs/DefaultApi.md#deletev1transactionstransactionid) | **Delete** /v1/transactions/{TransactionId} | 
-*DefaultApi* | [**DeleteV1UsersEnduserid**](docs/DefaultApi.md#deletev1usersenduserid) | **Delete** /v1/users/{EndUserId} | 
-*DefaultApi* | [**DeleteV1WebhooksWebhookid**](docs/DefaultApi.md#deletev1webhookswebhookid) | **Delete** /v1/webhooks/{WebhookId} | 
-*DefaultApi* | [**GetV1MerchantsMerchantid**](docs/DefaultApi.md#getv1merchantsmerchantid) | **Get** /v1/merchants/{MerchantId} | 
-*DefaultApi* | [**GetV1TransactionsEnduserid**](docs/DefaultApi.md#getv1transactionsenduserid) | **Get** /v1/transactions/{EndUserId} | 
-*DefaultApi* | [**GetV1Webhooks**](docs/DefaultApi.md#getv1webhooks) | **Get** /v1/webhooks | 
-*DefaultApi* | [**PostV1AnnotationsTransactionid**](docs/DefaultApi.md#postv1annotationstransactionid) | **Post** /v1/annotations/{TransactionId} | 
-*DefaultApi* | [**PostV1Tokens**](docs/DefaultApi.md#postv1tokens) | **Post** /v1/tokens | 
-*DefaultApi* | [**PostV1TransactionsBatch**](docs/DefaultApi.md#postv1transactionsbatch) | **Post** /v1/transactions/batch | 
-*DefaultApi* | [**PostV1TransactionsOnline**](docs/DefaultApi.md#postv1transactionsonline) | **Post** /v1/transactions/online | 
-*DefaultApi* | [**PostV1Webhooks**](docs/DefaultApi.md#postv1webhooks) | **Post** /v1/webhooks | 
+*DefaultApi* | [**CreateAccessToken**](docs/DefaultApi.md#createaccesstoken) | **Post** /v1/tokens | 
+*DefaultApi* | [**CreateWebhook**](docs/DefaultApi.md#createwebhook) | **Post** /v1/webhooks | 
+*DefaultApi* | [**DeleteForUser**](docs/DefaultApi.md#deleteforuser) | **Delete** /v1/users/{EndUserId} | 
+*DefaultApi* | [**DeleteTransaction**](docs/DefaultApi.md#deletetransaction) | **Delete** /v1/transactions/{TransactionId} | 
+*DefaultApi* | [**DeleteWebhook**](docs/DefaultApi.md#deletewebhook) | **Delete** /v1/webhooks/{WebhookId} | 
+*DefaultApi* | [**GetMerchant**](docs/DefaultApi.md#getmerchant) | **Get** /v1/merchants/{MerchantId} | 
+*DefaultApi* | [**GetTransactions**](docs/DefaultApi.md#gettransactions) | **Get** /v1/transactions/{EndUserId} | 
+*DefaultApi* | [**GetWebhooks**](docs/DefaultApi.md#getwebhooks) | **Get** /v1/webhooks | 
+*DefaultApi* | [**UpsertBatchTransactions**](docs/DefaultApi.md#upsertbatchtransactions) | **Post** /v1/transactions/batch | 
+*DefaultApi* | [**UpsertOneTransaction**](docs/DefaultApi.md#upsertonetransaction) | **Post** /v1/transactions/online | 
+*DefaultApi* | [**UpsertUserAnnotation**](docs/DefaultApi.md#upsertuserannotation) | **Post** /v1/annotations/{TransactionId} | 
 
 
 ## Documentation For Models
