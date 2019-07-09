@@ -1,0 +1,13 @@
+# RawMerchant
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**mid** | **str** |  | [optional] 
+**mcc** | **str** |  | [optional] 
+**name** | **str** |  | [optional] 
+**address** | [**Address**](Address.md) |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

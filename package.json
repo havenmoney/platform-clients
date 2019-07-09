@@ -8,7 +8,8 @@
         "@openapitools/openapi-generator-cli": "^0.0.14-4.0.2"
     },
     "scripts": {
-      "build-go": "./node_modules/.bin/openapi-generator generate -i open-api.yaml -g go -c configs/golang.json -o golang/haven/ && ./golang/fix_optional.sh",
-      "build": "yarn build-go"
+        "build-go": "./node_modules/.bin/openapi-generator generate -i open-api.yaml -g go -c configs/golang.json -o golang/haven/ && ./golang/fix_optional.sh",
+        "build-python": "./node_modules/.bin/openapi-generator generate -i open-api.yaml -g python -c configs/python.json -o python/",
+        "build": "yarn build-go"
     }
 }
