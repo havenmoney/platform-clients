@@ -31,43 +31,43 @@ class OpenHours(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'dummy': 'str'
+        'ask_your_acct_manager': 'str'
     }
 
     attribute_map = {
-        'dummy': '__dummy'
+        'ask_your_acct_manager': '__ask_your_acct_manager'
     }
 
-    def __init__(self, dummy=None):  # noqa: E501
+    def __init__(self, ask_your_acct_manager=None):  # noqa: E501
         """OpenHours - a model defined in OpenAPI"""  # noqa: E501
 
-        self._dummy = None
+        self._ask_your_acct_manager = None
         self.discriminator = None
 
-        self.dummy = dummy
+        self.ask_your_acct_manager = ask_your_acct_manager
 
     @property
-    def dummy(self):
-        """Gets the dummy of this OpenHours.  # noqa: E501
+    def ask_your_acct_manager(self):
+        """Gets the ask_your_acct_manager of this OpenHours.  # noqa: E501
 
 
-        :return: The dummy of this OpenHours.  # noqa: E501
+        :return: The ask_your_acct_manager of this OpenHours.  # noqa: E501
         :rtype: str
         """
-        return self._dummy
+        return self._ask_your_acct_manager
 
-    @dummy.setter
-    def dummy(self, dummy):
-        """Sets the dummy of this OpenHours.
+    @ask_your_acct_manager.setter
+    def ask_your_acct_manager(self, ask_your_acct_manager):
+        """Sets the ask_your_acct_manager of this OpenHours.
 
 
-        :param dummy: The dummy of this OpenHours.  # noqa: E501
+        :param ask_your_acct_manager: The ask_your_acct_manager of this OpenHours.  # noqa: E501
         :type: str
         """
-        if dummy is None:
-            raise ValueError("Invalid value for `dummy`, must not be `None`")  # noqa: E501
+        if ask_your_acct_manager is None:
+            raise ValueError("Invalid value for `ask_your_acct_manager`, must not be `None`")  # noqa: E501
 
-        self._dummy = dummy
+        self._ask_your_acct_manager = ask_your_acct_manager
 
     def to_dict(self):
         """Returns the model properties as a dict"""

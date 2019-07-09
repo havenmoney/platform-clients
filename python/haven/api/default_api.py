@@ -60,7 +60,6 @@ class DefaultApi(object):
         kwargs['_return_http_data_only'] = True
         return self.create_access_token_with_http_info(tenant_service_account_agent_login_request, **kwargs)  # noqa: E501
 
-
     def create_access_token_with_http_info(self, tenant_service_account_agent_login_request, **kwargs):  # noqa: E501
         """create_access_token  # noqa: E501
 
@@ -131,7 +130,7 @@ class DefaultApi(object):
         # Authentication setting
         auth_settings = []  # noqa: E501
 
-        x = self.api_client.call_api(
+        return self.api_client.call_api(
             '/v1/tokens', 'POST',
             path_params,
             query_params,
@@ -146,7 +145,6 @@ class DefaultApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
-        return x
 
     def create_webhook(self, create_webhook_request, **kwargs):  # noqa: E501
         """create_webhook  # noqa: E501

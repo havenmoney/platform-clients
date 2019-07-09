@@ -333,13 +333,12 @@ class ApiClient(object):
             then the method will return the response directly.
         """
         if not async_req:
-            x = self.__call_api(resource_path, method,
+            return self.__call_api(resource_path, method,
                                    path_params, query_params, header_params,
                                    body, post_params, files,
                                    response_type, auth_settings,
                                    _return_http_data_only, collection_formats,
                                    _preload_content, _request_timeout, _host)
-            return x
         else:
             thread = self.pool.apply_async(self.__call_api, (resource_path,
                                            method, path_params, query_params,
