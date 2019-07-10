@@ -35,3 +35,5 @@ dependencies {
     compile "com.squareup.okhttp3:okhttp:3.14.2"
     testImplementation "io.kotlintest:kotlintest-runner-junit5:3.1.0"
 }
+apply plugin: 'application'
+mainClassName = 'dev.haven.client.example.HelloWorldKt'

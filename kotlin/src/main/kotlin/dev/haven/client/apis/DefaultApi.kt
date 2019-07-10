@@ -42,7 +42,7 @@ import dev.haven.client.infrastructure.ResponseType
 import dev.haven.client.infrastructure.Success
 import dev.haven.client.infrastructure.toMultiValue
 
-class DefaultApi(basePath: kotlin.String = "http://localhost") : ApiClient(basePath) {
+class DefaultApi(basePath: kotlin.String, token: kotlin.String? = null) : ApiClient(basePath, token) {
 
     /**
     * 

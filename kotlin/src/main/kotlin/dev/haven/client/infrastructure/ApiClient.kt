@@ -9,7 +9,7 @@ import okhttp3.ResponseBody
 import okhttp3.Request
 import java.io.File
 
-open class ApiClient(val baseUrl: String) {
+open class ApiClient(val baseUrl: String, val token: String?) {
     companion object {
         protected const val ContentType = "Content-Type"
         protected const val Accept = "Accept"
@@ -17,6 +17,7 @@ open class ApiClient(val baseUrl: String) {
         protected const val FormDataMediaType = "multipart/form-data"
         protected const val FormUrlEncMediaType = "application/x-www-form-urlencoded"
         protected const val XmlMediaType = "application/xml"
+        protected const val Authorization = "Authorization"
 
         @JvmStatic
         val client: OkHttpClient by lazy {
@@ -82,6 +83,9 @@ open class ApiClient(val baseUrl: String) {
         }
         if (requestConfig.headers[Accept].isNullOrEmpty()) {
             requestConfig.headers[Accept] = JsonMediaType
+        if(requestConfig.headers[Authorization].isNullOrEmpty() && token != null) {
+           requestConfig.headers[Authorization] = "Bearer $token"
+        }
         }
         val headers = requestConfig.headers
 
