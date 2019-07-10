@@ -56,68 +56,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/UncaughtExceptionServiceError'
           description: unknown
-  /v1/annotations/{TransactionId}:
-    post:
-      operationId: upsertUserAnnotation
-      parameters:
-      - explode: false
-        in: path
-        name: TransactionId
-        required: true
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/AddAnnotationRequest'
-        required: true
-      responses:
-        200:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AddAnnotationResponse'
-        409:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ConflictServiceError'
-          description: Conflict
-        404:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/NotFoundServiceError'
-          description: Not found
-        401:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UnauthorizedServiceError'
-          description: Unauthorized
-        400:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BadRequestServiceError'
-          description: Bad request
-        500:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UncaughtExceptionServiceError'
-          description: Server error
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UncaughtExceptionServiceError'
-          description: unknown
-  /v1/transactions/{EndUserId}:
-    get:
-      operationId: getTransactions
+  /v1/users/{EndUserId}:
+    delete:
+      operationId: deleteForUser
       parameters:
       - explode: false
         in: path
@@ -126,57 +67,6 @@ paths:
         schema:
           type: string
         style: simple
-      responses:
-        200:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GetTransactionsResponse'
-        409:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ConflictServiceError'
-          description: Conflict
-        404:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/NotFoundServiceError'
-          description: Not found
-        401:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UnauthorizedServiceError'
-          description: Unauthorized
-        400:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BadRequestServiceError'
-          description: Bad request
-        500:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UncaughtExceptionServiceError'
-          description: Server error
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UncaughtExceptionServiceError'
-          description: unknown
-  /v1/transactions/batch:
-    post:
-      operationId: upsertBatchTransactions
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UploadBatchTransactionsRequest'
-        required: true
       responses:
         200:
           content:
@@ -272,110 +162,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/UncaughtExceptionServiceError'
           description: unknown
-  /v1/transactions/online:
-    post:
-      operationId: upsertOneTransaction
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CleanSingleTransactionRequest'
-        required: true
-      responses:
-        200:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CleanSingleTransactionResponse'
-        409:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ConflictServiceError'
-          description: Conflict
-        404:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/NotFoundServiceError'
-          description: Not found
-        401:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UnauthorizedServiceError'
-          description: Unauthorized
-        400:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BadRequestServiceError'
-          description: Bad request
-        500:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UncaughtExceptionServiceError'
-          description: Server error
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UncaughtExceptionServiceError'
-          description: unknown
-  /v1/users/{EndUserId}:
-    delete:
-      operationId: deleteForUser
-      parameters:
-      - explode: false
-        in: path
-        name: EndUserId
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        200:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/EmptyResponse'
-        409:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ConflictServiceError'
-          description: Conflict
-        404:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/NotFoundServiceError'
-          description: Not found
-        401:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UnauthorizedServiceError'
-          description: Unauthorized
-        400:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BadRequestServiceError'
-          description: Bad request
-        500:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UncaughtExceptionServiceError'
-          description: Server error
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UncaughtExceptionServiceError'
-          description: unknown
   /v1/webhooks/{WebhookId}:
     delete:
       operationId: deleteWebhook
@@ -393,6 +179,126 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/EmptyResponse'
+        409:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictServiceError'
+          description: Conflict
+        404:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundServiceError'
+          description: Not found
+        401:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedServiceError'
+          description: Unauthorized
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestServiceError'
+          description: Bad request
+        500:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+          description: Server error
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+          description: unknown
+  /v1/merchants/{MerchantId}:
+    get:
+      operationId: getMerchant
+      parameters:
+      - explode: false
+        in: path
+        name: MerchantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetMerchantResponse'
+        409:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictServiceError'
+          description: Conflict
+        404:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundServiceError'
+          description: Not found
+        401:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedServiceError'
+          description: Unauthorized
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestServiceError'
+          description: Bad request
+        500:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+          description: Server error
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+          description: unknown
+  /v1/transactions/{EndUserId}:
+    get:
+      operationId: getTransactions
+      parameters:
+      - explode: false
+        in: path
+        name: EndUserId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: highWaterMark
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+        style: form
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetTransactionsResponse'
         409:
           content:
             application/json:
@@ -524,23 +430,131 @@ paths:
               schema:
                 $ref: '#/components/schemas/UncaughtExceptionServiceError'
           description: unknown
-  /v1/merchants/{MerchantId}:
-    get:
-      operationId: getMerchant
-      parameters:
-      - explode: false
-        in: path
-        name: MerchantId
+  /v1/transactions/batch:
+    post:
+      operationId: upsertBatchTransactions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UploadBatchTransactionsRequest'
         required: true
-        schema:
-          type: string
-        style: simple
       responses:
         200:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetMerchantResponse'
+                $ref: '#/components/schemas/EmptyResponse'
+        409:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictServiceError'
+          description: Conflict
+        404:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundServiceError'
+          description: Not found
+        401:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedServiceError'
+          description: Unauthorized
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestServiceError'
+          description: Bad request
+        500:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+          description: Server error
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+          description: unknown
+  /v1/transactions/online:
+    post:
+      operationId: upsertOneTransaction
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CleanSingleTransactionRequest'
+        required: true
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CleanSingleTransactionResponse'
+        409:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictServiceError'
+          description: Conflict
+        404:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundServiceError'
+          description: Not found
+        401:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedServiceError'
+          description: Unauthorized
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestServiceError'
+          description: Bad request
+        500:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+          description: Server error
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+          description: unknown
+  /v1/annotations/{TransactionId}:
+    post:
+      operationId: upsertUserAnnotation
+      parameters:
+      - explode: false
+        in: path
+        name: TransactionId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddAnnotationRequest'
+        required: true
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddAnnotationResponse'
         409:
           content:
             application/json:
@@ -1237,11 +1251,14 @@ components:
           user: user
           account: account
           rawMemo: rawMemo
+        highWaterMark: highWaterMark
       properties:
         transactions:
           items:
             $ref: '#/components/schemas/CleanTransaction'
           type: array
+        highWaterMark:
+          type: string
       required:
       - transactions
       type: object

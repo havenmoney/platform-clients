@@ -11,4 +11,5 @@ package haven
 
 type GetTransactionsResponse struct {
 	Transactions []CleanTransaction `json:"transactions"`
+	HighWaterMark *string `json:"highWaterMark,omitempty"`
 }

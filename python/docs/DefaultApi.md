@@ -360,7 +360,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_transactions**
-> GetTransactionsResponse get_transactions(end_user_id)
+> GetTransactionsResponse get_transactions(end_user_id, high_water_mark=high_water_mark, limit=limit)
 
 
 
@@ -376,9 +376,11 @@ from pprint import pprint
 # create an instance of the API class
 api_instance = haven.DefaultApi()
 end_user_id = 'end_user_id_example' # str | 
+high_water_mark = 'high_water_mark_example' # str |  (optional)
+limit = 56 # int |  (optional)
 
 try:
-    api_response = api_instance.get_transactions(end_user_id)
+    api_response = api_instance.get_transactions(end_user_id, high_water_mark=high_water_mark, limit=limit)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->get_transactions: %s\n" % e)
@@ -389,6 +391,8 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **end_user_id** | **str**|  | 
+ **high_water_mark** | **str**|  | [optional] 
+ **limit** | **int**|  | [optional] 
 
 ### Return type
 

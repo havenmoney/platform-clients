@@ -13,7 +13,7 @@ type TokenSource struct {
 func (tokenSource TokenSource) Token() (*oauth2.Token, error) {
 	client := NewAPIClient(tokenSource.Cfg)
 
-	response, _, err := client.DefaultApi.PostV1Tokens(context.Background(), TenantServiceAccountAgentLoginRequest{
+	response, _, err := client.DefaultApi.CreateAccessToken(context.Background(), TenantServiceAccountAgentLoginRequest{
 		Id:     tokenSource.Id,
 		Secret: tokenSource.Secret,
 	})

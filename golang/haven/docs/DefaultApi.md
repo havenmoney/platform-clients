@@ -206,7 +206,7 @@ No authorization required
 
 ## GetTransactions
 
-> GetTransactionsResponse GetTransactions(ctx, endUserId)
+> GetTransactionsResponse GetTransactions(ctx, endUserId, optional)
 
 
 ### Required Parameters
@@ -216,6 +216,18 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **endUserId** | **string**|  | 
+ **optional** | ***GetTransactionsOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Optional parameters are passed through a pointer to a GetTransactionsOpts struct
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **highWaterMark** | **optional.String**|  | 
+ **limit** | **optional.Int32**|  | 
 
 ### Return type
 

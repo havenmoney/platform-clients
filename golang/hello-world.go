@@ -4,6 +4,7 @@ import (
 	"./haven"
 	"context"
 	"fmt"
+	"github.com/antihax/optional"
 	"golang.org/x/oauth2"
 	"time"
 )
@@ -48,7 +49,11 @@ func main() {
 	}
 
 	// Read back the transaction we wrote.
-	transactions, _, err := client.DefaultApi.GetTransactions(ctx, "u1")
+	opts := haven.GetTransactionsOpts {
+		HighWaterMark: optional.EmptyString(),
+		Limit: optional.NewInt32(10),
+	}
+	transactions, _, err := client.DefaultApi.GetTransactions(ctx, "u1", &opts)
 	if err != nil {
 		fmt.Println("failed to fetch transactions", err)
 		return

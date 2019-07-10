@@ -690,6 +690,8 @@ class DefaultApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str end_user_id: (required)
+        :param str high_water_mark:
+        :param int limit:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -714,6 +716,8 @@ class DefaultApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str end_user_id: (required)
+        :param str high_water_mark:
+        :param int limit:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -730,7 +734,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['end_user_id']  # noqa: E501
+        all_params = ['end_user_id', 'high_water_mark', 'limit']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -756,6 +760,10 @@ class DefaultApi(object):
             path_params['EndUserId'] = local_var_params['end_user_id']  # noqa: E501
 
         query_params = []
+        if 'high_water_mark' in local_var_params:
+            query_params.append(('highWaterMark', local_var_params['high_water_mark']))  # noqa: E501
+        if 'limit' in local_var_params:
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
 
         header_params = {}
 

@@ -16,6 +16,7 @@ import (
 	"net/url"
 	"fmt"
 	"strings"
+	"github.com/antihax/optional"
 )
 
 // Linger please
@@ -913,9 +914,18 @@ func (a *DefaultApiService) GetMerchant(ctx context.Context, merchantId string) 
 DefaultApiService
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param endUserId
+ * @param optional nil or *GetTransactionsOpts - Optional Parameters:
+ * @param "HighWaterMark" (optional.String) - 
+ * @param "Limit" (optional.Int32) - 
 @return GetTransactionsResponse
 */
-func (a *DefaultApiService) GetTransactions(ctx context.Context, endUserId string) (GetTransactionsResponse, *http.Response, error) {
+
+type GetTransactionsOpts struct {
+	HighWaterMark optional.String
+	Limit optional.Int32
+}
+
+func (a *DefaultApiService) GetTransactions(ctx context.Context, endUserId string, localVarOptionals *GetTransactionsOpts) (GetTransactionsResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -933,6 +943,12 @@ func (a *DefaultApiService) GetTransactions(ctx context.Context, endUserId strin
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.HighWaterMark.IsSet() {
+		localVarQueryParams.Add("highWaterMark", parameterToString(localVarOptionals.HighWaterMark.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Limit.IsSet() {
+		localVarQueryParams.Add("limit", parameterToString(localVarOptionals.Limit.Value(), ""))
+	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{}
 

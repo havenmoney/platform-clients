@@ -28,7 +28,7 @@ def main():
             kind=haven.TransactionKind.CREDIT_CARD,
             state=haven.TransactionState.COMPLETED)))
 
-    transactions = api.get_transactions("user-0")
+    transactions = api.get_transactions("user-0", limit=10)
     print(transactions)
 
 
