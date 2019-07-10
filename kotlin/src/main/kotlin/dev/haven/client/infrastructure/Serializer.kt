@@ -9,7 +9,7 @@ object Serializer {
     @JvmStatic
     val moshi: Moshi = Moshi.Builder()
         .add(Date::class.java, Rfc3339DateJsonAdapter().nullSafe())
-        .add(LocalDateTimeAdapter())
+        .add(InstantAdapter())
         .add(LocalDateAdapter())
         .add(UUIDAdapter())
         .add(ByteArrayAdapter())

@@ -56,7 +56,7 @@ data class RawTransaction (
     @Json(name = "network")
     val network: kotlin.String? = null,
     @Json(name = "userTransactedAt")
-    val userTransactedAt: java.time.LocalDateTime? = null
+    val userTransactedAt: java.time.Instant? = null
 ) {
 
 }

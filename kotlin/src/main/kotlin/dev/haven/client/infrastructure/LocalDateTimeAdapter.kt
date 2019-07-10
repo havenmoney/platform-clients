@@ -2,18 +2,18 @@ package dev.haven.client.infrastructure
 
 import com.squareup.moshi.FromJson
 import com.squareup.moshi.ToJson
-import java.time.LocalDateTime
+import java.time.Instant
 import java.time.format.DateTimeFormatter
 
-class LocalDateTimeAdapter {
+class InstantAdapter {
     @ToJson
-    fun toJson(value: LocalDateTime): String {
+    fun toJson(value: Instant): String {
         return DateTimeFormatter.ISO_LOCAL_DATE_TIME.format(value)
     }
 
     @FromJson
-    fun fromJson(value: String): LocalDateTime {
-        return LocalDateTime.parse(value, DateTimeFormatter.ISO_LOCAL_DATE_TIME)
+    fun fromJson(value: String): Instant {
+        return Instant.parse(value)
     }
 
 }

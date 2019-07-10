@@ -22,7 +22,7 @@ data class TenantServiceAccountAgentLoginResponse (
     @Json(name = "token")
     val token: kotlin.String,
     @Json(name = "expiry")
-    val expiry: java.time.LocalDateTime
+    val expiry: java.time.Instant
 ) {
 
 }

@@ -40,7 +40,7 @@ data class Merchant (
     @Json(name = "category")
     val category: CleanCategory,
     @Json(name = "updatedAt")
-    val updatedAt: java.time.LocalDateTime,
+    val updatedAt: java.time.Instant,
     @Json(name = "address")
     val address: Address? = null,
     @Json(name = "hours")
