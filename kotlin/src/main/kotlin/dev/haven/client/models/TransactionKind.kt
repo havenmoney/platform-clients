@@ -16,30 +16,30 @@ import com.squareup.moshi.Json
 
 /**
 * 
-* Values: aCH,fEE,dEBITCARD,cREDITCARD,rEVERSAL,cHARGEBACK,uNKNOWN
+* Values: ACH,FEE,DEBIT_CARD,CREDIT_CARD,REVERSAL,CHARGE_BACK,UNKNOWN
 */
 enum class TransactionKind(val value: kotlin.String){
 
     @Json(name = "ACH")
-    aCH("ACH"),
+    ACH("ACH"),
 
     @Json(name = "FEE")
-    fEE("FEE"),
+    FEE("FEE"),
 
     @Json(name = "DEBIT_CARD")
-    dEBITCARD("DEBIT_CARD"),
+    DEBIT_CARD("DEBIT_CARD"),
 
     @Json(name = "CREDIT_CARD")
-    cREDITCARD("CREDIT_CARD"),
+    CREDIT_CARD("CREDIT_CARD"),
 
     @Json(name = "REVERSAL")
-    rEVERSAL("REVERSAL"),
+    REVERSAL("REVERSAL"),
 
     @Json(name = "CHARGE_BACK")
-    cHARGEBACK("CHARGE_BACK"),
+    CHARGE_BACK("CHARGE_BACK"),
 
     @Json(name = "UNKNOWN")
-    uNKNOWN("UNKNOWN");
+    UNKNOWN("UNKNOWN");
 
 }
 

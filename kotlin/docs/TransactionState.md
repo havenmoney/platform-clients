@@ -4,13 +4,13 @@
 ## Enum
 
 
-    * `pENDING` (value: `"PENDING"`)
+    * `PENDING` (value: `"PENDING"`)
 
-    * `cOMPLETED` (value: `"COMPLETED"`)
+    * `COMPLETED` (value: `"COMPLETED"`)
 
-    * `rEVERSED` (value: `"REVERSED"`)
+    * `REVERSED` (value: `"REVERSED"`)
 
-    * `eRROR` (value: `"ERROR"`)
+    * `ERROR` (value: `"ERROR"`)
 
 
 

@@ -4,19 +4,19 @@
 ## Enum
 
 
-    * `aCH` (value: `"ACH"`)
+    * `ACH` (value: `"ACH"`)
 
-    * `fEE` (value: `"FEE"`)
+    * `FEE` (value: `"FEE"`)
 
-    * `dEBITCARD` (value: `"DEBIT_CARD"`)
+    * `DEBIT_CARD` (value: `"DEBIT_CARD"`)
 
-    * `cREDITCARD` (value: `"CREDIT_CARD"`)
+    * `CREDIT_CARD` (value: `"CREDIT_CARD"`)
 
-    * `rEVERSAL` (value: `"REVERSAL"`)
+    * `REVERSAL` (value: `"REVERSAL"`)
 
-    * `cHARGEBACK` (value: `"CHARGE_BACK"`)
+    * `CHARGE_BACK` (value: `"CHARGE_BACK"`)
 
-    * `uNKNOWN` (value: `"UNKNOWN"`)
+    * `UNKNOWN` (value: `"UNKNOWN"`)
 
 
 

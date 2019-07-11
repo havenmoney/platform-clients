@@ -4,149 +4,149 @@
 ## Enum
 
 
-    * `arts` (value: `"Arts"`)
+    * `Arts` (value: `"Arts"`)
 
-    * `music` (value: `"Music"`)
+    * `Music` (value: `"Music"`)
 
-    * `moviesAmpersandTelevision` (value: `"Movies & Television"`)
+    * `Movies_And_Television` (value: `"Movies & Television"`)
 
-    * `newspaperAmpersandMagazines` (value: `"Newspaper & Magazines"`)
+    * `Newspaper_And_Magazines` (value: `"Newspaper & Magazines"`)
 
-    * `otherEntertainment` (value: `"Other Entertainment"`)
+    * `Other_Entertainment` (value: `"Other Entertainment"`)
 
-    * `deposit` (value: `"Deposit"`)
+    * `Deposit` (value: `"Deposit"`)
 
-    * `withdrawal` (value: `"Withdrawal"`)
+    * `Withdrawal` (value: `"Withdrawal"`)
 
-    * `dividends` (value: `"Dividends"`)
+    * `Dividends` (value: `"Dividends"`)
 
-    * `buy` (value: `"Buy"`)
+    * `Buy` (value: `"Buy"`)
 
-    * `sell` (value: `"Sell"`)
+    * `Sell` (value: `"Sell"`)
 
-    * `otherInvestments` (value: `"Other Investments"`)
+    * `Other_Investments` (value: `"Other Investments"`)
 
-    * `gasAmpersandFuel` (value: `"Gas & Fuel"`)
+    * `Gas_And_Fuel` (value: `"Gas & Fuel"`)
 
-    * `parking` (value: `"Parking"`)
+    * `Parking` (value: `"Parking"`)
 
-    * `maintenanceAmpersandRepairs` (value: `"Maintenance & Repairs"`)
+    * `Maintenance_And_Repairs` (value: `"Maintenance & Repairs"`)
 
-    * `autoPayment` (value: `"Auto Payment"`)
+    * `Auto_Payment` (value: `"Auto Payment"`)
 
-    * `autoInsurance` (value: `"Auto Insurance"`)
+    * `Auto_Insurance` (value: `"Auto Insurance"`)
 
-    * `publicTransportation` (value: `"Public Transportation"`)
+    * `Public_Transportation` (value: `"Public Transportation"`)
 
-    * `otherCar` (value: `"Other Car"`)
+    * `Other_Car` (value: `"Other Car"`)
 
-    * `airTravel` (value: `"Air Travel"`)
+    * `Air_Travel` (value: `"Air Travel"`)
 
-    * `lodging` (value: `"Lodging"`)
+    * `Lodging` (value: `"Lodging"`)
 
-    * `rideShareAmpersandRental` (value: `"Ride Share & Rental"`)
+    * `Ride_Share_And_Rental` (value: `"Ride Share & Rental"`)
 
-    * `otherTravel` (value: `"Other Travel"`)
+    * `Other_Travel` (value: `"Other Travel"`)
 
-    * `accountMaintenance` (value: `"Account Maintenance"`)
+    * `Account_Maintenance` (value: `"Account Maintenance"`)
 
-    * `overdraftFee` (value: `"Overdraft Fee"`)
+    * `Overdraft_Fee` (value: `"Overdraft Fee"`)
 
-    * `insufficientFundsFee` (value: `"Insufficient Funds Fee"`)
+    * `Insufficient_Funds_Fee` (value: `"Insufficient Funds Fee"`)
 
-    * `aTMFee` (value: `"ATM Fee"`)
+    * `ATM_Fee` (value: `"ATM Fee"`)
 
-    * `checkOrderFee` (value: `"Check Order Fee"`)
+    * `Check_Order_Fee` (value: `"Check Order Fee"`)
 
-    * `interestChargedFee` (value: `"Interest Charged Fee"`)
+    * `Interest_Charged_Fee` (value: `"Interest Charged Fee"`)
 
-    * `foreignTransactionFee` (value: `"Foreign Transaction Fee"`)
+    * `Foreign_Transaction_Fee` (value: `"Foreign Transaction Fee"`)
 
-    * `wireFee` (value: `"Wire Fee"`)
+    * `Wire_Fee` (value: `"Wire Fee"`)
 
-    * `excessiveTransactionsFee` (value: `"Excessive Transactions Fee"`)
+    * `Excessive_Transactions_Fee` (value: `"Excessive Transactions Fee"`)
 
-    * `lateFee` (value: `"Late Fee"`)
+    * `Late_Fee` (value: `"Late Fee"`)
 
-    * `cardMembershipFee` (value: `"Card Membership Fee"`)
+    * `Card_Membership_Fee` (value: `"Card Membership Fee"`)
 
-    * `otherFee` (value: `"Other Fee"`)
+    * `Other_Fee` (value: `"Other Fee"`)
 
-    * `rent` (value: `"Rent"`)
+    * `Rent` (value: `"Rent"`)
 
-    * `mortgage` (value: `"Mortgage"`)
+    * `Mortgage` (value: `"Mortgage"`)
 
-    * `otherHousing` (value: `"Other Housing"`)
+    * `Other_Housing` (value: `"Other Housing"`)
 
-    * `rentReimbursement` (value: `"Rent Reimbursement"`)
+    * `Rent_Reimbursement` (value: `"Rent Reimbursement"`)
 
-    * `creditCardPayment` (value: `"Credit card payment"`)
+    * `Credit_card_payment` (value: `"Credit card payment"`)
 
-    * `aTMWithdrawals` (value: `"ATM Withdrawals"`)
+    * `ATM_Withdrawals` (value: `"ATM Withdrawals"`)
 
-    * `internalTransfer` (value: `"Internal Transfer"`)
+    * `Internal_Transfer` (value: `"Internal Transfer"`)
 
-    * `externalTransfer` (value: `"External Transfer"`)
+    * `External_Transfer` (value: `"External Transfer"`)
 
-    * `otherTransfer` (value: `"Other Transfer"`)
+    * `Other_Transfer` (value: `"Other Transfer"`)
 
-    * `loanPayment` (value: `"Loan Payment"`)
+    * `Loan_Payment` (value: `"Loan Payment"`)
 
-    * `services` (value: `"Services"`)
+    * `Services` (value: `"Services"`)
 
-    * `internet` (value: `"Internet"`)
+    * `Internet` (value: `"Internet"`)
 
-    * `phoneBill` (value: `"Phone Bill"`)
+    * `Phone_Bill` (value: `"Phone Bill"`)
 
-    * `utilities` (value: `"Utilities"`)
+    * `Utilities` (value: `"Utilities"`)
 
-    * `tV` (value: `"TV"`)
+    * `TV` (value: `"TV"`)
 
-    * `otherBills` (value: `"Other Bills"`)
+    * `Other_Bills` (value: `"Other Bills"`)
 
-    * `paycheck` (value: `"Paycheck"`)
+    * `Paycheck` (value: `"Paycheck"`)
 
-    * `interest` (value: `"Interest"`)
+    * `Interest` (value: `"Interest"`)
 
-    * `reimbursement` (value: `"Reimbursement"`)
+    * `Reimbursement` (value: `"Reimbursement"`)
 
-    * `otherIncome` (value: `"Other Income"`)
+    * `Other_Income` (value: `"Other Income"`)
 
-    * `tuition` (value: `"Tuition"`)
+    * `Tuition` (value: `"Tuition"`)
 
-    * `studentLoan` (value: `"Student Loan"`)
+    * `Student_Loan` (value: `"Student Loan"`)
 
-    * `otherEducation` (value: `"Other Education"`)
+    * `Other_Education` (value: `"Other Education"`)
 
-    * `healthInsurance` (value: `"Health Insurance"`)
+    * `Health_Insurance` (value: `"Health Insurance"`)
 
-    * `gym` (value: `"Gym"`)
+    * `Gym` (value: `"Gym"`)
 
-    * `dentist` (value: `"Dentist"`)
+    * `Dentist` (value: `"Dentist"`)
 
-    * `doctor` (value: `"Doctor"`)
+    * `Doctor` (value: `"Doctor"`)
 
-    * `pharmacy` (value: `"Pharmacy"`)
+    * `Pharmacy` (value: `"Pharmacy"`)
 
-    * `otherHealthAmpersandFitness` (value: `"Other Health & Fitness"`)
+    * `Other_Health_And_Fitness` (value: `"Other Health & Fitness"`)
 
-    * `groceries` (value: `"Groceries"`)
+    * `Groceries` (value: `"Groceries"`)
 
-    * `coffee` (value: `"Coffee"`)
+    * `Coffee` (value: `"Coffee"`)
 
-    * `restaurants` (value: `"Restaurants"`)
+    * `Restaurants` (value: `"Restaurants"`)
 
-    * `alcohol` (value: `"Alcohol"`)
+    * `Alcohol` (value: `"Alcohol"`)
 
-    * `otherFoodAmpersandDining` (value: `"Other Food & Dining"`)
+    * `Other_Food_And_Dining` (value: `"Other Food & Dining"`)
 
-    * `taxes` (value: `"Taxes"`)
+    * `Taxes` (value: `"Taxes"`)
 
-    * `giftsAmpersandDonations` (value: `"Gifts & Donations"`)
+    * `Gifts_And_Donations` (value: `"Gifts & Donations"`)
 
-    * `shopping` (value: `"Shopping"`)
+    * `Shopping` (value: `"Shopping"`)
 
-    * `other` (value: `"Other"`)
+    * `Other` (value: `"Other"`)
 
 
 

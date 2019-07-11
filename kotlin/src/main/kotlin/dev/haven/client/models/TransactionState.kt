@@ -16,21 +16,21 @@ import com.squareup.moshi.Json
 
 /**
 * 
-* Values: pENDING,cOMPLETED,rEVERSED,eRROR
+* Values: PENDING,COMPLETED,REVERSED,ERROR
 */
 enum class TransactionState(val value: kotlin.String){
 
     @Json(name = "PENDING")
-    pENDING("PENDING"),
+    PENDING("PENDING"),
 
     @Json(name = "COMPLETED")
-    cOMPLETED("COMPLETED"),
+    COMPLETED("COMPLETED"),
 
     @Json(name = "REVERSED")
-    rEVERSED("REVERSED"),
+    REVERSED("REVERSED"),
 
     @Json(name = "ERROR")
-    eRROR("ERROR");
+    ERROR("ERROR");
 
 }
 

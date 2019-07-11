@@ -16,225 +16,225 @@ import com.squareup.moshi.Json
 
 /**
 * 
-* Values: arts,music,moviesAmpersandTelevision,newspaperAmpersandMagazines,otherEntertainment,deposit,withdrawal,dividends,buy,sell,otherInvestments,gasAmpersandFuel,parking,maintenanceAmpersandRepairs,autoPayment,autoInsurance,publicTransportation,otherCar,airTravel,lodging,rideShareAmpersandRental,otherTravel,accountMaintenance,overdraftFee,insufficientFundsFee,aTMFee,checkOrderFee,interestChargedFee,foreignTransactionFee,wireFee,excessiveTransactionsFee,lateFee,cardMembershipFee,otherFee,rent,mortgage,otherHousing,rentReimbursement,creditCardPayment,aTMWithdrawals,internalTransfer,externalTransfer,otherTransfer,loanPayment,services,internet,phoneBill,utilities,tV,otherBills,paycheck,interest,reimbursement,otherIncome,tuition,studentLoan,otherEducation,healthInsurance,gym,dentist,doctor,pharmacy,otherHealthAmpersandFitness,groceries,coffee,restaurants,alcohol,otherFoodAmpersandDining,taxes,giftsAmpersandDonations,shopping,other
+* Values: Arts,Music,Movies_And_Television,Newspaper_And_Magazines,Other_Entertainment,Deposit,Withdrawal,Dividends,Buy,Sell,Other_Investments,Gas_And_Fuel,Parking,Maintenance_And_Repairs,Auto_Payment,Auto_Insurance,Public_Transportation,Other_Car,Air_Travel,Lodging,Ride_Share_And_Rental,Other_Travel,Account_Maintenance,Overdraft_Fee,Insufficient_Funds_Fee,ATM_Fee,Check_Order_Fee,Interest_Charged_Fee,Foreign_Transaction_Fee,Wire_Fee,Excessive_Transactions_Fee,Late_Fee,Card_Membership_Fee,Other_Fee,Rent,Mortgage,Other_Housing,Rent_Reimbursement,Credit_card_payment,ATM_Withdrawals,Internal_Transfer,External_Transfer,Other_Transfer,Loan_Payment,Services,Internet,Phone_Bill,Utilities,TV,Other_Bills,Paycheck,Interest,Reimbursement,Other_Income,Tuition,Student_Loan,Other_Education,Health_Insurance,Gym,Dentist,Doctor,Pharmacy,Other_Health_And_Fitness,Groceries,Coffee,Restaurants,Alcohol,Other_Food_And_Dining,Taxes,Gifts_And_Donations,Shopping,Other
 */
 enum class CleanCategory(val value: kotlin.String){
 
     @Json(name = "Arts")
-    arts("Arts"),
+    Arts("Arts"),
 
     @Json(name = "Music")
-    music("Music"),
+    Music("Music"),
 
     @Json(name = "Movies & Television")
-    moviesAmpersandTelevision("Movies & Television"),
+    Movies_And_Television("Movies & Television"),
 
     @Json(name = "Newspaper & Magazines")
-    newspaperAmpersandMagazines("Newspaper & Magazines"),
+    Newspaper_And_Magazines("Newspaper & Magazines"),
 
     @Json(name = "Other Entertainment")
-    otherEntertainment("Other Entertainment"),
+    Other_Entertainment("Other Entertainment"),
 
     @Json(name = "Deposit")
-    deposit("Deposit"),
+    Deposit("Deposit"),
 
     @Json(name = "Withdrawal")
-    withdrawal("Withdrawal"),
+    Withdrawal("Withdrawal"),
 
     @Json(name = "Dividends")
-    dividends("Dividends"),
+    Dividends("Dividends"),
 
     @Json(name = "Buy")
-    buy("Buy"),
+    Buy("Buy"),
 
     @Json(name = "Sell")
-    sell("Sell"),
+    Sell("Sell"),
 
     @Json(name = "Other Investments")
-    otherInvestments("Other Investments"),
+    Other_Investments("Other Investments"),
 
     @Json(name = "Gas & Fuel")
-    gasAmpersandFuel("Gas & Fuel"),
+    Gas_And_Fuel("Gas & Fuel"),
 
     @Json(name = "Parking")
-    parking("Parking"),
+    Parking("Parking"),
 
     @Json(name = "Maintenance & Repairs")
-    maintenanceAmpersandRepairs("Maintenance & Repairs"),
+    Maintenance_And_Repairs("Maintenance & Repairs"),
 
     @Json(name = "Auto Payment")
-    autoPayment("Auto Payment"),
+    Auto_Payment("Auto Payment"),
 
     @Json(name = "Auto Insurance")
-    autoInsurance("Auto Insurance"),
+    Auto_Insurance("Auto Insurance"),
 
     @Json(name = "Public Transportation")
-    publicTransportation("Public Transportation"),
+    Public_Transportation("Public Transportation"),
 
     @Json(name = "Other Car")
-    otherCar("Other Car"),
+    Other_Car("Other Car"),
 
     @Json(name = "Air Travel")
-    airTravel("Air Travel"),
+    Air_Travel("Air Travel"),
 
     @Json(name = "Lodging")
-    lodging("Lodging"),
+    Lodging("Lodging"),
 
     @Json(name = "Ride Share & Rental")
-    rideShareAmpersandRental("Ride Share & Rental"),
+    Ride_Share_And_Rental("Ride Share & Rental"),
 
     @Json(name = "Other Travel")
-    otherTravel("Other Travel"),
+    Other_Travel("Other Travel"),
 
     @Json(name = "Account Maintenance")
-    accountMaintenance("Account Maintenance"),
+    Account_Maintenance("Account Maintenance"),
 
     @Json(name = "Overdraft Fee")
-    overdraftFee("Overdraft Fee"),
+    Overdraft_Fee("Overdraft Fee"),
 
     @Json(name = "Insufficient Funds Fee")
-    insufficientFundsFee("Insufficient Funds Fee"),
+    Insufficient_Funds_Fee("Insufficient Funds Fee"),
 
     @Json(name = "ATM Fee")
-    aTMFee("ATM Fee"),
+    ATM_Fee("ATM Fee"),
 
     @Json(name = "Check Order Fee")
-    checkOrderFee("Check Order Fee"),
+    Check_Order_Fee("Check Order Fee"),
 
     @Json(name = "Interest Charged Fee")
-    interestChargedFee("Interest Charged Fee"),
+    Interest_Charged_Fee("Interest Charged Fee"),
 
     @Json(name = "Foreign Transaction Fee")
-    foreignTransactionFee("Foreign Transaction Fee"),
+    Foreign_Transaction_Fee("Foreign Transaction Fee"),
 
     @Json(name = "Wire Fee")
-    wireFee("Wire Fee"),
+    Wire_Fee("Wire Fee"),
 
     @Json(name = "Excessive Transactions Fee")
-    excessiveTransactionsFee("Excessive Transactions Fee"),
+    Excessive_Transactions_Fee("Excessive Transactions Fee"),
 
     @Json(name = "Late Fee")
-    lateFee("Late Fee"),
+    Late_Fee("Late Fee"),
 
     @Json(name = "Card Membership Fee")
-    cardMembershipFee("Card Membership Fee"),
+    Card_Membership_Fee("Card Membership Fee"),
 
     @Json(name = "Other Fee")
-    otherFee("Other Fee"),
+    Other_Fee("Other Fee"),
 
     @Json(name = "Rent")
-    rent("Rent"),
+    Rent("Rent"),
 
     @Json(name = "Mortgage")
-    mortgage("Mortgage"),
+    Mortgage("Mortgage"),
 
     @Json(name = "Other Housing")
-    otherHousing("Other Housing"),
+    Other_Housing("Other Housing"),
 
     @Json(name = "Rent Reimbursement")
-    rentReimbursement("Rent Reimbursement"),
+    Rent_Reimbursement("Rent Reimbursement"),
 
     @Json(name = "Credit card payment")
-    creditCardPayment("Credit card payment"),
+    Credit_card_payment("Credit card payment"),
 
     @Json(name = "ATM Withdrawals")
-    aTMWithdrawals("ATM Withdrawals"),
+    ATM_Withdrawals("ATM Withdrawals"),
 
     @Json(name = "Internal Transfer")
-    internalTransfer("Internal Transfer"),
+    Internal_Transfer("Internal Transfer"),
 
     @Json(name = "External Transfer")
-    externalTransfer("External Transfer"),
+    External_Transfer("External Transfer"),
 
     @Json(name = "Other Transfer")
-    otherTransfer("Other Transfer"),
+    Other_Transfer("Other Transfer"),
 
     @Json(name = "Loan Payment")
-    loanPayment("Loan Payment"),
+    Loan_Payment("Loan Payment"),
 
     @Json(name = "Services")
-    services("Services"),
+    Services("Services"),
 
     @Json(name = "Internet")
-    internet("Internet"),
+    Internet("Internet"),
 
     @Json(name = "Phone Bill")
-    phoneBill("Phone Bill"),
+    Phone_Bill("Phone Bill"),
 
     @Json(name = "Utilities")
-    utilities("Utilities"),
+    Utilities("Utilities"),
 
     @Json(name = "TV")
-    tV("TV"),
+    TV("TV"),
 
     @Json(name = "Other Bills")
-    otherBills("Other Bills"),
+    Other_Bills("Other Bills"),
 
     @Json(name = "Paycheck")
-    paycheck("Paycheck"),
+    Paycheck("Paycheck"),
 
     @Json(name = "Interest")
-    interest("Interest"),
+    Interest("Interest"),
 
     @Json(name = "Reimbursement")
-    reimbursement("Reimbursement"),
+    Reimbursement("Reimbursement"),
 
     @Json(name = "Other Income")
-    otherIncome("Other Income"),
+    Other_Income("Other Income"),
 
     @Json(name = "Tuition")
-    tuition("Tuition"),
+    Tuition("Tuition"),
 
     @Json(name = "Student Loan")
-    studentLoan("Student Loan"),
+    Student_Loan("Student Loan"),
 
     @Json(name = "Other Education")
-    otherEducation("Other Education"),
+    Other_Education("Other Education"),
 
     @Json(name = "Health Insurance")
-    healthInsurance("Health Insurance"),
+    Health_Insurance("Health Insurance"),
 
     @Json(name = "Gym")
-    gym("Gym"),
+    Gym("Gym"),
 
     @Json(name = "Dentist")
-    dentist("Dentist"),
+    Dentist("Dentist"),
 
     @Json(name = "Doctor")
-    doctor("Doctor"),
+    Doctor("Doctor"),
 
     @Json(name = "Pharmacy")
-    pharmacy("Pharmacy"),
+    Pharmacy("Pharmacy"),
 
     @Json(name = "Other Health & Fitness")
-    otherHealthAmpersandFitness("Other Health & Fitness"),
+    Other_Health_And_Fitness("Other Health & Fitness"),
 
     @Json(name = "Groceries")
-    groceries("Groceries"),
+    Groceries("Groceries"),
 
     @Json(name = "Coffee")
-    coffee("Coffee"),
+    Coffee("Coffee"),
 
     @Json(name = "Restaurants")
-    restaurants("Restaurants"),
+    Restaurants("Restaurants"),
 
     @Json(name = "Alcohol")
-    alcohol("Alcohol"),
+    Alcohol("Alcohol"),
 
     @Json(name = "Other Food & Dining")
-    otherFoodAmpersandDining("Other Food & Dining"),
+    Other_Food_And_Dining("Other Food & Dining"),
 
     @Json(name = "Taxes")
-    taxes("Taxes"),
+    Taxes("Taxes"),
 
     @Json(name = "Gifts & Donations")
-    giftsAmpersandDonations("Gifts & Donations"),
+    Gifts_And_Donations("Gifts & Donations"),
 
     @Json(name = "Shopping")
-    shopping("Shopping"),
+    Shopping("Shopping"),
 
     @Json(name = "Other")
-    other("Other");
+    Other("Other");
 
 }
 

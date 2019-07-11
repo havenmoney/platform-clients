@@ -4,9 +4,9 @@
 ## Enum
 
 
-    * `tRANSACTIONS` (value: `"TRANSACTIONS"`)
+    * `TRANSACTIONS` (value: `"TRANSACTIONS"`)
 
-    * `iNSTITUTIONS` (value: `"INSTITUTIONS"`)
+    * `INSTITUTIONS` (value: `"INSTITUTIONS"`)
 
 
 

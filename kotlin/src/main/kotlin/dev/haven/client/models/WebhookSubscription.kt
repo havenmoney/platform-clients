@@ -16,15 +16,15 @@ import com.squareup.moshi.Json
 
 /**
 * 
-* Values: tRANSACTIONS,iNSTITUTIONS
+* Values: TRANSACTIONS,INSTITUTIONS
 */
 enum class WebhookSubscription(val value: kotlin.String){
 
     @Json(name = "TRANSACTIONS")
-    tRANSACTIONS("TRANSACTIONS"),
+    TRANSACTIONS("TRANSACTIONS"),
 
     @Json(name = "INSTITUTIONS")
-    iNSTITUTIONS("INSTITUTIONS");
+    INSTITUTIONS("INSTITUTIONS");
 
 }
 
