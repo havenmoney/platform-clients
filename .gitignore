@@ -1,3 +1,9 @@
 *.swp
 node_modules/*
 **/.idea/*
+
+# kotlin
+kotlin/gradle/*
+kotlin/gradlew*
+kotlin/.gradle*
+kotlin/build/*
