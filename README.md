@@ -11,6 +11,14 @@ The golang API client has some upstream dependencies:
 Example code demonstrating the way to setup authentication and make API requests is in the file
 `golang/hello-world.go`
 
+## Getting started with Kotlin
+
+The Kotlin API lives in the folder kotlin/ and can be built with gradle. From that directory,
+* sudo apt-get install gradle OR  brew install gradle
+* gradle wrapper
+* ./gradlew run # run the example code in `dev.haven.client.example.HelloWorld`
+* ./gradlew jar # build the jar at `build/libs/haven-client-1.0.0.jar`
+
 
 ## Using this repository
 
