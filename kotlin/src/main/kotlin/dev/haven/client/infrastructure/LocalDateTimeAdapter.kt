@@ -8,7 +8,7 @@ import java.time.format.DateTimeFormatter
 class InstantAdapter {
     @ToJson
     fun toJson(value: Instant): String {
-        return DateTimeFormatter.ISO_LOCAL_DATE_TIME.format(value)
+        return DateTimeFormatter.ISO_INSTANT.format(value.atOffset(java.time.ZoneOffset.UTC))
     }
 
     @FromJson
