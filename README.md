@@ -29,6 +29,15 @@ API bindings is in hello_world.py (be sure to update the credentials!)
 * pip install -r requirements.txt
 * python hello_world.py
 
+## Getting started with Typescript/Node
+
+The Typescript API (implemented for Node.js) lives in the folder typescript/ and has support for both Typescript and
+Javascript. Build it using `yarn` in that folder. For an example, see "hello-world.ts"
+* cd typescript/
+* yarn install
+* yarn build
+* yarn hello # update the secrets in hello-world.ts!
+
 
 ## Using this repository
 
