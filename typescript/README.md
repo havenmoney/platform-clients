@@ -18,7 +18,7 @@ async function main() {
             "https://haven.dev/api"
         ).authenticated();
         const txns = await client.getTransactions("user-1");
-        console.log(txns.bodyi);
+        console.log(txns.body);
     } catch (e) {
         console.log(e);
     }
