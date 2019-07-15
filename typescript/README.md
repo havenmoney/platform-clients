@@ -2,7 +2,7 @@
 
 ### Install
 
-npm install @havenmoney/js-client
+npm install @havenmoney/js-client<br />
 yarn add @havenmoney/js-client
 
 ### Example
