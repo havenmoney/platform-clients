@@ -1,0 +1,21 @@
+{
+    "name": "haven-js-client",
+    "version": "0.0.0",
+    "description": "Typescript client for Haven API",
+    "main": "index.js",
+    "author": "Haven Money",
+    "license": "MIT",
+    "private": false,
+    "dependencies": {
+        "http": "^0.0.0",
+        "request": "^2.88.0"
+    },
+    "devDependencies": {
+        "@types/node": "^12.6.3",
+        "typescript": "^3.5.3"
+    },
+    "scripts": {
+        "build": "./node_modules/.bin/tsc",
+        "hello": "node dist/hello-world.js"
+    }
+}
