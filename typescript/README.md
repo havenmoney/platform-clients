@@ -30,4 +30,4 @@ main();
 
 ### Documentation
 
-The Haven API docs can be found here: [https://haven.readme.io/reference]
+The Haven API docs can be found here: <https://haven.readme.io/reference>
