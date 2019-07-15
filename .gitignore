@@ -7,3 +7,6 @@ kotlin/gradle/*
 kotlin/gradlew*
 kotlin/.gradle*
 kotlin/build/*
+
+# typescript
+typescript/**/*.js
