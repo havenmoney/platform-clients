@@ -27,3 +27,7 @@ async function main() {
 main();
 
 ```
+
+### Documentation
+
+The Haven API docs can be found here: [https://haven.readme.io/reference]
