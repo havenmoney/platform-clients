@@ -1,6 +1,6 @@
 {
     "name": "@havenmoney/js-client",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Javascript client for Haven API",
     "type": "module",
     "typings": "dist/index.d.ts",
