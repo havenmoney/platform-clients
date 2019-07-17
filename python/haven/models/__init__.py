@@ -14,10 +14,15 @@
 from __future__ import absolute_import
 
 # import models into model package
+from haven.models.account_request_wrapper import AccountRequestWrapper
+from haven.models.account_sub_type import AccountSubType
+from haven.models.account_type import AccountType
 from haven.models.add_annotation_request import AddAnnotationRequest
 from haven.models.add_annotation_response import AddAnnotationResponse
 from haven.models.address import Address
+from haven.models.api_account import ApiAccount
 from haven.models.bad_request_service_error import BadRequestServiceError
+from haven.models.balance import Balance
 from haven.models.bootstrap_strategy import BootstrapStrategy
 from haven.models.clean_category import CleanCategory
 from haven.models.clean_single_transaction_request import CleanSingleTransactionRequest
@@ -27,6 +32,7 @@ from haven.models.conflict_service_error import ConflictServiceError
 from haven.models.create_webhook_request import CreateWebhookRequest
 from haven.models.create_webhook_response import CreateWebhookResponse
 from haven.models.empty_response import EmptyResponse
+from haven.models.get_accounts_response import GetAccountsResponse
 from haven.models.get_merchant_response import GetMerchantResponse
 from haven.models.get_transactions_response import GetTransactionsResponse
 from haven.models.get_webhooks_response import GetWebhooksResponse
@@ -37,6 +43,7 @@ from haven.models.open_hours import OpenHours
 from haven.models.raw_merchant import RawMerchant
 from haven.models.raw_merchant_store import RawMerchantStore
 from haven.models.raw_transaction import RawTransaction
+from haven.models.service_error import ServiceError
 from haven.models.tenant_service_account_agent_login_request import TenantServiceAccountAgentLoginRequest
 from haven.models.tenant_service_account_agent_login_response import TenantServiceAccountAgentLoginResponse
 from haven.models.transaction_kind import TransactionKind

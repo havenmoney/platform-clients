@@ -36,6 +36,7 @@ class Merchant(object):
         'address': 'Address',
         'hours': 'OpenHours',
         'image': 'str',
+        'background_image': 'str',
         'category': 'CleanCategory',
         'phone': 'str',
         'url': 'str',
@@ -52,6 +53,7 @@ class Merchant(object):
         'address': 'address',
         'hours': 'hours',
         'image': 'image',
+        'background_image': 'backgroundImage',
         'category': 'category',
         'phone': 'phone',
         'url': 'url',
@@ -62,7 +64,7 @@ class Merchant(object):
         'updated_at': 'updatedAt'
     }
 
-    def __init__(self, id=None, name=None, address=None, hours=None, image=None, category=None, phone=None, url=None, facebook=None, twitter=None, instagram=None, yelp=None, updated_at=None):  # noqa: E501
+    def __init__(self, id=None, name=None, address=None, hours=None, image=None, background_image=None, category=None, phone=None, url=None, facebook=None, twitter=None, instagram=None, yelp=None, updated_at=None):  # noqa: E501
         """Merchant - a model defined in OpenAPI"""  # noqa: E501
 
         self._id = None
@@ -70,6 +72,7 @@ class Merchant(object):
         self._address = None
         self._hours = None
         self._image = None
+        self._background_image = None
         self._category = None
         self._phone = None
         self._url = None
@@ -88,6 +91,8 @@ class Merchant(object):
             self.hours = hours
         if image is not None:
             self.image = image
+        if background_image is not None:
+            self.background_image = background_image
         self.category = category
         if phone is not None:
             self.phone = phone
@@ -211,6 +216,27 @@ class Merchant(object):
         """
 
         self._image = image
+
+    @property
+    def background_image(self):
+        """Gets the background_image of this Merchant.  # noqa: E501
+
+
+        :return: The background_image of this Merchant.  # noqa: E501
+        :rtype: str
+        """
+        return self._background_image
+
+    @background_image.setter
+    def background_image(self, background_image):
+        """Sets the background_image of this Merchant.
+
+
+        :param background_image: The background_image of this Merchant.  # noqa: E501
+        :type: str
+        """
+
+        self._background_image = background_image
 
     @property
     def category(self):

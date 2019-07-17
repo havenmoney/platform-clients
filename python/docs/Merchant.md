@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **address** | [**Address**](Address.md) |  | [optional] 
 **hours** | [**OpenHours**](OpenHours.md) |  | [optional] 
 **image** | **str** |  | [optional] 
+**background_image** | **str** |  | [optional] 
 **category** | [**CleanCategory**](CleanCategory.md) |  | 
 **phone** | **str** |  | [optional] 
 **url** | **str** |  | [optional] 
