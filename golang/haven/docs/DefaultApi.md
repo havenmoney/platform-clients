@@ -6,12 +6,15 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateAccessToken**](DefaultApi.md#CreateAccessToken) | **Post** /v1/tokens | 
 [**CreateWebhook**](DefaultApi.md#CreateWebhook) | **Post** /v1/webhooks | 
+[**DeleteAccount**](DefaultApi.md#DeleteAccount) | **Delete** /v1/accounts/{AccountId} | 
 [**DeleteForUser**](DefaultApi.md#DeleteForUser) | **Delete** /v1/users/{EndUserId} | 
 [**DeleteTransaction**](DefaultApi.md#DeleteTransaction) | **Delete** /v1/transactions/{TransactionId} | 
 [**DeleteWebhook**](DefaultApi.md#DeleteWebhook) | **Delete** /v1/webhooks/{WebhookId} | 
+[**GetAccountsForUser**](DefaultApi.md#GetAccountsForUser) | **Get** /v1/accounts/user/{EndUserId} | 
 [**GetMerchant**](DefaultApi.md#GetMerchant) | **Get** /v1/merchants/{MerchantId} | 
 [**GetTransactions**](DefaultApi.md#GetTransactions) | **Get** /v1/transactions/{EndUserId} | 
 [**GetWebhooks**](DefaultApi.md#GetWebhooks) | **Get** /v1/webhooks | 
+[**UpsertAccount**](DefaultApi.md#UpsertAccount) | **Put** /v1/accounts | 
 [**UpsertBatchTransactions**](DefaultApi.md#UpsertBatchTransactions) | **Post** /v1/transactions/batch | 
 [**UpsertOneTransaction**](DefaultApi.md#UpsertOneTransaction) | **Post** /v1/transactions/online | 
 [**UpsertUserAnnotation**](DefaultApi.md#UpsertUserAnnotation) | **Post** /v1/annotations/{TransactionId} | 
@@ -73,6 +76,37 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteAccount
+
+> EmptyResponse DeleteAccount(ctx, accountId)
+
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**accountId** | **string**|  | 
+
+### Return type
+
+[**EmptyResponse**](EmptyResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -158,6 +192,37 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EmptyResponse**](EmptyResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetAccountsForUser
+
+> GetAccountsResponse GetAccountsForUser(ctx, endUserId)
+
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**endUserId** | **string**|  | 
+
+### Return type
+
+[**GetAccountsResponse**](GetAccountsResponse.md)
 
 ### Authorization
 
@@ -267,6 +332,37 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpsertAccount
+
+> EmptyResponse UpsertAccount(ctx, accountRequestWrapper)
+
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**accountRequestWrapper** | [**AccountRequestWrapper**](AccountRequestWrapper.md)|  | 
+
+### Return type
+
+[**EmptyResponse**](EmptyResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

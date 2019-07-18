@@ -34,12 +34,15 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DefaultApi* | [**CreateAccessToken**](docs/DefaultApi.md#createaccesstoken) | **Post** /v1/tokens | 
 *DefaultApi* | [**CreateWebhook**](docs/DefaultApi.md#createwebhook) | **Post** /v1/webhooks | 
+*DefaultApi* | [**DeleteAccount**](docs/DefaultApi.md#deleteaccount) | **Delete** /v1/accounts/{AccountId} | 
 *DefaultApi* | [**DeleteForUser**](docs/DefaultApi.md#deleteforuser) | **Delete** /v1/users/{EndUserId} | 
 *DefaultApi* | [**DeleteTransaction**](docs/DefaultApi.md#deletetransaction) | **Delete** /v1/transactions/{TransactionId} | 
 *DefaultApi* | [**DeleteWebhook**](docs/DefaultApi.md#deletewebhook) | **Delete** /v1/webhooks/{WebhookId} | 
+*DefaultApi* | [**GetAccountsForUser**](docs/DefaultApi.md#getaccountsforuser) | **Get** /v1/accounts/user/{EndUserId} | 
 *DefaultApi* | [**GetMerchant**](docs/DefaultApi.md#getmerchant) | **Get** /v1/merchants/{MerchantId} | 
 *DefaultApi* | [**GetTransactions**](docs/DefaultApi.md#gettransactions) | **Get** /v1/transactions/{EndUserId} | 
 *DefaultApi* | [**GetWebhooks**](docs/DefaultApi.md#getwebhooks) | **Get** /v1/webhooks | 
+*DefaultApi* | [**UpsertAccount**](docs/DefaultApi.md#upsertaccount) | **Put** /v1/accounts | 
 *DefaultApi* | [**UpsertBatchTransactions**](docs/DefaultApi.md#upsertbatchtransactions) | **Post** /v1/transactions/batch | 
 *DefaultApi* | [**UpsertOneTransaction**](docs/DefaultApi.md#upsertonetransaction) | **Post** /v1/transactions/online | 
 *DefaultApi* | [**UpsertUserAnnotation**](docs/DefaultApi.md#upsertuserannotation) | **Post** /v1/annotations/{TransactionId} | 
@@ -47,10 +50,15 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [AccountRequestWrapper](docs/AccountRequestWrapper.md)
+ - [AccountSubType](docs/AccountSubType.md)
+ - [AccountType](docs/AccountType.md)
  - [AddAnnotationRequest](docs/AddAnnotationRequest.md)
  - [AddAnnotationResponse](docs/AddAnnotationResponse.md)
  - [Address](docs/Address.md)
+ - [ApiAccount](docs/ApiAccount.md)
  - [BadRequestServiceError](docs/BadRequestServiceError.md)
+ - [Balance](docs/Balance.md)
  - [BootstrapStrategy](docs/BootstrapStrategy.md)
  - [CleanCategory](docs/CleanCategory.md)
  - [CleanSingleTransactionRequest](docs/CleanSingleTransactionRequest.md)
@@ -60,6 +68,7 @@ Class | Method | HTTP request | Description
  - [CreateWebhookRequest](docs/CreateWebhookRequest.md)
  - [CreateWebhookResponse](docs/CreateWebhookResponse.md)
  - [EmptyResponse](docs/EmptyResponse.md)
+ - [GetAccountsResponse](docs/GetAccountsResponse.md)
  - [GetMerchantResponse](docs/GetMerchantResponse.md)
  - [GetTransactionsResponse](docs/GetTransactionsResponse.md)
  - [GetWebhooksResponse](docs/GetWebhooksResponse.md)
@@ -70,6 +79,7 @@ Class | Method | HTTP request | Description
  - [RawMerchant](docs/RawMerchant.md)
  - [RawMerchantStore](docs/RawMerchantStore.md)
  - [RawTransaction](docs/RawTransaction.md)
+ - [ServiceError](docs/ServiceError.md)
  - [TenantServiceAccountAgentLoginRequest](docs/TenantServiceAccountAgentLoginRequest.md)
  - [TenantServiceAccountAgentLoginResponse](docs/TenantServiceAccountAgentLoginResponse.md)
  - [TransactionKind](docs/TransactionKind.md)

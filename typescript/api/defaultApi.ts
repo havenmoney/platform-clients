@@ -14,23 +14,21 @@ import localVarRequest = require('request');
 import http = require('http');
 
 /* tslint:disable:no-unused-locals */
+import { AccountRequestWrapper } from '../model/accountRequestWrapper';
 import { AddAnnotationRequest } from '../model/addAnnotationRequest';
 import { AddAnnotationResponse } from '../model/addAnnotationResponse';
-import { BadRequestServiceError } from '../model/badRequestServiceError';
 import { CleanSingleTransactionRequest } from '../model/cleanSingleTransactionRequest';
 import { CleanSingleTransactionResponse } from '../model/cleanSingleTransactionResponse';
-import { ConflictServiceError } from '../model/conflictServiceError';
 import { CreateWebhookRequest } from '../model/createWebhookRequest';
 import { CreateWebhookResponse } from '../model/createWebhookResponse';
 import { EmptyResponse } from '../model/emptyResponse';
+import { GetAccountsResponse } from '../model/getAccountsResponse';
 import { GetMerchantResponse } from '../model/getMerchantResponse';
 import { GetTransactionsResponse } from '../model/getTransactionsResponse';
 import { GetWebhooksResponse } from '../model/getWebhooksResponse';
-import { NotFoundServiceError } from '../model/notFoundServiceError';
+import { ServiceError } from '../model/serviceError';
 import { TenantServiceAccountAgentLoginRequest } from '../model/tenantServiceAccountAgentLoginRequest';
 import { TenantServiceAccountAgentLoginResponse } from '../model/tenantServiceAccountAgentLoginResponse';
-import { UnauthorizedServiceError } from '../model/unauthorizedServiceError';
-import { UncaughtExceptionServiceError } from '../model/uncaughtExceptionServiceError';
 import { UploadBatchTransactionsRequest } from '../model/uploadBatchTransactionsRequest';
 
 import { ObjectSerializer, Authentication, VoidAuth } from '../model/models';
@@ -183,6 +181,59 @@ export class DefaultApi {
                     reject(error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "CreateWebhookResponse");
+                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve({ response: response, body: body });
+                    } else {
+                        reject({ response: response, body: body });
+                    }
+                }
+            });
+        });
+    }
+    /**
+     * 
+     * @param accountId 
+     */
+    public async deleteAccount (accountId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: EmptyResponse;  }> {
+        const localVarPath = this.basePath + '/v1/accounts/{AccountId}'
+            .replace('{' + 'AccountId' + '}', encodeURIComponent(String(accountId)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'accountId' is not null or undefined
+        if (accountId === null || accountId === undefined) {
+            throw new Error('Required parameter accountId was null or undefined when calling deleteAccount.');
+        }
+
+        (<any>Object).assign(localVarHeaderParams, options.headers);
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'DELETE',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return new Promise<{ response: http.IncomingMessage; body: EmptyResponse;  }>((resolve, reject) => {
+            localVarRequest(localVarRequestOptions, (error, response, body) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    body = ObjectSerializer.deserialize(body, "EmptyResponse");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                         resolve({ response: response, body: body });
                     } else {
@@ -353,6 +404,59 @@ export class DefaultApi {
     }
     /**
      * 
+     * @param endUserId 
+     */
+    public async getAccountsForUser (endUserId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: GetAccountsResponse;  }> {
+        const localVarPath = this.basePath + '/v1/accounts/user/{EndUserId}'
+            .replace('{' + 'EndUserId' + '}', encodeURIComponent(String(endUserId)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'endUserId' is not null or undefined
+        if (endUserId === null || endUserId === undefined) {
+            throw new Error('Required parameter endUserId was null or undefined when calling getAccountsForUser.');
+        }
+
+        (<any>Object).assign(localVarHeaderParams, options.headers);
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'GET',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return new Promise<{ response: http.IncomingMessage; body: GetAccountsResponse;  }>((resolve, reject) => {
+            localVarRequest(localVarRequestOptions, (error, response, body) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    body = ObjectSerializer.deserialize(body, "GetAccountsResponse");
+                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve({ response: response, body: body });
+                    } else {
+                        reject({ response: response, body: body });
+                    }
+                }
+            });
+        });
+    }
+    /**
+     * 
      * @param merchantId 
      */
     public async getMerchant (merchantId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: GetMerchantResponse;  }> {
@@ -504,6 +608,59 @@ export class DefaultApi {
                     reject(error);
                 } else {
                     body = ObjectSerializer.deserialize(body, "GetWebhooksResponse");
+                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                        resolve({ response: response, body: body });
+                    } else {
+                        reject({ response: response, body: body });
+                    }
+                }
+            });
+        });
+    }
+    /**
+     * 
+     * @param accountRequestWrapper 
+     */
+    public async upsertAccount (accountRequestWrapper: AccountRequestWrapper, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: EmptyResponse;  }> {
+        const localVarPath = this.basePath + '/v1/accounts';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'accountRequestWrapper' is not null or undefined
+        if (accountRequestWrapper === null || accountRequestWrapper === undefined) {
+            throw new Error('Required parameter accountRequestWrapper was null or undefined when calling upsertAccount.');
+        }
+
+        (<any>Object).assign(localVarHeaderParams, options.headers);
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'PUT',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(accountRequestWrapper, "AccountRequestWrapper")
+        };
+
+        this.authentications.default.applyToRequest(localVarRequestOptions);
+
+        if (Object.keys(localVarFormParams).length) {
+            if (localVarUseFormData) {
+                (<any>localVarRequestOptions).formData = localVarFormParams;
+            } else {
+                localVarRequestOptions.form = localVarFormParams;
+            }
+        }
+        return new Promise<{ response: http.IncomingMessage; body: EmptyResponse;  }>((resolve, reject) => {
+            localVarRequest(localVarRequestOptions, (error, response, body) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    body = ObjectSerializer.deserialize(body, "EmptyResponse");
                     if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                         resolve({ response: response, body: body });
                     } else {

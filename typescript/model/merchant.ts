@@ -20,6 +20,7 @@ export class Merchant {
     'address'?: Address;
     'hours'?: OpenHours;
     'image'?: string;
+    'backgroundImage'?: string;
     'category': CleanCategory;
     'phone'?: string;
     'url'?: string;
@@ -55,6 +56,11 @@ export class Merchant {
         {
             "name": "image",
             "baseName": "image",
+            "type": "string"
+        },
+        {
+            "name": "backgroundImage",
+            "baseName": "backgroundImage",
             "type": "string"
         },
         {

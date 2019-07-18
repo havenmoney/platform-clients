@@ -11,23 +11,21 @@
 */
 package dev.haven.client.apis
 
+import dev.haven.client.models.AccountRequestWrapper
 import dev.haven.client.models.AddAnnotationRequest
 import dev.haven.client.models.AddAnnotationResponse
-import dev.haven.client.models.BadRequestServiceError
 import dev.haven.client.models.CleanSingleTransactionRequest
 import dev.haven.client.models.CleanSingleTransactionResponse
-import dev.haven.client.models.ConflictServiceError
 import dev.haven.client.models.CreateWebhookRequest
 import dev.haven.client.models.CreateWebhookResponse
 import dev.haven.client.models.EmptyResponse
+import dev.haven.client.models.GetAccountsResponse
 import dev.haven.client.models.GetMerchantResponse
 import dev.haven.client.models.GetTransactionsResponse
 import dev.haven.client.models.GetWebhooksResponse
-import dev.haven.client.models.NotFoundServiceError
+import dev.haven.client.models.ServiceError
 import dev.haven.client.models.TenantServiceAccountAgentLoginRequest
 import dev.haven.client.models.TenantServiceAccountAgentLoginResponse
-import dev.haven.client.models.UnauthorizedServiceError
-import dev.haven.client.models.UncaughtExceptionServiceError
 import dev.haven.client.models.UploadBatchTransactionsRequest
 
 import dev.haven.client.infrastructure.ApiClient
@@ -99,6 +97,37 @@ class DefaultApi(basePath: kotlin.String, token: kotlin.String? = null) : ApiCli
 
         return when (response.responseType) {
             ResponseType.Success -> (response as Success<*>).data as CreateWebhookResponse
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+        }
+    }
+
+    /**
+    * 
+    * 
+    * @param accountId  
+    * @return EmptyResponse
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun deleteAccount(accountId: kotlin.String) : EmptyResponse {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.DELETE,
+            "/v1/accounts/{AccountId}".replace("{"+"AccountId"+"}", "$accountId"),
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<EmptyResponse>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as EmptyResponse
             ResponseType.Informational -> TODO()
             ResponseType.Redirection -> TODO()
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
@@ -202,6 +231,37 @@ class DefaultApi(basePath: kotlin.String, token: kotlin.String? = null) : ApiCli
     /**
     * 
     * 
+    * @param endUserId  
+    * @return GetAccountsResponse
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun getAccountsForUser(endUserId: kotlin.String) : GetAccountsResponse {
+        val localVariableBody: kotlin.Any? = null
+        val localVariableQuery: MultiValueMap = mapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.GET,
+            "/v1/accounts/user/{EndUserId}".replace("{"+"EndUserId"+"}", "$endUserId"),
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<GetAccountsResponse>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as GetAccountsResponse
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+        }
+    }
+
+    /**
+    * 
+    * 
     * @param merchantId  
     * @return GetMerchantResponse
     */
@@ -286,6 +346,37 @@ class DefaultApi(basePath: kotlin.String, token: kotlin.String? = null) : ApiCli
 
         return when (response.responseType) {
             ResponseType.Success -> (response as Success<*>).data as GetWebhooksResponse
+            ResponseType.Informational -> TODO()
+            ResponseType.Redirection -> TODO()
+            ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")
+            ResponseType.ServerError -> throw ServerException((response as ServerError<*>).message ?: "Server error")
+        }
+    }
+
+    /**
+    * 
+    * 
+    * @param accountRequestWrapper  
+    * @return EmptyResponse
+    */
+    @Suppress("UNCHECKED_CAST")
+    fun upsertAccount(accountRequestWrapper: AccountRequestWrapper) : EmptyResponse {
+        val localVariableBody: kotlin.Any? = accountRequestWrapper
+        val localVariableQuery: MultiValueMap = mapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        val localVariableConfig = RequestConfig(
+            RequestMethod.PUT,
+            "/v1/accounts",
+            query = localVariableQuery,
+            headers = localVariableHeaders
+        )
+        val response = request<EmptyResponse>(
+            localVariableConfig,
+            localVariableBody
+        )
+
+        return when (response.responseType) {
+            ResponseType.Success -> (response as Success<*>).data as EmptyResponse
             ResponseType.Informational -> TODO()
             ResponseType.Redirection -> TODO()
             ResponseType.ClientError -> throw ClientException((response as ClientError<*>).body as? String ?: "Client error")

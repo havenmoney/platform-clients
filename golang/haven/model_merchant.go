@@ -18,6 +18,7 @@ type Merchant struct {
 	Address *Address `json:"address,omitempty"`
 	Hours *OpenHours `json:"hours,omitempty"`
 	Image *string `json:"image,omitempty"`
+	BackgroundImage *string `json:"backgroundImage,omitempty"`
 	Category CleanCategory `json:"category"`
 	Phone *string `json:"phone,omitempty"`
 	Url *string `json:"url,omitempty"`

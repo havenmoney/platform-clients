@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Address** | [**Address**](Address.md) |  | [optional] 
 **Hours** | [**OpenHours**](OpenHours.md) |  | [optional] 
 **Image** | **string** |  | [optional] 
+**BackgroundImage** | **string** |  | [optional] 
 **Category** | [**CleanCategory**](CleanCategory.md) |  | 
 **Phone** | **string** |  | [optional] 
 **Url** | **string** |  | [optional] 

@@ -23,6 +23,7 @@ import com.squareup.moshi.Json
  * @param address 
  * @param hours 
  * @param image 
+ * @param backgroundImage 
  * @param category 
  * @param phone 
  * @param url 
@@ -47,6 +48,8 @@ data class Merchant (
     val hours: OpenHours? = null,
     @Json(name = "image")
     val image: kotlin.String? = null,
+    @Json(name = "backgroundImage")
+    val backgroundImage: kotlin.String? = null,
     @Json(name = "phone")
     val phone: kotlin.String? = null,
     @Json(name = "url")

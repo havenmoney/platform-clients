@@ -24,38 +24,79 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ConflictServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Conflict
         404:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFoundServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Not found
         401:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnauthorizedServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Unauthorized
         400:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequestServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Bad request
         500:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Server error
-        default:
+  /v1/accounts/{AccountId}:
+    delete:
+      operationId: deleteAccount
+      parameters:
+      - explode: false
+        in: path
+        name: AccountId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        200:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UncaughtExceptionServiceError'
-          description: unknown
+                $ref: '#/components/schemas/EmptyResponse'
+        409:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+          description: Conflict
+        404:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+          description: Not found
+        401:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+          description: Unauthorized
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+          description: Bad request
+        500:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+          description: Server error
   /v1/users/{EndUserId}:
     delete:
       operationId: deleteForUser
@@ -77,38 +118,32 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ConflictServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Conflict
         404:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFoundServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Not found
         401:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnauthorizedServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Unauthorized
         400:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequestServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Bad request
         500:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Server error
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UncaughtExceptionServiceError'
-          description: unknown
   /v1/transactions/{TransactionId}:
     delete:
       operationId: deleteTransaction
@@ -130,38 +165,32 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ConflictServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Conflict
         404:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFoundServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Not found
         401:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnauthorizedServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Unauthorized
         400:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequestServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Bad request
         500:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Server error
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UncaughtExceptionServiceError'
-          description: unknown
   /v1/webhooks/{WebhookId}:
     delete:
       operationId: deleteWebhook
@@ -183,38 +212,79 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ConflictServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Conflict
         404:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFoundServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Not found
         401:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnauthorizedServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Unauthorized
         400:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequestServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Bad request
         500:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Server error
-        default:
+  /v1/accounts/user/{EndUserId}:
+    get:
+      operationId: getAccountsForUser
+      parameters:
+      - explode: false
+        in: path
+        name: EndUserId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        200:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UncaughtExceptionServiceError'
-          description: unknown
+                $ref: '#/components/schemas/GetAccountsResponse'
+        409:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+          description: Conflict
+        404:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+          description: Not found
+        401:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+          description: Unauthorized
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+          description: Bad request
+        500:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+          description: Server error
   /v1/merchants/{MerchantId}:
     get:
       operationId: getMerchant
@@ -236,38 +306,32 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ConflictServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Conflict
         404:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFoundServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Not found
         401:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnauthorizedServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Unauthorized
         400:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequestServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Bad request
         500:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Server error
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UncaughtExceptionServiceError'
-          description: unknown
   /v1/transactions/{EndUserId}:
     get:
       operationId: getTransactions
@@ -303,38 +367,32 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ConflictServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Conflict
         404:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFoundServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Not found
         401:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnauthorizedServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Unauthorized
         400:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequestServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Bad request
         500:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Server error
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UncaughtExceptionServiceError'
-          description: unknown
   /v1/webhooks:
     get:
       operationId: getWebhooks
@@ -348,38 +406,32 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ConflictServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Conflict
         404:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFoundServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Not found
         401:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnauthorizedServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Unauthorized
         400:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequestServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Bad request
         500:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Server error
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UncaughtExceptionServiceError'
-          description: unknown
     post:
       operationId: createWebhook
       requestBody:
@@ -398,38 +450,77 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ConflictServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Conflict
         404:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFoundServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Not found
         401:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnauthorizedServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Unauthorized
         400:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequestServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Bad request
         500:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Server error
-        default:
+  /v1/accounts:
+    put:
+      operationId: upsertAccount
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountRequestWrapper'
+        required: true
+      responses:
+        200:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UncaughtExceptionServiceError'
-          description: unknown
+                $ref: '#/components/schemas/EmptyResponse'
+        409:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+          description: Conflict
+        404:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+          description: Not found
+        401:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+          description: Unauthorized
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+          description: Bad request
+        500:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+          description: Server error
   /v1/transactions/batch:
     post:
       operationId: upsertBatchTransactions
@@ -449,38 +540,32 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ConflictServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Conflict
         404:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFoundServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Not found
         401:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnauthorizedServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Unauthorized
         400:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequestServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Bad request
         500:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Server error
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UncaughtExceptionServiceError'
-          description: unknown
   /v1/transactions/online:
     post:
       operationId: upsertOneTransaction
@@ -500,38 +585,32 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ConflictServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Conflict
         404:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFoundServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Not found
         401:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnauthorizedServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Unauthorized
         400:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequestServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Bad request
         500:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Server error
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UncaughtExceptionServiceError'
-          description: unknown
   /v1/annotations/{TransactionId}:
     post:
       operationId: upsertUserAnnotation
@@ -559,40 +638,38 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ConflictServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Conflict
         404:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFoundServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Not found
         401:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnauthorizedServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Unauthorized
         400:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequestServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Bad request
         500:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UncaughtExceptionServiceError'
+                $ref: '#/components/schemas/ServiceError'
           description: Server error
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UncaughtExceptionServiceError'
-          description: unknown
 components:
   schemas:
+    LOAN1:
+      type: object
+    GLOBAL_FUZZY:
+      type: object
     CreateWebhookRequest:
       example:
         subscriptions:
@@ -635,6 +712,14 @@ components:
       required:
       - webhook
       type: object
+    AccountType:
+      enum:
+      - BROKERAGE
+      - CREDIT
+      - DEPOSITORY
+      - LOAN
+      - OTHER
+      type: string
     BadRequestServiceError:
       properties:
         message:
@@ -663,6 +748,8 @@ components:
       required:
       - latitude
       - longitude
+      type: object
+    CREDIT1:
       type: object
     Address:
       example:
@@ -701,6 +788,10 @@ components:
       - account-fuzzy
       - none
       type: string
+    GLOBAL_EXACT:
+      type: object
+    BROKERAGE1:
+      type: object
     CleanSingleTransactionResponse:
       example:
         transaction:
@@ -738,6 +829,58 @@ components:
       required:
       - transaction
       type: object
+    ApiAccount:
+      example:
+        institution: institution
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        balance:
+          current: current
+          available: available
+          limit: limit
+        displayNameDetailed: displayNameDetailed
+        displayName: displayName
+        institutionName: institutionName
+        id: id
+        user: user
+        updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          type: string
+        user:
+          type: string
+        displayName:
+          type: string
+        displayNameDetailed:
+          type: string
+        institution:
+          type: string
+        institutionName:
+          type: string
+        accountType:
+          $ref: '#/components/schemas/AccountType'
+        accountSubType:
+          $ref: '#/components/schemas/AccountSubType'
+        balance:
+          $ref: '#/components/schemas/Balance'
+        createdAt:
+          format: date-time
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+      required:
+      - accountSubType
+      - accountType
+      - balance
+      - createdAt
+      - displayName
+      - displayNameDetailed
+      - id
+      - institution
+      - institutionName
+      - updatedAt
+      - user
+      type: object
     RawMerchantStore:
       example:
         address:
@@ -758,6 +901,98 @@ components:
           type: string
         address:
           $ref: '#/components/schemas/Address'
+      type: object
+    AccountSubType:
+      enum:
+      - AUTO
+      - BROKERAGE
+      - CASH_ISA
+      - CASH_MANAGEMENT
+      - CD
+      - CHECKING
+      - COMMERCIAL
+      - CONSTRUCTION
+      - CONSUMER
+      - CREDIT
+      - CREDIT_CARD
+      - DEPOSITORY
+      - EDUCATION_SAVINGS_ACCOUNT
+      - GIC
+      - HEALTH_REIMBURSEMENT_ARRANGEMENT
+      - HOME
+      - HOME_EQUITY
+      - HSA
+      - IRA
+      - ISA
+      - KEOGH
+      - LIF
+      - LINE_OF_CREDIT
+      - LIRA
+      - LOAN
+      - LRIF
+      - LRSP
+      - MONEY_MARKET
+      - MORTGAGE
+      - MUTUAL_FUND
+      - NON_TAXABLE_BROKERAGE_ACCOUNT
+      - OTHER
+      - OVERDRAFT
+      - PAYPAL
+      - PENSION
+      - PREPAID
+      - PRIF
+      - PROFIT_SHARING_PLAN
+      - RDSP
+      - RECURRING
+      - RESP
+      - RETIREMENT
+      - REWARDS
+      - RLIF
+      - ROTH
+      - ROTH_401K
+      - RRIF
+      - RRSP
+      - SAFE_DEPOSIT
+      - SARSEP
+      - SAVINGS
+      - SEP_IRA
+      - SIMPLE_IRA
+      - SIPP
+      - STOCK_PLAN
+      - STUDENT
+      - TFSA
+      - THRIFT_SAVINGS_PLAN
+      - T_401A
+      - T_401K
+      - T_403B
+      - T_457B
+      - T_529
+      - UGMA
+      - UTMA
+      - VARIABLE_ANNUITY
+      type: string
+    OTHER2:
+      type: object
+    AccountRequestWrapper:
+      example:
+        account:
+          institution: institution
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          balance:
+            current: current
+            available: available
+            limit: limit
+          displayNameDetailed: displayNameDetailed
+          displayName: displayName
+          institutionName: institutionName
+          id: id
+          user: user
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        account:
+          $ref: '#/components/schemas/ApiAccount'
+      required:
+      - account
       type: object
     RawTransaction:
       example:
@@ -849,6 +1084,7 @@ components:
             state: state
             line2: line2
             line1: line1
+          backgroundImage: backgroundImage
           facebook: facebook
           yelp: yelp
           instagram: instagram
@@ -862,11 +1098,28 @@ components:
         merchant:
           $ref: '#/components/schemas/Merchant'
       type: object
+    Balance:
+      example:
+        current: current
+        available: available
+        limit: limit
+      properties:
+        current:
+          type: string
+        available:
+          type: string
+        limit:
+          type: string
+      required:
+      - current
+      type: object
     WebhookSubscription:
       enum:
       - TRANSACTIONS
       - INSTITUTIONS
       type: string
+    OTHER1:
+      type: object
     RawMerchant:
       example:
         address:
@@ -914,6 +1167,41 @@ components:
       properties:
         a:
           type: integer
+      type: object
+    GetAccountsResponse:
+      example:
+        accounts:
+        - institution: institution
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          balance:
+            current: current
+            available: available
+            limit: limit
+          displayNameDetailed: displayNameDetailed
+          displayName: displayName
+          institutionName: institutionName
+          id: id
+          user: user
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        - institution: institution
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          balance:
+            current: current
+            available: available
+            limit: limit
+          displayNameDetailed: displayNameDetailed
+          displayName: displayName
+          institutionName: institutionName
+          id: id
+          user: user
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        accounts:
+          items:
+            $ref: '#/components/schemas/ApiAccount'
+          type: array
+      required:
+      - accounts
       type: object
     CleanTransaction:
       example:
@@ -1004,6 +1292,13 @@ components:
       required:
       - message
       type: object
+    ServiceError:
+      oneOf:
+      - $ref: '#/components/schemas/UnauthorizedServiceError'
+      - $ref: '#/components/schemas/NotFoundServiceError'
+      - $ref: '#/components/schemas/ConflictServiceError'
+      - $ref: '#/components/schemas/UncaughtExceptionServiceError'
+      - $ref: '#/components/schemas/BadRequestServiceError'
     AddAnnotationResponse:
       example:
         transactions:
@@ -1262,6 +1557,8 @@ components:
       required:
       - transactions
       type: object
+    DEPOSITORY1:
+      type: object
     Merchant:
       example:
         image: image
@@ -1276,6 +1573,7 @@ components:
           state: state
           line2: line2
           line1: line1
+        backgroundImage: backgroundImage
         facebook: facebook
         yelp: yelp
         instagram: instagram
@@ -1295,6 +1593,8 @@ components:
         hours:
           $ref: '#/components/schemas/OpenHours'
         image:
+          type: string
+        backgroundImage:
           type: string
         category:
           $ref: '#/components/schemas/CleanCategory'
@@ -1318,6 +1618,8 @@ components:
       - id
       - name
       - updatedAt
+      type: object
+    MORTGAGE1:
       type: object
     CleanCategory:
       enum:
@@ -1394,6 +1696,8 @@ components:
       - Shopping
       - Other
       type: string
+    CREDIT_CARD1:
+      type: object
     TenantServiceAccountAgentLoginResponse:
       example:
         expiry: 2000-01-23T04:56:07.000+00:00
