@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**askYourAcctManager** | **kotlin.String** |  | 
+**description** | **kotlin.String** |  | 
 
 
 

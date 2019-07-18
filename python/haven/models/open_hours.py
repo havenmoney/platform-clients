@@ -31,43 +31,43 @@ class OpenHours(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'ask_your_acct_manager': 'str'
+        'description': 'str'
     }
 
     attribute_map = {
-        'ask_your_acct_manager': '__ask_your_acct_manager'
+        'description': 'description'
     }
 
-    def __init__(self, ask_your_acct_manager=None):  # noqa: E501
+    def __init__(self, description=None):  # noqa: E501
         """OpenHours - a model defined in OpenAPI"""  # noqa: E501
 
-        self._ask_your_acct_manager = None
+        self._description = None
         self.discriminator = None
 
-        self.ask_your_acct_manager = ask_your_acct_manager
+        self.description = description
 
     @property
-    def ask_your_acct_manager(self):
-        """Gets the ask_your_acct_manager of this OpenHours.  # noqa: E501
+    def description(self):
+        """Gets the description of this OpenHours.  # noqa: E501
 
 
-        :return: The ask_your_acct_manager of this OpenHours.  # noqa: E501
+        :return: The description of this OpenHours.  # noqa: E501
         :rtype: str
         """
-        return self._ask_your_acct_manager
+        return self._description
 
-    @ask_your_acct_manager.setter
-    def ask_your_acct_manager(self, ask_your_acct_manager):
-        """Sets the ask_your_acct_manager of this OpenHours.
+    @description.setter
+    def description(self, description):
+        """Sets the description of this OpenHours.
 
 
-        :param ask_your_acct_manager: The ask_your_acct_manager of this OpenHours.  # noqa: E501
+        :param description: The description of this OpenHours.  # noqa: E501
         :type: str
         """
-        if ask_your_acct_manager is None:
-            raise ValueError("Invalid value for `ask_your_acct_manager`, must not be `None`")  # noqa: E501
+        if description is None:
+            raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
 
-        self._ask_your_acct_manager = ask_your_acct_manager
+        self._description = description
 
     def to_dict(self):
         """Returns the model properties as a dict"""

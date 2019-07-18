@@ -708,10 +708,10 @@ components:
           type: string
     OpenHours:
       required:
-      - __ask_your_acct_manager
+      - description
       type: object
       properties:
-        __ask_your_acct_manager:
+        description:
           type: string
     LatLong:
       required:

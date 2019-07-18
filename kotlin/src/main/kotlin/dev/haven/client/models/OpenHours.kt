@@ -15,11 +15,11 @@ package dev.haven.client.models
 import com.squareup.moshi.Json
 /**
  * 
- * @param askYourAcctManager 
+ * @param description 
  */
 data class OpenHours (
-    @Json(name = "__ask_your_acct_manager")
-    val askYourAcctManager: kotlin.String
+    @Json(name = "description")
+    val description: kotlin.String
 ) {
 
 }

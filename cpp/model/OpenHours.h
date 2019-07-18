@@ -56,13 +56,13 @@ public:
     /// <summary>
     /// 
     /// </summary>
-    utility::string_t getAskYourAcctManager() const;
+    utility::string_t getDescription() const;
     
-    void setAskYourAcctManager(const utility::string_t& value);
+    void setDescription(const utility::string_t& value);
 
 
 protected:
-    utility::string_t m___ask_your_acct_manager;
+    utility::string_t m_Description;
     };
 
 

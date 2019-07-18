@@ -12,14 +12,14 @@
 
 
 export class OpenHours {
-    'askYourAcctManager': string;
+    'description': string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "askYourAcctManager",
-            "baseName": "__ask_your_acct_manager",
+            "name": "description",
+            "baseName": "description",
             "type": "string"
         }    ];
 

@@ -10,5 +10,5 @@
 package haven
 
 type OpenHours struct {
-	AskYourAcctManager string `json:"__ask_your_acct_manager"`
+	Description string `json:"description"`
 }

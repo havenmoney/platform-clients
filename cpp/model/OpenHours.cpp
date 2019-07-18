@@ -23,7 +23,7 @@ namespace model {
 
 OpenHours::OpenHours()
 {
-    m___ask_your_acct_manager = utility::conversions::to_string_t("");
+    m_Description = utility::conversions::to_string_t("");
 }
 
 OpenHours::~OpenHours()
@@ -39,14 +39,14 @@ web::json::value OpenHours::toJson() const
 {
     web::json::value val = web::json::value::object();
 
-    val[utility::conversions::to_string_t("__ask_your_acct_manager")] = ModelBase::toJson(m___ask_your_acct_manager);
+    val[utility::conversions::to_string_t("description")] = ModelBase::toJson(m_Description);
 
     return val;
 }
 
 void OpenHours::fromJson(const web::json::value& val)
 {
-    setAskYourAcctManager(ModelBase::stringFromJson(val.at(utility::conversions::to_string_t("__ask_your_acct_manager"))));
+    setDescription(ModelBase::stringFromJson(val.at(utility::conversions::to_string_t("description"))));
 }
 
 void OpenHours::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
@@ -57,7 +57,7 @@ void OpenHours::toMultipart(std::shared_ptr<MultipartFormData> multipart, const 
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("__ask_your_acct_manager"), m___ask_your_acct_manager));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("description"), m_Description));
 }
 
 void OpenHours::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
@@ -68,17 +68,17 @@ void OpenHours::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, cons
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    setAskYourAcctManager(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("__ask_your_acct_manager"))));
+    setDescription(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("description"))));
 }
 
-utility::string_t OpenHours::getAskYourAcctManager() const
+utility::string_t OpenHours::getDescription() const
 {
-    return m___ask_your_acct_manager;
+    return m_Description;
 }
 
-void OpenHours::setAskYourAcctManager(const utility::string_t& value)
+void OpenHours::setDescription(const utility::string_t& value)
 {
-    m___ask_your_acct_manager = value;
+    m_Description = value;
     
 }
 
