@@ -12,6 +12,7 @@
         "build-python": "./node_modules/.bin/openapi-generator generate -i open-api.yaml -g python -c configs/python.json -o python/",
         "build-kotlin": "./node_modules/.bin/openapi-generator generate -i open-api.yaml -g kotlin -c configs/kotlin.json -o kotlin/  && ./kotlin/fix_dates.sh && ./kotlin/fix_gradle.sh && ./kotlin/fix_client.sh && ./kotlin/fix_enums.sh",
         "build-typescript": "./node_modules/.bin/openapi-generator generate -i open-api.yaml -g typescript-node -c configs/typescript.json -o typescript/",
-        "build": "yarn build-go && yarn build-python && yarn build-kotlin && yarn build-typescript"
+        "build-cpp": "./node_modules/.bin/openapi-generator generate -i open-api.yaml -g cpp-restsdk -c configs/cpp.json -o cpp/",
+        "build": "yarn build-go && yarn build-python && yarn build-kotlin && yarn build-typescript && yarn build-cpp"
     }
 }
