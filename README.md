@@ -13,6 +13,19 @@ Example code demonstrating the way to setup authentication and make API requests
 
 ## Getting started with Kotlin
 
+### Installing
+
+The haven-api client is published on maven central as:
+
+```
+<dependency>
+    <groupId>dev.haven</groupId>
+    <artifactId>api-client</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
+### Building
 The Kotlin API lives in the folder kotlin/ and can be built with gradle. From that directory,
 * sudo apt-get install gradle OR  brew install gradle
 * gradle wrapper
