@@ -3,61 +3,15 @@ info:
   title: Haven Money API
   version: '1.0'
 paths:
-  /v1/tokens:
-    post:
-      operationId: createAccessToken
+  /v1/accounts:
+    put:
+      operationId: upsertAccount
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/TenantServiceAccountAgentLoginRequest'
+              $ref: '#/components/schemas/AccountRequestWrapper'
         required: true
-      responses:
-        '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/TenantServiceAccountAgentLoginResponse'
-        '409':
-          description: Conflict
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServiceError'
-        '404':
-          description: Not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServiceError'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServiceError'
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServiceError'
-        '500':
-          description: Server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServiceError'
-  /v1/accounts/{AccountId}:
-    delete:
-      operationId: deleteAccount
-      parameters:
-      - name: AccountId
-        in: path
-        required: true
-        schema:
-          type: string
       responses:
         '200':
           description: ''
@@ -95,140 +49,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ServiceError'
-  /v1/users/{EndUserId}:
-    delete:
-      operationId: deleteForUser
-      parameters:
-      - name: EndUserId
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/EmptyResponse'
-        '409':
-          description: Conflict
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServiceError'
-        '404':
-          description: Not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServiceError'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServiceError'
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServiceError'
-        '500':
-          description: Server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServiceError'
-  /v1/transactions/{TransactionId}:
-    delete:
-      operationId: deleteTransaction
-      parameters:
-      - name: TransactionId
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/EmptyResponse'
-        '409':
-          description: Conflict
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServiceError'
-        '404':
-          description: Not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServiceError'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServiceError'
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServiceError'
-        '500':
-          description: Server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServiceError'
-  /v1/webhooks/{WebhookId}:
-    delete:
-      operationId: deleteWebhook
-      parameters:
-      - name: WebhookId
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/EmptyResponse'
-        '409':
-          description: Conflict
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServiceError'
-        '404':
-          description: Not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServiceError'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServiceError'
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServiceError'
-        '500':
-          description: Server error
+        '429':
+          description: Rate limited
           content:
             application/json:
               schema:
@@ -279,6 +101,122 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ServiceError'
+        '429':
+          description: Rate limited
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+  /v1/accounts/{AccountId}:
+    delete:
+      operationId: deleteAccount
+      parameters:
+      - name: AccountId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '429':
+          description: Rate limited
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+  /v1/annotations/{TransactionId}:
+    post:
+      operationId: upsertUserAnnotation
+      parameters:
+      - name: TransactionId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddAnnotationRequest'
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddAnnotationResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '429':
+          description: Rate limited
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
   /v1/merchants/{MerchantId}:
     get:
       operationId: getMerchant
@@ -321,6 +259,168 @@ paths:
                 $ref: '#/components/schemas/ServiceError'
         '500':
           description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '429':
+          description: Rate limited
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+  /v1/tokens:
+    post:
+      operationId: createAccessToken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TenantServiceAccountAgentLoginRequest'
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantServiceAccountAgentLoginResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '429':
+          description: Rate limited
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+  /v1/transactions/batch:
+    post:
+      operationId: upsertBatchTransactions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UploadBatchTransactionsRequest'
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '429':
+          description: Rate limited
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+  /v1/transactions/online:
+    post:
+      operationId: upsertOneTransaction
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CleanSingleTransactionRequest'
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CleanSingleTransactionResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '429':
+          description: Rate limited
           content:
             application/json:
               schema:
@@ -381,6 +481,116 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ServiceError'
+        '429':
+          description: Rate limited
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+  /v1/transactions/{TransactionId}:
+    delete:
+      operationId: deleteTransaction
+      parameters:
+      - name: TransactionId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '429':
+          description: Rate limited
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+  /v1/users/{EndUserId}:
+    delete:
+      operationId: deleteForUser
+      parameters:
+      - name: EndUserId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '429':
+          description: Rate limited
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
   /v1/webhooks:
     get:
       operationId: getWebhooks
@@ -417,6 +627,12 @@ paths:
                 $ref: '#/components/schemas/ServiceError'
         '500':
           description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '429':
+          description: Rate limited
           content:
             application/json:
               schema:
@@ -466,166 +682,28 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ServiceError'
-  /v1/accounts:
-    put:
-      operationId: upsertAccount
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/AccountRequestWrapper'
-        required: true
-      responses:
-        '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/EmptyResponse'
-        '409':
-          description: Conflict
+        '429':
+          description: Rate limited
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ServiceError'
-        '404':
-          description: Not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServiceError'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServiceError'
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServiceError'
-        '500':
-          description: Server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServiceError'
-  /v1/transactions/batch:
-    post:
-      operationId: upsertBatchTransactions
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UploadBatchTransactionsRequest'
-        required: true
-      responses:
-        '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/EmptyResponse'
-        '409':
-          description: Conflict
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServiceError'
-        '404':
-          description: Not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServiceError'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServiceError'
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServiceError'
-        '500':
-          description: Server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServiceError'
-  /v1/transactions/online:
-    post:
-      operationId: upsertOneTransaction
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CleanSingleTransactionRequest'
-        required: true
-      responses:
-        '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CleanSingleTransactionResponse'
-        '409':
-          description: Conflict
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServiceError'
-        '404':
-          description: Not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServiceError'
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServiceError'
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServiceError'
-        '500':
-          description: Server error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServiceError'
-  /v1/annotations/{TransactionId}:
-    post:
-      operationId: upsertUserAnnotation
+  /v1/webhooks/{WebhookId}:
+    delete:
+      operationId: deleteWebhook
       parameters:
-      - name: TransactionId
+      - name: WebhookId
         in: path
         required: true
         schema:
           type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/AddAnnotationRequest'
-        required: true
       responses:
         '200':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AddAnnotationResponse'
+                $ref: '#/components/schemas/EmptyResponse'
         '409':
           description: Conflict
           content:
@@ -652,166 +730,25 @@ paths:
                 $ref: '#/components/schemas/ServiceError'
         '500':
           description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceError'
+        '429':
+          description: Rate limited
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ServiceError'
 components:
   schemas:
-    LOAN1:
-      type: object
-    GLOBAL_FUZZY:
-      type: object
-    CreateWebhookRequest:
+    AccountRequestWrapper:
       required:
-      - callback
-      - subscriptions
+      - account
       type: object
       properties:
-        callback:
-          type: string
-        subscriptions:
-          type: array
-          items:
-            $ref: '#/components/schemas/WebhookSubscription'
-    TenantServiceAccountAgentLoginRequest:
-      required:
-      - id
-      - secret
-      type: object
-      properties:
-        id:
-          type: string
-        secret:
-          type: string
-    CreateWebhookResponse:
-      required:
-      - webhook
-      type: object
-      properties:
-        webhook:
-          $ref: '#/components/schemas/Webhook'
-    AccountType:
-      type: string
-      enum:
-      - BROKERAGE
-      - CREDIT
-      - DEPOSITORY
-      - LOAN
-      - OTHER
-    BadRequestServiceError:
-      required:
-      - message
-      type: object
-      properties:
-        message:
-          type: string
-    OpenHours:
-      required:
-      - description
-      type: object
-      properties:
-        description:
-          type: string
-    LatLong:
-      required:
-      - latitude
-      - longitude
-      type: object
-      properties:
-        latitude:
-          type: string
-        longitude:
-          type: string
-    CREDIT1:
-      type: object
-    Address:
-      required:
-      - line1
-      - city
-      - state
-      - zip
-      type: object
-      properties:
-        line1:
-          type: string
-        line2:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        zip:
-          type: string
-        coordinates:
-          $ref: '#/components/schemas/LatLong'
-    BootstrapStrategy:
-      type: string
-      enum:
-      - user-exact
-      - user-fuzzy
-      - account-exact
-      - account-fuzzy
-      - none
-    GLOBAL_EXACT:
-      type: object
-    BROKERAGE1:
-      type: object
-    CleanSingleTransactionResponse:
-      required:
-      - transaction
-      type: object
-      properties:
-        transaction:
-          $ref: '#/components/schemas/CleanTransaction'
-    ApiAccount:
-      required:
-      - id
-      - user
-      - displayName
-      - displayNameDetailed
-      - institution
-      - institutionName
-      - accountType
-      - accountSubType
-      - balance
-      - createdAt
-      - updatedAt
-      type: object
-      properties:
-        id:
-          type: string
-        user:
-          type: string
-        displayName:
-          type: string
-        displayNameDetailed:
-          type: string
-        institution:
-          type: string
-        institutionName:
-          type: string
-        accountType:
-          $ref: '#/components/schemas/AccountType'
-        accountSubType:
-          $ref: '#/components/schemas/AccountSubType'
-        balance:
-          $ref: '#/components/schemas/Balance'
-        createdAt:
-          type: string
-          format: date-time
-        updatedAt:
-          type: string
-          format: date-time
-    RawMerchantStore:
-      type: object
-      properties:
-        mid:
-          type: string
-        name:
-          type: string
-        address:
-          $ref: '#/components/schemas/Address'
+        account:
+          $ref: '#/components/schemas/ApiAccount'
     AccountSubType:
       type: string
       enum:
@@ -881,191 +818,14 @@ components:
       - UGMA
       - UTMA
       - VARIABLE_ANNUITY
-    OTHER2:
-      type: object
-    AccountRequestWrapper:
-      required:
-      - account
-      type: object
-      properties:
-        account:
-          $ref: '#/components/schemas/ApiAccount'
-    RawTransaction:
-      required:
-      - id
-      - account
-      - user
-      - rawMemo
-      - amount
-      - categories
-      - kind
-      - state
-      type: object
-      properties:
-        id:
-          type: string
-        account:
-          type: string
-        user:
-          type: string
-        rawMemo:
-          type: string
-        merchant:
-          $ref: '#/components/schemas/RawMerchant'
-        store:
-          $ref: '#/components/schemas/RawMerchantStore'
-        network:
-          type: string
-        userTransactedAt:
-          type: string
-          format: date-time
-        amount:
-          type: string
-        categories:
-          type: array
-          items:
-            type: string
-        kind:
-          $ref: '#/components/schemas/TransactionKind'
-        state:
-          $ref: '#/components/schemas/TransactionState'
-    GetMerchantResponse:
-      type: object
-      properties:
-        merchant:
-          $ref: '#/components/schemas/Merchant'
-    Balance:
-      required:
-      - current
-      type: object
-      properties:
-        current:
-          type: string
-        available:
-          type: string
-        limit:
-          type: string
-    WebhookSubscription:
+    AccountType:
       type: string
       enum:
-      - TRANSACTIONS
-      - INSTITUTIONS
-    OTHER1:
-      type: object
-    RawMerchant:
-      type: object
-      properties:
-        mid:
-          type: string
-        mcc:
-          type: string
-        name:
-          type: string
-        address:
-          $ref: '#/components/schemas/Address'
-    Webhook:
-      required:
-      - id
-      - callback
-      - secret
-      type: object
-      properties:
-        id:
-          type: string
-        callback:
-          type: string
-        secret:
-          type: string
-    EmptyResponse:
-      type: object
-      properties:
-        a:
-          type: integer
-    GetAccountsResponse:
-      required:
-      - accounts
-      type: object
-      properties:
-        accounts:
-          type: array
-          items:
-            $ref: '#/components/schemas/ApiAccount'
-    CleanTransaction:
-      required:
-      - id
-      - account
-      - user
-      - memo
-      - rawMemo
-      - amount
-      - categories
-      - cleanCategory
-      - excludeFromBreakdowns
-      - historical
-      type: object
-      properties:
-        id:
-          type: string
-        account:
-          type: string
-        user:
-          type: string
-        memo:
-          type: string
-        rawMemo:
-          type: string
-        network:
-          type: string
-        userTransactedAt:
-          type: string
-          format: date-time
-        amount:
-          type: string
-        categories:
-          type: array
-          items:
-            type: string
-        cleanCategory:
-          $ref: '#/components/schemas/CleanCategory'
-        url:
-          type: string
-        image:
-          type: string
-        backgroundImage:
-          type: string
-        excludeFromBreakdowns:
-          type: boolean
-        merchant:
-          type: string
-        merchantAddress:
-          $ref: '#/components/schemas/Address'
-        historical:
-          type: array
-          items:
-            type: string
-    ConflictServiceError:
-      required:
-      - message
-      type: object
-      properties:
-        message:
-          type: string
-    ServiceError:
-      oneOf:
-      - $ref: '#/components/schemas/UnauthorizedServiceError'
-      - $ref: '#/components/schemas/NotFoundServiceError'
-      - $ref: '#/components/schemas/ConflictServiceError'
-      - $ref: '#/components/schemas/UncaughtExceptionServiceError'
-      - $ref: '#/components/schemas/BadRequestServiceError'
-    AddAnnotationResponse:
-      required:
-      - transactions
-      type: object
-      properties:
-        transactions:
-          type: array
-          items:
-            $ref: '#/components/schemas/CleanTransaction'
+      - BROKERAGE
+      - CREDIT
+      - DEPOSITORY
+      - LOAN
+      - OTHER
     AddAnnotationRequest:
       required:
       - bootstrap
@@ -1079,32 +839,7 @@ components:
           type: boolean
         bootstrap:
           $ref: '#/components/schemas/BootstrapStrategy'
-    NotFoundServiceError:
-      required:
-      - message
-      type: object
-      properties:
-        message:
-          type: string
-    UploadBatchTransactionsRequest:
-      required:
-      - transactions
-      type: object
-      properties:
-        transactions:
-          type: array
-          items:
-            $ref: '#/components/schemas/RawTransaction'
-    GetWebhooksResponse:
-      required:
-      - webhooks
-      type: object
-      properties:
-        webhooks:
-          type: array
-          items:
-            $ref: '#/components/schemas/Webhook'
-    GetTransactionsResponse:
+    AddAnnotationResponse:
       required:
       - transactions
       type: object
@@ -1113,48 +848,96 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/CleanTransaction'
-        highWaterMark:
-          type: string
-    DEPOSITORY1:
+    Address:
+      required:
+      - line1
+      - city
+      - state
+      - zip
       type: object
-    Merchant:
+      properties:
+        line1:
+          type: string
+        line2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zip:
+          type: string
+        coordinates:
+          $ref: '#/components/schemas/LatLong'
+    ApiAccount:
       required:
       - id
-      - name
-      - category
+      - user
+      - displayName
+      - displayNameDetailed
+      - institution
+      - institutionName
+      - accountType
+      - accountSubType
+      - balance
+      - createdAt
       - updatedAt
       type: object
       properties:
         id:
           type: string
-        name:
+        user:
           type: string
-        address:
-          $ref: '#/components/schemas/Address'
-        hours:
-          $ref: '#/components/schemas/OpenHours'
-        image:
+        displayName:
           type: string
-        backgroundImage:
+        displayNameDetailed:
           type: string
-        category:
-          $ref: '#/components/schemas/CleanCategory'
-        phone:
+        institution:
           type: string
-        url:
+        institutionName:
           type: string
-        facebook:
+        accountType:
+          $ref: '#/components/schemas/AccountType'
+        accountSubType:
+          $ref: '#/components/schemas/AccountSubType'
+        balance:
+          $ref: '#/components/schemas/Balance'
+        createdAt:
           type: string
-        twitter:
-          type: string
-        instagram:
-          type: string
-        yelp:
-          type: string
+          format: date-time
         updatedAt:
           type: string
           format: date-time
-    MORTGAGE1:
+    BROKERAGE1:
+      type: object
+    BadRequestServiceError:
+      required:
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+    Balance:
+      required:
+      - current
+      type: object
+      properties:
+        current:
+          type: string
+        available:
+          type: string
+        limit:
+          type: string
+    BootstrapStrategy:
+      type: string
+      enum:
+      - user-exact
+      - user-fuzzy
+      - account-exact
+      - account-fuzzy
+      - none
+    CREDIT1:
+      type: object
+    CREDIT_CARD1:
       type: object
     CleanCategory:
       type: string
@@ -1231,8 +1014,290 @@ components:
       - Gifts & Donations
       - Shopping
       - Other
-    CREDIT_CARD1:
+    CleanSingleTransactionRequest:
+      required:
+      - transaction
       type: object
+      properties:
+        transaction:
+          $ref: '#/components/schemas/RawTransaction'
+    CleanSingleTransactionResponse:
+      required:
+      - transaction
+      type: object
+      properties:
+        transaction:
+          $ref: '#/components/schemas/CleanTransaction'
+    CleanTransaction:
+      required:
+      - id
+      - account
+      - user
+      - memo
+      - rawMemo
+      - amount
+      - categories
+      - cleanCategory
+      - excludeFromBreakdowns
+      - historical
+      type: object
+      properties:
+        id:
+          type: string
+        account:
+          type: string
+        user:
+          type: string
+        memo:
+          type: string
+        rawMemo:
+          type: string
+        network:
+          type: string
+        userTransactedAt:
+          type: string
+          format: date-time
+        amount:
+          type: string
+        categories:
+          type: array
+          items:
+            type: string
+        cleanCategory:
+          $ref: '#/components/schemas/CleanCategory'
+        url:
+          type: string
+        image:
+          type: string
+        backgroundImage:
+          type: string
+        excludeFromBreakdowns:
+          type: boolean
+        merchant:
+          type: string
+        merchantAddress:
+          $ref: '#/components/schemas/Address'
+        historical:
+          type: array
+          items:
+            type: string
+    ConflictServiceError:
+      required:
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+    CreateWebhookRequest:
+      required:
+      - callback
+      - subscriptions
+      type: object
+      properties:
+        callback:
+          type: string
+        subscriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/WebhookSubscription'
+    CreateWebhookResponse:
+      required:
+      - webhook
+      type: object
+      properties:
+        webhook:
+          $ref: '#/components/schemas/Webhook'
+    DEPOSITORY1:
+      type: object
+    EmptyResponse:
+      type: object
+      properties:
+        a:
+          type: integer
+    GLOBAL_EXACT:
+      type: object
+    GLOBAL_FUZZY:
+      type: object
+    GetAccountsResponse:
+      required:
+      - accounts
+      type: object
+      properties:
+        accounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiAccount'
+    GetMerchantResponse:
+      type: object
+      properties:
+        merchant:
+          $ref: '#/components/schemas/Merchant'
+    GetTransactionsResponse:
+      required:
+      - transactions
+      type: object
+      properties:
+        transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/CleanTransaction'
+        highWaterMark:
+          type: string
+    GetWebhooksResponse:
+      required:
+      - webhooks
+      type: object
+      properties:
+        webhooks:
+          type: array
+          items:
+            $ref: '#/components/schemas/Webhook'
+    LOAN1:
+      type: object
+    LatLong:
+      required:
+      - latitude
+      - longitude
+      type: object
+      properties:
+        latitude:
+          type: number
+        longitude:
+          type: number
+    MORTGAGE1:
+      type: object
+    Merchant:
+      required:
+      - id
+      - name
+      - category
+      - updatedAt
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+        hours:
+          $ref: '#/components/schemas/OpenHours'
+        image:
+          type: string
+        backgroundImage:
+          type: string
+        category:
+          $ref: '#/components/schemas/CleanCategory'
+        phone:
+          type: string
+        url:
+          type: string
+        facebook:
+          type: string
+        twitter:
+          type: string
+        instagram:
+          type: string
+        yelp:
+          type: string
+        updatedAt:
+          type: string
+          format: date-time
+    NotFoundServiceError:
+      required:
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+    OTHER1:
+      type: object
+    OTHER2:
+      type: object
+    OpenHours:
+      required:
+      - description
+      type: object
+      properties:
+        description:
+          type: string
+    RawMerchant:
+      type: object
+      properties:
+        mid:
+          type: string
+        mcc:
+          type: string
+        name:
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+    RawMerchantStore:
+      type: object
+      properties:
+        mid:
+          type: string
+        name:
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+    RawTransaction:
+      required:
+      - id
+      - account
+      - user
+      - rawMemo
+      - amount
+      - categories
+      - kind
+      - state
+      type: object
+      properties:
+        id:
+          type: string
+        account:
+          type: string
+        user:
+          type: string
+        rawMemo:
+          type: string
+        merchant:
+          $ref: '#/components/schemas/RawMerchant'
+        store:
+          $ref: '#/components/schemas/RawMerchantStore'
+        network:
+          type: string
+        userTransactedAt:
+          type: string
+          format: date-time
+        amount:
+          type: string
+        categories:
+          type: array
+          items:
+            type: string
+        kind:
+          $ref: '#/components/schemas/TransactionKind'
+        state:
+          $ref: '#/components/schemas/TransactionState'
+    ServiceError:
+      oneOf:
+      - $ref: '#/components/schemas/UnauthorizedServiceError'
+      - $ref: '#/components/schemas/TooManyRequestsServiceError'
+      - $ref: '#/components/schemas/NotFoundServiceError'
+      - $ref: '#/components/schemas/ConflictServiceError'
+      - $ref: '#/components/schemas/UncaughtExceptionServiceError'
+      - $ref: '#/components/schemas/BadRequestServiceError'
+    TenantServiceAccountAgentLoginRequest:
+      required:
+      - id
+      - secret
+      type: object
+      properties:
+        id:
+          type: string
+        secret:
+          type: string
     TenantServiceAccountAgentLoginResponse:
       required:
       - token
@@ -1244,6 +1309,23 @@ components:
         expiry:
           type: string
           format: date-time
+    TooManyRequestsServiceError:
+      required:
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+    TransactionKind:
+      type: string
+      enum:
+      - ACH
+      - FEE
+      - DEBIT_CARD
+      - CREDIT_CARD
+      - REVERSAL
+      - CHARGE_BACK
+      - UNKNOWN
     TransactionState:
       type: string
       enum:
@@ -1265,22 +1347,32 @@ components:
       properties:
         message:
           type: string
-    CleanSingleTransactionRequest:
+    UploadBatchTransactionsRequest:
       required:
-      - transaction
+      - transactions
       type: object
       properties:
-        transaction:
-          $ref: '#/components/schemas/RawTransaction'
-    TransactionKind:
+        transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/RawTransaction'
+    Webhook:
+      required:
+      - id
+      - callback
+      - secret
+      type: object
+      properties:
+        id:
+          type: string
+        callback:
+          type: string
+        secret:
+          type: string
+    WebhookSubscription:
       type: string
       enum:
-      - ACH
-      - FEE
-      - DEBIT_CARD
-      - CREDIT_CARD
-      - REVERSAL
-      - CHARGE_BACK
-      - UNKNOWN
+      - TRANSACTIONS
+      - INSTITUTIONS
 security:
 - null

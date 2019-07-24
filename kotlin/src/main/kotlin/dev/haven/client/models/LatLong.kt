@@ -20,9 +20,9 @@ import com.squareup.moshi.Json
  */
 data class LatLong (
     @Json(name = "latitude")
-    val latitude: kotlin.String,
+    val latitude: java.math.BigDecimal,
     @Json(name = "longitude")
-    val longitude: kotlin.String
+    val longitude: java.math.BigDecimal
 ) {
 
 }

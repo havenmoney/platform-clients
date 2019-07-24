@@ -24,6 +24,7 @@
 #include "ConflictServiceError.h"
 #include "BadRequestServiceError.h"
 #include "NotFoundServiceError.h"
+#include "TooManyRequestsServiceError.h"
 #include <cpprest/details/basic_types.h>
 #include "UnauthorizedServiceError.h"
 #include "UncaughtExceptionServiceError.h"

@@ -23,8 +23,8 @@ namespace model {
 
 LatLong::LatLong()
 {
-    m_Latitude = utility::conversions::to_string_t("");
-    m_Longitude = utility::conversions::to_string_t("");
+    m_Latitude = 0.0;
+    m_Longitude = 0.0;
 }
 
 LatLong::~LatLong()
@@ -48,8 +48,8 @@ web::json::value LatLong::toJson() const
 
 void LatLong::fromJson(const web::json::value& val)
 {
-    setLatitude(ModelBase::stringFromJson(val.at(utility::conversions::to_string_t("latitude"))));
-    setLongitude(ModelBase::stringFromJson(val.at(utility::conversions::to_string_t("longitude"))));
+    setLatitude(ModelBase::doubleFromJson(val.at(utility::conversions::to_string_t("latitude"))));
+    setLongitude(ModelBase::doubleFromJson(val.at(utility::conversions::to_string_t("longitude"))));
 }
 
 void LatLong::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
@@ -72,27 +72,27 @@ void LatLong::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const 
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    setLatitude(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("latitude"))));
-    setLongitude(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("longitude"))));
+    setLatitude(ModelBase::doubleFromHttpContent(multipart->getContent(utility::conversions::to_string_t("latitude"))));
+    setLongitude(ModelBase::doubleFromHttpContent(multipart->getContent(utility::conversions::to_string_t("longitude"))));
 }
 
-utility::string_t LatLong::getLatitude() const
+double LatLong::getLatitude() const
 {
     return m_Latitude;
 }
 
-void LatLong::setLatitude(const utility::string_t& value)
+void LatLong::setLatitude(double value)
 {
     m_Latitude = value;
     
 }
 
-utility::string_t LatLong::getLongitude() const
+double LatLong::getLongitude() const
 {
     return m_Longitude;
 }
 
-void LatLong::setLongitude(const utility::string_t& value)
+void LatLong::setLongitude(double value)
 {
     m_Longitude = value;
     

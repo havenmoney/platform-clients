@@ -11,19 +11,13 @@
 */
 package dev.haven.client.models
 
-import dev.haven.client.models.BadRequestServiceError
-import dev.haven.client.models.ConflictServiceError
-import dev.haven.client.models.NotFoundServiceError
-import dev.haven.client.models.TooManyRequestsServiceError
-import dev.haven.client.models.UnauthorizedServiceError
-import dev.haven.client.models.UncaughtExceptionServiceError
 
 import com.squareup.moshi.Json
 /**
  * 
  * @param message 
  */
-data class ServiceError (
+data class TooManyRequestsServiceError (
     @Json(name = "message")
     val message: kotlin.String
 ) {

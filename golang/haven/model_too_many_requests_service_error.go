@@ -9,7 +9,6 @@
 
 package haven
 
-type LatLong struct {
-	Latitude float32 `json:"latitude"`
-	Longitude float32 `json:"longitude"`
+type TooManyRequestsServiceError struct {
+	Message string `json:"message"`
 }

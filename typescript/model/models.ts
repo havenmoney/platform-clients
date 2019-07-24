@@ -30,6 +30,7 @@ export * from './rawTransaction';
 export * from './serviceError';
 export * from './tenantServiceAccountAgentLoginRequest';
 export * from './tenantServiceAccountAgentLoginResponse';
+export * from './tooManyRequestsServiceError';
 export * from './transactionKind';
 export * from './transactionState';
 export * from './unauthorizedServiceError';
@@ -72,6 +73,7 @@ import { RawTransaction } from './rawTransaction';
 import { ServiceError } from './serviceError';
 import { TenantServiceAccountAgentLoginRequest } from './tenantServiceAccountAgentLoginRequest';
 import { TenantServiceAccountAgentLoginResponse } from './tenantServiceAccountAgentLoginResponse';
+import { TooManyRequestsServiceError } from './tooManyRequestsServiceError';
 import { TransactionKind } from './transactionKind';
 import { TransactionState } from './transactionState';
 import { UnauthorizedServiceError } from './unauthorizedServiceError';
@@ -128,6 +130,7 @@ let typeMap: {[index: string]: any} = {
     "ServiceError": ServiceError,
     "TenantServiceAccountAgentLoginRequest": TenantServiceAccountAgentLoginRequest,
     "TenantServiceAccountAgentLoginResponse": TenantServiceAccountAgentLoginResponse,
+    "TooManyRequestsServiceError": TooManyRequestsServiceError,
     "TransactionKind": TransactionKind,
     "TransactionState": TransactionState,
     "UnauthorizedServiceError": UnauthorizedServiceError,

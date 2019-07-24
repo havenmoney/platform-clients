@@ -73,6 +73,7 @@ No authorization required
 **401** | Unauthorized |  -  |
 **400** | Bad request |  -  |
 **500** | Server error |  -  |
+**429** | Rate limited |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -129,6 +130,7 @@ No authorization required
 **401** | Unauthorized |  -  |
 **400** | Bad request |  -  |
 **500** | Server error |  -  |
+**429** | Rate limited |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -185,6 +187,7 @@ No authorization required
 **401** | Unauthorized |  -  |
 **400** | Bad request |  -  |
 **500** | Server error |  -  |
+**429** | Rate limited |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -241,6 +244,7 @@ No authorization required
 **401** | Unauthorized |  -  |
 **400** | Bad request |  -  |
 **500** | Server error |  -  |
+**429** | Rate limited |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -297,6 +301,7 @@ No authorization required
 **401** | Unauthorized |  -  |
 **400** | Bad request |  -  |
 **500** | Server error |  -  |
+**429** | Rate limited |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -353,6 +358,7 @@ No authorization required
 **401** | Unauthorized |  -  |
 **400** | Bad request |  -  |
 **500** | Server error |  -  |
+**429** | Rate limited |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -409,6 +415,7 @@ No authorization required
 **401** | Unauthorized |  -  |
 **400** | Bad request |  -  |
 **500** | Server error |  -  |
+**429** | Rate limited |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -465,6 +472,7 @@ No authorization required
 **401** | Unauthorized |  -  |
 **400** | Bad request |  -  |
 **500** | Server error |  -  |
+**429** | Rate limited |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -525,6 +533,7 @@ No authorization required
 **401** | Unauthorized |  -  |
 **400** | Bad request |  -  |
 **500** | Server error |  -  |
+**429** | Rate limited |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -577,6 +586,7 @@ No authorization required
 **401** | Unauthorized |  -  |
 **400** | Bad request |  -  |
 **500** | Server error |  -  |
+**429** | Rate limited |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -633,6 +643,7 @@ No authorization required
 **401** | Unauthorized |  -  |
 **400** | Bad request |  -  |
 **500** | Server error |  -  |
+**429** | Rate limited |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -689,6 +700,7 @@ No authorization required
 **401** | Unauthorized |  -  |
 **400** | Bad request |  -  |
 **500** | Server error |  -  |
+**429** | Rate limited |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -745,6 +757,7 @@ No authorization required
 **401** | Unauthorized |  -  |
 **400** | Bad request |  -  |
 **500** | Server error |  -  |
+**429** | Rate limited |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -803,6 +816,7 @@ No authorization required
 **401** | Unauthorized |  -  |
 **400** | Bad request |  -  |
 **500** | Server error |  -  |
+**429** | Rate limited |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

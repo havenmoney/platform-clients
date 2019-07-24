@@ -86,6 +86,7 @@ Class | Method | HTTP request | Description
  - [dev.haven.client.models.ServiceError](docs/ServiceError.md)
  - [dev.haven.client.models.TenantServiceAccountAgentLoginRequest](docs/TenantServiceAccountAgentLoginRequest.md)
  - [dev.haven.client.models.TenantServiceAccountAgentLoginResponse](docs/TenantServiceAccountAgentLoginResponse.md)
+ - [dev.haven.client.models.TooManyRequestsServiceError](docs/TooManyRequestsServiceError.md)
  - [dev.haven.client.models.TransactionKind](docs/TransactionKind.md)
  - [dev.haven.client.models.TransactionState](docs/TransactionState.md)
  - [dev.haven.client.models.UnauthorizedServiceError](docs/UnauthorizedServiceError.md)

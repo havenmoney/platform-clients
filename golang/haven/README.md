@@ -82,6 +82,7 @@ Class | Method | HTTP request | Description
  - [ServiceError](docs/ServiceError.md)
  - [TenantServiceAccountAgentLoginRequest](docs/TenantServiceAccountAgentLoginRequest.md)
  - [TenantServiceAccountAgentLoginResponse](docs/TenantServiceAccountAgentLoginResponse.md)
+ - [TooManyRequestsServiceError](docs/TooManyRequestsServiceError.md)
  - [TransactionKind](docs/TransactionKind.md)
  - [TransactionState](docs/TransactionState.md)
  - [UnauthorizedServiceError](docs/UnauthorizedServiceError.md)

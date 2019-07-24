@@ -13,6 +13,7 @@
 import { BadRequestServiceError } from './badRequestServiceError';
 import { ConflictServiceError } from './conflictServiceError';
 import { NotFoundServiceError } from './notFoundServiceError';
+import { TooManyRequestsServiceError } from './tooManyRequestsServiceError';
 import { UnauthorizedServiceError } from './unauthorizedServiceError';
 import { UncaughtExceptionServiceError } from './uncaughtExceptionServiceError';
 

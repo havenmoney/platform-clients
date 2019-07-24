@@ -10,17 +10,18 @@
  */
 
 /*
- * LatLong.h
+ * TooManyRequestsServiceError.h
  *
  * 
  */
 
-#ifndef DEV_HAVEN_CLIENT_MODEL_LatLong_H_
-#define DEV_HAVEN_CLIENT_MODEL_LatLong_H_
+#ifndef DEV_HAVEN_CLIENT_MODEL_TooManyRequestsServiceError_H_
+#define DEV_HAVEN_CLIENT_MODEL_TooManyRequestsServiceError_H_
 
 
 #include "../ModelBase.h"
 
+#include <cpprest/details/basic_types.h>
 
 namespace dev {
 namespace haven {
@@ -31,12 +32,12 @@ namespace model {
 /// <summary>
 /// 
 /// </summary>
-class  LatLong
+class  TooManyRequestsServiceError
     : public ModelBase
 {
 public:
-    LatLong();
-    virtual ~LatLong();
+    TooManyRequestsServiceError();
+    virtual ~TooManyRequestsServiceError();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -50,26 +51,18 @@ public:
     void fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// LatLong members
+    /// TooManyRequestsServiceError members
 
     /// <summary>
     /// 
     /// </summary>
-    double getLatitude() const;
+    utility::string_t getMessage() const;
     
-    void setLatitude(double value);
-
-    /// <summary>
-    /// 
-    /// </summary>
-    double getLongitude() const;
-    
-    void setLongitude(double value);
+    void setMessage(const utility::string_t& value);
 
 
 protected:
-    double m_Latitude;
-        double m_Longitude;
+    utility::string_t m_Message;
     };
 
 
@@ -78,4 +71,4 @@ protected:
 }
 }
 
-#endif /* DEV_HAVEN_CLIENT_MODEL_LatLong_H_ */
+#endif /* DEV_HAVEN_CLIENT_MODEL_TooManyRequestsServiceError_H_ */

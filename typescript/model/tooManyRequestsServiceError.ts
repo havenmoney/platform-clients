@@ -11,26 +11,20 @@
  */
 
 
-export class LatLong {
-    'latitude': number;
-    'longitude': number;
+export class TooManyRequestsServiceError {
+    'message': string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "latitude",
-            "baseName": "latitude",
-            "type": "number"
-        },
-        {
-            "name": "longitude",
-            "baseName": "longitude",
-            "type": "number"
+            "name": "message",
+            "baseName": "message",
+            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
-        return LatLong.attributeTypeMap;
+        return TooManyRequestsServiceError.attributeTypeMap;
     }
 }
 

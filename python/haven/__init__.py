@@ -60,6 +60,7 @@ from haven.models.raw_transaction import RawTransaction
 from haven.models.service_error import ServiceError
 from haven.models.tenant_service_account_agent_login_request import TenantServiceAccountAgentLoginRequest
 from haven.models.tenant_service_account_agent_login_response import TenantServiceAccountAgentLoginResponse
+from haven.models.too_many_requests_service_error import TooManyRequestsServiceError
 from haven.models.transaction_kind import TransactionKind
 from haven.models.transaction_state import TransactionState
 from haven.models.unauthorized_service_error import UnauthorizedServiceError
