@@ -19,8 +19,10 @@ Name | Type | Description | Notes
 **BackgroundImage** | **string** |  | [optional] 
 **ExcludeFromBreakdowns** | **bool** |  | 
 **Merchant** | **string** |  | [optional] 
+**MerchantData** | [**Merchant**](Merchant.md) |  | [optional] 
 **MerchantAddress** | [**Address**](Address.md) |  | [optional] 
 **Historical** | **[]string** |  | 
+**Tags** | **[]string** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

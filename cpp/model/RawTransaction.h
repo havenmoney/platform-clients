@@ -150,6 +150,13 @@ public:
     
     void setState(const std::shared_ptr<TransactionState>& value);
 
+    /// <summary>
+    /// 
+    /// </summary>
+    std::vector<utility::string_t>& getTags();
+    
+    void setTags(const std::vector<utility::string_t>& value);
+
 
 protected:
     utility::string_t m_Id;
@@ -168,6 +175,7 @@ protected:
         std::vector<utility::string_t> m_Categories;
         std::shared_ptr<TransactionKind> m_Kind;
         std::shared_ptr<TransactionState> m_State;
+        std::vector<utility::string_t> m_Tags;
     };
 
 

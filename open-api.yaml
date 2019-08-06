@@ -748,7 +748,7 @@ components:
       type: object
       properties:
         account:
-          $ref: '#/components/schemas/ApiAccount'
+          $ref: '#/components/schemas/AccountUpdate'
     AccountSubType:
       type: string
       enum:
@@ -826,6 +826,45 @@ components:
       - DEPOSITORY
       - LOAN
       - OTHER
+    AccountUpdate:
+      required:
+      - id
+      - user
+      - displayName
+      - displayNameDetailed
+      - institution
+      - institutionName
+      - accountType
+      - accountSubType
+      - balance
+      - createdAt
+      - updatedAt
+      type: object
+      properties:
+        id:
+          type: string
+        user:
+          type: string
+        displayName:
+          type: string
+        displayNameDetailed:
+          type: string
+        institution:
+          type: string
+        institutionName:
+          type: string
+        accountType:
+          $ref: '#/components/schemas/AccountType'
+        accountSubType:
+          $ref: '#/components/schemas/AccountSubType'
+        balance:
+          $ref: '#/components/schemas/Balance'
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
     AddAnnotationRequest:
       required:
       - bootstrap
@@ -895,6 +934,10 @@ components:
           type: string
         institutionName:
           type: string
+        logo:
+          type: string
+        colors:
+          $ref: '#/components/schemas/InstitutionColors'
         accountType:
           $ref: '#/components/schemas/AccountType'
         accountSubType:
@@ -947,6 +990,8 @@ components:
       - Movies & Television
       - Newspaper & Magazines
       - Other Entertainment
+      - Theater
+      - Gambling
       - Deposit
       - Withdrawal
       - Dividends
@@ -954,12 +999,17 @@ components:
       - Sell
       - Other Investments
       - Gas & Fuel
+      - Car Parts
+      - Toll Fee
       - Parking
+      - Traffic Tickets
       - Maintenance & Repairs
       - Auto Payment
       - Auto Insurance
       - Public Transportation
       - Other Car
+      - Taxi
+      - Boat
       - Air Travel
       - Lodging
       - Ride Share & Rental
@@ -980,6 +1030,7 @@ components:
       - Mortgage
       - Other Housing
       - Rent Reimbursement
+      - Yard & Garden
       - Credit card payment
       - ATM Withdrawals
       - Internal Transfer
@@ -987,7 +1038,19 @@ components:
       - Other Transfer
       - Loan Payment
       - Services
+      - Legal Services
+      - Accounting Services
+      - Real Estate Services
+      - Business Services
+      - Computer Services
+      - Online Subscriptions
+      - Financial Services
+      - Cleaning Services
       - Internet
+      - Home Insurance
+      - Renter's Insurance
+      - Life Insurance
+      - Other Insurance
       - Phone Bill
       - Utilities
       - TV
@@ -1004,16 +1067,38 @@ components:
       - Dentist
       - Doctor
       - Pharmacy
+      - Medical Labs
+      - Barber and Salon
+      - Spa
+      - Nail and Skin
       - Other Health & Fitness
       - Groceries
       - Coffee
       - Restaurants
       - Alcohol
+      - Bars & Clubs
       - Other Food & Dining
+      - Clothes & Apparel
+      - Sporting Goods
+      - Electronics
+      - Games
+      - Tobacco & Vaping
+      - Cannabis
+      - Beauty
+      - Books
+      - Business Equipment
+      - Home Hardware
+      - Shipping
+      - Software
+      - Guns & Weapons
       - Taxes
+      - Government Services
+      - Fines
       - Gifts & Donations
       - Shopping
       - Other
+      - Pets
+      - Child Care
     CleanSingleTransactionRequest:
       required:
       - transaction
@@ -1040,6 +1125,7 @@ components:
       - cleanCategory
       - excludeFromBreakdowns
       - historical
+      - tags
       type: object
       properties:
         id:
@@ -1075,9 +1161,15 @@ components:
           type: boolean
         merchant:
           type: string
+        merchantData:
+          $ref: '#/components/schemas/Merchant'
         merchantAddress:
           $ref: '#/components/schemas/Address'
         historical:
+          type: array
+          items:
+            type: string
+        tags:
           type: array
           items:
             type: string
@@ -1152,6 +1244,22 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Webhook'
+    InstitutionColors:
+      required:
+      - dark
+      - darker
+      - light
+      - primary
+      type: object
+      properties:
+        dark:
+          type: string
+        darker:
+          type: string
+        light:
+          type: string
+        primary:
+          type: string
     LOAN1:
       type: object
     LatLong:
@@ -1168,14 +1276,10 @@ components:
       type: object
     Merchant:
       required:
-      - id
       - name
       - category
-      - updatedAt
       type: object
       properties:
-        id:
-          type: string
         name:
           type: string
         address:
@@ -1200,9 +1304,6 @@ components:
           type: string
         yelp:
           type: string
-        updatedAt:
-          type: string
-          format: date-time
     NotFoundServiceError:
       required:
       - message
@@ -1251,6 +1352,7 @@ components:
       - categories
       - kind
       - state
+      - tags
       type: object
       properties:
         id:
@@ -1280,6 +1382,10 @@ components:
           $ref: '#/components/schemas/TransactionKind'
         state:
           $ref: '#/components/schemas/TransactionState'
+        tags:
+          type: array
+          items:
+            type: string
     ServiceError:
       oneOf:
       - $ref: '#/components/schemas/UnauthorizedServiceError'

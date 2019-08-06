@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **displayNameDetailed** | **kotlin.String** |  | 
 **institution** | **kotlin.String** |  | 
 **institutionName** | **kotlin.String** |  | 
+**logo** | **kotlin.String** |  |  [optional]
+**colors** | [**InstitutionColors**](InstitutionColors.md) |  |  [optional]
 **accountType** | [**AccountType**](AccountType.md) |  | 
 **accountSubType** | [**AccountSubType**](AccountSubType.md) |  | 
 **balance** | [**Balance**](Balance.md) |  | 

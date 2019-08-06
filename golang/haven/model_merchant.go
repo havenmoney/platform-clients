@@ -8,12 +8,8 @@
  */
 
 package haven
-import (
-	"time"
-)
 
 type Merchant struct {
-	Id string `json:"id"`
 	Name string `json:"name"`
 	Address *Address `json:"address,omitempty"`
 	Hours *OpenHours `json:"hours,omitempty"`
@@ -26,5 +22,4 @@ type Merchant struct {
 	Twitter *string `json:"twitter,omitempty"`
 	Instagram *string `json:"instagram,omitempty"`
 	Yelp *string `json:"yelp,omitempty"`
-	UpdatedAt time.Time `json:"updatedAt"`
 }

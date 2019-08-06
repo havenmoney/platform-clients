@@ -31,7 +31,6 @@ class Merchant(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'id': 'str',
         'name': 'str',
         'address': 'Address',
         'hours': 'OpenHours',
@@ -43,12 +42,10 @@ class Merchant(object):
         'facebook': 'str',
         'twitter': 'str',
         'instagram': 'str',
-        'yelp': 'str',
-        'updated_at': 'datetime'
+        'yelp': 'str'
     }
 
     attribute_map = {
-        'id': 'id',
         'name': 'name',
         'address': 'address',
         'hours': 'hours',
@@ -60,14 +57,12 @@ class Merchant(object):
         'facebook': 'facebook',
         'twitter': 'twitter',
         'instagram': 'instagram',
-        'yelp': 'yelp',
-        'updated_at': 'updatedAt'
+        'yelp': 'yelp'
     }
 
-    def __init__(self, id=None, name=None, address=None, hours=None, image=None, background_image=None, category=None, phone=None, url=None, facebook=None, twitter=None, instagram=None, yelp=None, updated_at=None):  # noqa: E501
+    def __init__(self, name=None, address=None, hours=None, image=None, background_image=None, category=None, phone=None, url=None, facebook=None, twitter=None, instagram=None, yelp=None):  # noqa: E501
         """Merchant - a model defined in OpenAPI"""  # noqa: E501
 
-        self._id = None
         self._name = None
         self._address = None
         self._hours = None
@@ -80,10 +75,8 @@ class Merchant(object):
         self._twitter = None
         self._instagram = None
         self._yelp = None
-        self._updated_at = None
         self.discriminator = None
 
-        self.id = id
         self.name = name
         if address is not None:
             self.address = address
@@ -106,30 +99,6 @@ class Merchant(object):
             self.instagram = instagram
         if yelp is not None:
             self.yelp = yelp
-        self.updated_at = updated_at
-
-    @property
-    def id(self):
-        """Gets the id of this Merchant.  # noqa: E501
-
-
-        :return: The id of this Merchant.  # noqa: E501
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this Merchant.
-
-
-        :param id: The id of this Merchant.  # noqa: E501
-        :type: str
-        """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
-
-        self._id = id
 
     @property
     def name(self):
@@ -386,29 +355,6 @@ class Merchant(object):
         """
 
         self._yelp = yelp
-
-    @property
-    def updated_at(self):
-        """Gets the updated_at of this Merchant.  # noqa: E501
-
-
-        :return: The updated_at of this Merchant.  # noqa: E501
-        :rtype: datetime
-        """
-        return self._updated_at
-
-    @updated_at.setter
-    def updated_at(self, updated_at):
-        """Sets the updated_at of this Merchant.
-
-
-        :param updated_at: The updated_at of this Merchant.  # noqa: E501
-        :type: datetime
-        """
-        if updated_at is None:
-            raise ValueError("Invalid value for `updated_at`, must not be `None`")  # noqa: E501
-
-        self._updated_at = updated_at
 
     def to_dict(self):
         """Returns the model properties as a dict"""

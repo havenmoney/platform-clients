@@ -23,7 +23,6 @@ namespace model {
 
 Merchant::Merchant()
 {
-    m_Id = utility::conversions::to_string_t("");
     m_Name = utility::conversions::to_string_t("");
     m_AddressIsSet = false;
     m_HoursIsSet = false;
@@ -43,7 +42,6 @@ Merchant::Merchant()
     m_InstagramIsSet = false;
     m_Yelp = utility::conversions::to_string_t("");
     m_YelpIsSet = false;
-    m_UpdatedAt = utility::datetime();
 }
 
 Merchant::~Merchant()
@@ -59,7 +57,6 @@ web::json::value Merchant::toJson() const
 {
     web::json::value val = web::json::value::object();
 
-    val[utility::conversions::to_string_t("id")] = ModelBase::toJson(m_Id);
     val[utility::conversions::to_string_t("name")] = ModelBase::toJson(m_Name);
     if(m_AddressIsSet)
     {
@@ -102,14 +99,12 @@ web::json::value Merchant::toJson() const
     {
         val[utility::conversions::to_string_t("yelp")] = ModelBase::toJson(m_Yelp);
     }
-    val[utility::conversions::to_string_t("updatedAt")] = ModelBase::toJson(m_UpdatedAt);
 
     return val;
 }
 
 void Merchant::fromJson(const web::json::value& val)
 {
-    setId(ModelBase::stringFromJson(val.at(utility::conversions::to_string_t("id"))));
     setName(ModelBase::stringFromJson(val.at(utility::conversions::to_string_t("name"))));
     if(val.has_field(utility::conversions::to_string_t("address")))
     {
@@ -198,8 +193,6 @@ void Merchant::fromJson(const web::json::value& val)
             setYelp(ModelBase::stringFromJson(fieldValue));
         }
     }
-    setUpdatedAt
-    (ModelBase::dateFromJson(val.at(utility::conversions::to_string_t("updatedAt"))));
 }
 
 void Merchant::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
@@ -210,7 +203,6 @@ void Merchant::toMultipart(std::shared_ptr<MultipartFormData> multipart, const u
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("id"), m_Id));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("name"), m_Name));
     if(m_AddressIsSet)
     {
@@ -259,7 +251,6 @@ void Merchant::toMultipart(std::shared_ptr<MultipartFormData> multipart, const u
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("yelp"), m_Yelp));
     }
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("updatedAt"), m_UpdatedAt));
 }
 
 void Merchant::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
@@ -270,7 +261,6 @@ void Merchant::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    setId(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("id"))));
     setName(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("name"))));
     if(multipart->hasContent(utility::conversions::to_string_t("address")))
     {
@@ -325,18 +315,6 @@ void Merchant::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const
     {
         setYelp(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("yelp"))));
     }
-    setUpdatedAt(ModelBase::dateFromHttpContent(multipart->getContent(utility::conversions::to_string_t("updatedAt"))));
-}
-
-utility::string_t Merchant::getId() const
-{
-    return m_Id;
-}
-
-void Merchant::setId(const utility::string_t& value)
-{
-    m_Id = value;
-    
 }
 
 utility::string_t Merchant::getName() const
@@ -569,17 +547,6 @@ bool Merchant::yelpIsSet() const
 void Merchant::unsetYelp()
 {
     m_YelpIsSet = false;
-}
-
-utility::datetime Merchant::getUpdatedAt() const
-{
-    return m_UpdatedAt;
-}
-
-void Merchant::setUpdatedAt(const utility::datetime& value)
-{
-    m_UpdatedAt = value;
-    
 }
 
 }

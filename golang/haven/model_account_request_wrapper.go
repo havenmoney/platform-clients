@@ -10,5 +10,5 @@
 package haven
 
 type AccountRequestWrapper struct {
-	Account ApiAccount `json:"account"`
+	Account AccountUpdate `json:"account"`
 }

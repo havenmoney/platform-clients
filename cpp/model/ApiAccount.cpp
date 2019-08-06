@@ -29,6 +29,9 @@ ApiAccount::ApiAccount()
     m_DisplayNameDetailed = utility::conversions::to_string_t("");
     m_Institution = utility::conversions::to_string_t("");
     m_InstitutionName = utility::conversions::to_string_t("");
+    m_Logo = utility::conversions::to_string_t("");
+    m_LogoIsSet = false;
+    m_ColorsIsSet = false;
     m_CreatedAt = utility::datetime();
     m_UpdatedAt = utility::datetime();
 }
@@ -52,6 +55,14 @@ web::json::value ApiAccount::toJson() const
     val[utility::conversions::to_string_t("displayNameDetailed")] = ModelBase::toJson(m_DisplayNameDetailed);
     val[utility::conversions::to_string_t("institution")] = ModelBase::toJson(m_Institution);
     val[utility::conversions::to_string_t("institutionName")] = ModelBase::toJson(m_InstitutionName);
+    if(m_LogoIsSet)
+    {
+        val[utility::conversions::to_string_t("logo")] = ModelBase::toJson(m_Logo);
+    }
+    if(m_ColorsIsSet)
+    {
+        val[utility::conversions::to_string_t("colors")] = ModelBase::toJson(m_Colors);
+    }
     val[utility::conversions::to_string_t("accountType")] = ModelBase::toJson(m_AccountType);
     val[utility::conversions::to_string_t("accountSubType")] = ModelBase::toJson(m_AccountSubType);
     val[utility::conversions::to_string_t("balance")] = ModelBase::toJson(m_Balance);
@@ -69,6 +80,24 @@ void ApiAccount::fromJson(const web::json::value& val)
     setDisplayNameDetailed(ModelBase::stringFromJson(val.at(utility::conversions::to_string_t("displayNameDetailed"))));
     setInstitution(ModelBase::stringFromJson(val.at(utility::conversions::to_string_t("institution"))));
     setInstitutionName(ModelBase::stringFromJson(val.at(utility::conversions::to_string_t("institutionName"))));
+    if(val.has_field(utility::conversions::to_string_t("logo")))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("logo"));
+        if(!fieldValue.is_null())
+        {
+            setLogo(ModelBase::stringFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("colors")))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("colors"));
+        if(!fieldValue.is_null())
+        {
+            std::shared_ptr<InstitutionColors> newItem(new InstitutionColors());
+            newItem->fromJson(fieldValue);
+            setColors( newItem );
+        }
+    }
     std::shared_ptr<AccountType> newAccountType(new AccountType());
     newAccountType->fromJson(val.at(utility::conversions::to_string_t("accountType")));
     setAccountType( newAccountType );
@@ -98,6 +127,17 @@ void ApiAccount::toMultipart(std::shared_ptr<MultipartFormData> multipart, const
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("displayNameDetailed"), m_DisplayNameDetailed));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("institution"), m_Institution));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("institutionName"), m_InstitutionName));
+    if(m_LogoIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("logo"), m_Logo));
+    }
+    if(m_ColorsIsSet)
+    {
+        if (m_Colors.get())
+        {
+            m_Colors->toMultipart(multipart, utility::conversions::to_string_t("colors."));
+        }
+    }
     m_AccountType->toMultipart(multipart, utility::conversions::to_string_t("accountType."));
     m_AccountSubType->toMultipart(multipart, utility::conversions::to_string_t("accountSubType."));
     m_Balance->toMultipart(multipart, utility::conversions::to_string_t("balance."));
@@ -119,6 +159,19 @@ void ApiAccount::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, con
     setDisplayNameDetailed(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("displayNameDetailed"))));
     setInstitution(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("institution"))));
     setInstitutionName(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("institutionName"))));
+    if(multipart->hasContent(utility::conversions::to_string_t("logo")))
+    {
+        setLogo(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("logo"))));
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("colors")))
+    {
+        if(multipart->hasContent(utility::conversions::to_string_t("colors")))
+        {
+            std::shared_ptr<InstitutionColors> newItem(new InstitutionColors());
+            newItem->fromMultiPart(multipart, utility::conversions::to_string_t("colors."));
+            setColors( newItem );
+        }
+    }
     std::shared_ptr<AccountType> newAccountType(new AccountType());
     newAccountType->fromMultiPart(multipart, utility::conversions::to_string_t("accountType."));
     setAccountType( newAccountType );
@@ -196,6 +249,48 @@ void ApiAccount::setInstitutionName(const utility::string_t& value)
 {
     m_InstitutionName = value;
     
+}
+
+utility::string_t ApiAccount::getLogo() const
+{
+    return m_Logo;
+}
+
+void ApiAccount::setLogo(const utility::string_t& value)
+{
+    m_Logo = value;
+    m_LogoIsSet = true;
+}
+
+bool ApiAccount::logoIsSet() const
+{
+    return m_LogoIsSet;
+}
+
+void ApiAccount::unsetLogo()
+{
+    m_LogoIsSet = false;
+}
+
+std::shared_ptr<InstitutionColors> ApiAccount::getColors() const
+{
+    return m_Colors;
+}
+
+void ApiAccount::setColors(const std::shared_ptr<InstitutionColors>& value)
+{
+    m_Colors = value;
+    m_ColorsIsSet = true;
+}
+
+bool ApiAccount::colorsIsSet() const
+{
+    return m_ColorsIsSet;
+}
+
+void ApiAccount::unsetColors()
+{
+    m_ColorsIsSet = false;
 }
 
 std::shared_ptr<AccountType> ApiAccount::getAccountType() const

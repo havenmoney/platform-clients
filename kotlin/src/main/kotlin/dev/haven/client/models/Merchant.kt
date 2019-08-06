@@ -18,7 +18,6 @@ import dev.haven.client.models.OpenHours
 import com.squareup.moshi.Json
 /**
  * 
- * @param id 
  * @param name 
  * @param address 
  * @param hours 
@@ -31,17 +30,12 @@ import com.squareup.moshi.Json
  * @param twitter 
  * @param instagram 
  * @param yelp 
- * @param updatedAt 
  */
 data class Merchant (
-    @Json(name = "id")
-    val id: kotlin.String,
     @Json(name = "name")
     val name: kotlin.String,
     @Json(name = "category")
     val category: CleanCategory,
-    @Json(name = "updatedAt")
-    val updatedAt: java.time.Instant,
     @Json(name = "address")
     val address: Address? = null,
     @Json(name = "hours")

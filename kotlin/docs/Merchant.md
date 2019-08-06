@@ -4,7 +4,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **kotlin.String** |  | 
 **name** | **kotlin.String** |  | 
 **address** | [**Address**](Address.md) |  |  [optional]
 **hours** | [**OpenHours**](OpenHours.md) |  |  [optional]
@@ -17,7 +16,6 @@ Name | Type | Description | Notes
 **twitter** | **kotlin.String** |  |  [optional]
 **instagram** | **kotlin.String** |  |  [optional]
 **yelp** | **kotlin.String** |  |  [optional]
-**updatedAt** | [**java.time.LocalDateTime**](java.time.LocalDateTime.md) |  | 
 
 
 

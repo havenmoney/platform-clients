@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **display_name_detailed** | **str** |  | 
 **institution** | **str** |  | 
 **institution_name** | **str** |  | 
+**logo** | **str** |  | [optional] 
+**colors** | [**InstitutionColors**](InstitutionColors.md) |  | [optional] 
 **account_type** | [**AccountType**](AccountType.md) |  | 
 **account_sub_type** | [**AccountSubType**](AccountSubType.md) |  | 
 **balance** | [**Balance**](Balance.md) |  | 

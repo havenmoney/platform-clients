@@ -45,7 +45,7 @@ web::json::value AccountRequestWrapper::toJson() const
 
 void AccountRequestWrapper::fromJson(const web::json::value& val)
 {
-    std::shared_ptr<ApiAccount> newAccount(new ApiAccount());
+    std::shared_ptr<AccountUpdate> newAccount(new AccountUpdate());
     newAccount->fromJson(val.at(utility::conversions::to_string_t("account")));
     setAccount( newAccount );
 }
@@ -69,17 +69,17 @@ void AccountRequestWrapper::fromMultiPart(std::shared_ptr<MultipartFormData> mul
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    std::shared_ptr<ApiAccount> newAccount(new ApiAccount());
+    std::shared_ptr<AccountUpdate> newAccount(new AccountUpdate());
     newAccount->fromMultiPart(multipart, utility::conversions::to_string_t("account."));
     setAccount( newAccount );
 }
 
-std::shared_ptr<ApiAccount> AccountRequestWrapper::getAccount() const
+std::shared_ptr<AccountUpdate> AccountRequestWrapper::getAccount() const
 {
     return m_Account;
 }
 
-void AccountRequestWrapper::setAccount(const std::shared_ptr<ApiAccount>& value)
+void AccountRequestWrapper::setAccount(const std::shared_ptr<AccountUpdate>& value)
 {
     m_Account = value;
     

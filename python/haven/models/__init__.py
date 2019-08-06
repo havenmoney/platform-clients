@@ -17,6 +17,7 @@ from __future__ import absolute_import
 from haven.models.account_request_wrapper import AccountRequestWrapper
 from haven.models.account_sub_type import AccountSubType
 from haven.models.account_type import AccountType
+from haven.models.account_update import AccountUpdate
 from haven.models.add_annotation_request import AddAnnotationRequest
 from haven.models.add_annotation_response import AddAnnotationResponse
 from haven.models.address import Address
@@ -36,6 +37,7 @@ from haven.models.get_accounts_response import GetAccountsResponse
 from haven.models.get_merchant_response import GetMerchantResponse
 from haven.models.get_transactions_response import GetTransactionsResponse
 from haven.models.get_webhooks_response import GetWebhooksResponse
+from haven.models.institution_colors import InstitutionColors
 from haven.models.lat_long import LatLong
 from haven.models.merchant import Merchant
 from haven.models.not_found_service_error import NotFoundServiceError

@@ -12,6 +12,7 @@
 
 import { Address } from './address';
 import { CleanCategory } from './cleanCategory';
+import { Merchant } from './merchant';
 
 export class CleanTransaction {
     'id': string;
@@ -29,8 +30,10 @@ export class CleanTransaction {
     'backgroundImage'?: string;
     'excludeFromBreakdowns': boolean;
     'merchant'?: string;
+    'merchantData'?: Merchant;
     'merchantAddress'?: Address;
     'historical': Array<string>;
+    'tags': Array<string>;
 
     static discriminator: string | undefined = undefined;
 
@@ -111,6 +114,11 @@ export class CleanTransaction {
             "type": "string"
         },
         {
+            "name": "merchantData",
+            "baseName": "merchantData",
+            "type": "Merchant"
+        },
+        {
             "name": "merchantAddress",
             "baseName": "merchantAddress",
             "type": "Address"
@@ -118,6 +126,11 @@ export class CleanTransaction {
         {
             "name": "historical",
             "baseName": "historical",
+            "type": "Array<string>"
+        },
+        {
+            "name": "tags",
+            "baseName": "tags",
             "type": "Array<string>"
         }    ];
 

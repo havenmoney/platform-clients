@@ -14,6 +14,7 @@ package dev.haven.client.models
 import dev.haven.client.models.AccountSubType
 import dev.haven.client.models.AccountType
 import dev.haven.client.models.Balance
+import dev.haven.client.models.InstitutionColors
 
 import com.squareup.moshi.Json
 /**
@@ -24,6 +25,8 @@ import com.squareup.moshi.Json
  * @param displayNameDetailed 
  * @param institution 
  * @param institutionName 
+ * @param logo 
+ * @param colors 
  * @param accountType 
  * @param accountSubType 
  * @param balance 
@@ -52,7 +55,11 @@ data class ApiAccount (
     @Json(name = "createdAt")
     val createdAt: java.time.Instant,
     @Json(name = "updatedAt")
-    val updatedAt: java.time.Instant
+    val updatedAt: java.time.Instant,
+    @Json(name = "logo")
+    val logo: kotlin.String? = null,
+    @Json(name = "colors")
+    val colors: InstitutionColors? = null
 ) {
 
 }

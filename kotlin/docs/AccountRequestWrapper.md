@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**account** | [**ApiAccount**](ApiAccount.md) |  | 
+**account** | [**AccountUpdate**](AccountUpdate.md) |  | 
 
 
 

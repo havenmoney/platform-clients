@@ -19,8 +19,10 @@ Name | Type | Description | Notes
 **backgroundImage** | **kotlin.String** |  |  [optional]
 **excludeFromBreakdowns** | **kotlin.Boolean** |  | 
 **merchant** | **kotlin.String** |  |  [optional]
+**merchantData** | [**Merchant**](Merchant.md) |  |  [optional]
 **merchantAddress** | [**Address**](Address.md) |  |  [optional]
 **historical** | **kotlin.Array&lt;kotlin.String&gt;** |  | 
+**tags** | **kotlin.Array&lt;kotlin.String&gt;** |  | 
 
 
 

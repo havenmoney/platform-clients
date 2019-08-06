@@ -14,6 +14,10 @@
 
     * `Other_Entertainment` (value: `"Other Entertainment"`)
 
+    * `Theater` (value: `"Theater"`)
+
+    * `Gambling` (value: `"Gambling"`)
+
     * `Deposit` (value: `"Deposit"`)
 
     * `Withdrawal` (value: `"Withdrawal"`)
@@ -28,7 +32,13 @@
 
     * `Gas_And_Fuel` (value: `"Gas & Fuel"`)
 
+    * `Car_Parts` (value: `"Car Parts"`)
+
+    * `Toll_Fee` (value: `"Toll Fee"`)
+
     * `Parking` (value: `"Parking"`)
+
+    * `Traffic_Tickets` (value: `"Traffic Tickets"`)
 
     * `Maintenance_And_Repairs` (value: `"Maintenance & Repairs"`)
 
@@ -39,6 +49,10 @@
     * `Public_Transportation` (value: `"Public Transportation"`)
 
     * `Other_Car` (value: `"Other Car"`)
+
+    * `Taxi` (value: `"Taxi"`)
+
+    * `Boat` (value: `"Boat"`)
 
     * `Air_Travel` (value: `"Air Travel"`)
 
@@ -80,6 +94,8 @@
 
     * `Rent_Reimbursement` (value: `"Rent Reimbursement"`)
 
+    * `Yard_And_Garden` (value: `"Yard & Garden"`)
+
     * `Credit_card_payment` (value: `"Credit card payment"`)
 
     * `ATM_Withdrawals` (value: `"ATM Withdrawals"`)
@@ -94,7 +110,31 @@
 
     * `Services` (value: `"Services"`)
 
+    * `Legal_Services` (value: `"Legal Services"`)
+
+    * `Accounting_Services` (value: `"Accounting Services"`)
+
+    * `Real_Estate_Services` (value: `"Real Estate Services"`)
+
+    * `Business_Services` (value: `"Business Services"`)
+
+    * `Computer_Services` (value: `"Computer Services"`)
+
+    * `Online_Subscriptions` (value: `"Online Subscriptions"`)
+
+    * `Financial_Services` (value: `"Financial Services"`)
+
+    * `Cleaning_Services` (value: `"Cleaning Services"`)
+
     * `Internet` (value: `"Internet"`)
+
+    * `Home_Insurance` (value: `"Home Insurance"`)
+
+    * `RenterQuoteS_Insurance` (value: `"Renter's Insurance"`)
+
+    * `Life_Insurance` (value: `"Life Insurance"`)
+
+    * `Other_Insurance` (value: `"Other Insurance"`)
 
     * `Phone_Bill` (value: `"Phone Bill"`)
 
@@ -128,6 +168,14 @@
 
     * `Pharmacy` (value: `"Pharmacy"`)
 
+    * `Medical_Labs` (value: `"Medical Labs"`)
+
+    * `Barber_and_Salon` (value: `"Barber and Salon"`)
+
+    * `Spa` (value: `"Spa"`)
+
+    * `Nail_and_Skin` (value: `"Nail and Skin"`)
+
     * `Other_Health_And_Fitness` (value: `"Other Health & Fitness"`)
 
     * `Groceries` (value: `"Groceries"`)
@@ -138,15 +186,51 @@
 
     * `Alcohol` (value: `"Alcohol"`)
 
+    * `Bars_And_Clubs` (value: `"Bars & Clubs"`)
+
     * `Other_Food_And_Dining` (value: `"Other Food & Dining"`)
 
+    * `Clothes_And_Apparel` (value: `"Clothes & Apparel"`)
+
+    * `Sporting_Goods` (value: `"Sporting Goods"`)
+
+    * `Electronics` (value: `"Electronics"`)
+
+    * `Games` (value: `"Games"`)
+
+    * `Tobacco_And_Vaping` (value: `"Tobacco & Vaping"`)
+
+    * `Cannabis` (value: `"Cannabis"`)
+
+    * `Beauty` (value: `"Beauty"`)
+
+    * `Books` (value: `"Books"`)
+
+    * `Business_Equipment` (value: `"Business Equipment"`)
+
+    * `Home_Hardware` (value: `"Home Hardware"`)
+
+    * `Shipping` (value: `"Shipping"`)
+
+    * `Software` (value: `"Software"`)
+
+    * `Guns_And_Weapons` (value: `"Guns & Weapons"`)
+
     * `Taxes` (value: `"Taxes"`)
+
+    * `Government_Services` (value: `"Government Services"`)
+
+    * `Fines` (value: `"Fines"`)
 
     * `Gifts_And_Donations` (value: `"Gifts & Donations"`)
 
     * `Shopping` (value: `"Shopping"`)
 
     * `Other` (value: `"Other"`)
+
+    * `Pets` (value: `"Pets"`)
+
+    * `Child_Care` (value: `"Child Care"`)
 
 
 

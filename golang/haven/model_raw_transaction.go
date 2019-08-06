@@ -25,4 +25,5 @@ type RawTransaction struct {
 	Categories []string `json:"categories"`
 	Kind TransactionKind `json:"kind"`
 	State TransactionState `json:"state"`
+	Tags []string `json:"tags"`
 }

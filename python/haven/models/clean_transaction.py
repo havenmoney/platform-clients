@@ -46,8 +46,10 @@ class CleanTransaction(object):
         'background_image': 'str',
         'exclude_from_breakdowns': 'bool',
         'merchant': 'str',
+        'merchant_data': 'Merchant',
         'merchant_address': 'Address',
-        'historical': 'list[str]'
+        'historical': 'list[str]',
+        'tags': 'list[str]'
     }
 
     attribute_map = {
@@ -66,11 +68,13 @@ class CleanTransaction(object):
         'background_image': 'backgroundImage',
         'exclude_from_breakdowns': 'excludeFromBreakdowns',
         'merchant': 'merchant',
+        'merchant_data': 'merchantData',
         'merchant_address': 'merchantAddress',
-        'historical': 'historical'
+        'historical': 'historical',
+        'tags': 'tags'
     }
 
-    def __init__(self, id=None, account=None, user=None, memo=None, raw_memo=None, network=None, user_transacted_at=None, amount=None, categories=None, clean_category=None, url=None, image=None, background_image=None, exclude_from_breakdowns=None, merchant=None, merchant_address=None, historical=None):  # noqa: E501
+    def __init__(self, id=None, account=None, user=None, memo=None, raw_memo=None, network=None, user_transacted_at=None, amount=None, categories=None, clean_category=None, url=None, image=None, background_image=None, exclude_from_breakdowns=None, merchant=None, merchant_data=None, merchant_address=None, historical=None, tags=None):  # noqa: E501
         """CleanTransaction - a model defined in OpenAPI"""  # noqa: E501
 
         self._id = None
@@ -88,8 +92,10 @@ class CleanTransaction(object):
         self._background_image = None
         self._exclude_from_breakdowns = None
         self._merchant = None
+        self._merchant_data = None
         self._merchant_address = None
         self._historical = None
+        self._tags = None
         self.discriminator = None
 
         self.id = id
@@ -113,9 +119,12 @@ class CleanTransaction(object):
         self.exclude_from_breakdowns = exclude_from_breakdowns
         if merchant is not None:
             self.merchant = merchant
+        if merchant_data is not None:
+            self.merchant_data = merchant_data
         if merchant_address is not None:
             self.merchant_address = merchant_address
         self.historical = historical
+        self.tags = tags
 
     @property
     def id(self):
@@ -451,6 +460,27 @@ class CleanTransaction(object):
         self._merchant = merchant
 
     @property
+    def merchant_data(self):
+        """Gets the merchant_data of this CleanTransaction.  # noqa: E501
+
+
+        :return: The merchant_data of this CleanTransaction.  # noqa: E501
+        :rtype: Merchant
+        """
+        return self._merchant_data
+
+    @merchant_data.setter
+    def merchant_data(self, merchant_data):
+        """Sets the merchant_data of this CleanTransaction.
+
+
+        :param merchant_data: The merchant_data of this CleanTransaction.  # noqa: E501
+        :type: Merchant
+        """
+
+        self._merchant_data = merchant_data
+
+    @property
     def merchant_address(self):
         """Gets the merchant_address of this CleanTransaction.  # noqa: E501
 
@@ -493,6 +523,29 @@ class CleanTransaction(object):
             raise ValueError("Invalid value for `historical`, must not be `None`")  # noqa: E501
 
         self._historical = historical
+
+    @property
+    def tags(self):
+        """Gets the tags of this CleanTransaction.  # noqa: E501
+
+
+        :return: The tags of this CleanTransaction.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CleanTransaction.
+
+
+        :param tags: The tags of this CleanTransaction.  # noqa: E501
+        :type: list[str]
+        """
+        if tags is None:
+            raise ValueError("Invalid value for `tags`, must not be `None`")  # noqa: E501
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

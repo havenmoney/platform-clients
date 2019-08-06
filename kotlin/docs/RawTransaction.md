@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **categories** | **kotlin.Array&lt;kotlin.String&gt;** |  | 
 **kind** | [**TransactionKind**](TransactionKind.md) |  | 
 **state** | [**TransactionState**](TransactionState.md) |  | 
+**tags** | **kotlin.Array&lt;kotlin.String&gt;** |  | 
 
 
 

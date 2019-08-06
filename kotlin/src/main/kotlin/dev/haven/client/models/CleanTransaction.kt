@@ -13,6 +13,7 @@ package dev.haven.client.models
 
 import dev.haven.client.models.Address
 import dev.haven.client.models.CleanCategory
+import dev.haven.client.models.Merchant
 
 import com.squareup.moshi.Json
 /**
@@ -32,8 +33,10 @@ import com.squareup.moshi.Json
  * @param backgroundImage 
  * @param excludeFromBreakdowns 
  * @param merchant 
+ * @param merchantData 
  * @param merchantAddress 
  * @param historical 
+ * @param tags 
  */
 data class CleanTransaction (
     @Json(name = "id")
@@ -56,6 +59,8 @@ data class CleanTransaction (
     val excludeFromBreakdowns: kotlin.Boolean,
     @Json(name = "historical")
     val historical: kotlin.Array<kotlin.String>,
+    @Json(name = "tags")
+    val tags: kotlin.Array<kotlin.String>,
     @Json(name = "network")
     val network: kotlin.String? = null,
     @Json(name = "userTransactedAt")
@@ -68,6 +73,8 @@ data class CleanTransaction (
     val backgroundImage: kotlin.String? = null,
     @Json(name = "merchant")
     val merchant: kotlin.String? = null,
+    @Json(name = "merchantData")
+    val merchantData: Merchant? = null,
     @Json(name = "merchantAddress")
     val merchantAddress: Address? = null
 ) {

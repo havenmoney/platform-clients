@@ -16,7 +16,7 @@ import com.squareup.moshi.Json
 
 /**
 * 
-* Values: Arts,Music,Movies_And_Television,Newspaper_And_Magazines,Other_Entertainment,Deposit,Withdrawal,Dividends,Buy,Sell,Other_Investments,Gas_And_Fuel,Parking,Maintenance_And_Repairs,Auto_Payment,Auto_Insurance,Public_Transportation,Other_Car,Air_Travel,Lodging,Ride_Share_And_Rental,Other_Travel,Account_Maintenance,Overdraft_Fee,Insufficient_Funds_Fee,ATM_Fee,Check_Order_Fee,Interest_Charged_Fee,Foreign_Transaction_Fee,Wire_Fee,Excessive_Transactions_Fee,Late_Fee,Card_Membership_Fee,Other_Fee,Rent,Mortgage,Other_Housing,Rent_Reimbursement,Credit_card_payment,ATM_Withdrawals,Internal_Transfer,External_Transfer,Other_Transfer,Loan_Payment,Services,Internet,Phone_Bill,Utilities,TV,Other_Bills,Paycheck,Interest,Reimbursement,Other_Income,Tuition,Student_Loan,Other_Education,Health_Insurance,Gym,Dentist,Doctor,Pharmacy,Other_Health_And_Fitness,Groceries,Coffee,Restaurants,Alcohol,Other_Food_And_Dining,Taxes,Gifts_And_Donations,Shopping,Other
+* Values: Arts,Music,Movies_And_Television,Newspaper_And_Magazines,Other_Entertainment,Theater,Gambling,Deposit,Withdrawal,Dividends,Buy,Sell,Other_Investments,Gas_And_Fuel,Car_Parts,Toll_Fee,Parking,Traffic_Tickets,Maintenance_And_Repairs,Auto_Payment,Auto_Insurance,Public_Transportation,Other_Car,Taxi,Boat,Air_Travel,Lodging,Ride_Share_And_Rental,Other_Travel,Account_Maintenance,Overdraft_Fee,Insufficient_Funds_Fee,ATM_Fee,Check_Order_Fee,Interest_Charged_Fee,Foreign_Transaction_Fee,Wire_Fee,Excessive_Transactions_Fee,Late_Fee,Card_Membership_Fee,Other_Fee,Rent,Mortgage,Other_Housing,Rent_Reimbursement,Yard_And_Garden,Credit_card_payment,ATM_Withdrawals,Internal_Transfer,External_Transfer,Other_Transfer,Loan_Payment,Services,Legal_Services,Accounting_Services,Real_Estate_Services,Business_Services,Computer_Services,Online_Subscriptions,Financial_Services,Cleaning_Services,Internet,Home_Insurance,RenterQuoteS_Insurance,Life_Insurance,Other_Insurance,Phone_Bill,Utilities,TV,Other_Bills,Paycheck,Interest,Reimbursement,Other_Income,Tuition,Student_Loan,Other_Education,Health_Insurance,Gym,Dentist,Doctor,Pharmacy,Medical_Labs,Barber_and_Salon,Spa,Nail_and_Skin,Other_Health_And_Fitness,Groceries,Coffee,Restaurants,Alcohol,Bars_And_Clubs,Other_Food_And_Dining,Clothes_And_Apparel,Sporting_Goods,Electronics,Games,Tobacco_And_Vaping,Cannabis,Beauty,Books,Business_Equipment,Home_Hardware,Shipping,Software,Guns_And_Weapons,Taxes,Government_Services,Fines,Gifts_And_Donations,Shopping,Other,Pets,Child_Care
 */
 enum class CleanCategory(val value: kotlin.String){
 
@@ -34,6 +34,12 @@ enum class CleanCategory(val value: kotlin.String){
 
     @Json(name = "Other Entertainment")
     Other_Entertainment("Other Entertainment"),
+
+    @Json(name = "Theater")
+    Theater("Theater"),
+
+    @Json(name = "Gambling")
+    Gambling("Gambling"),
 
     @Json(name = "Deposit")
     Deposit("Deposit"),
@@ -56,8 +62,17 @@ enum class CleanCategory(val value: kotlin.String){
     @Json(name = "Gas & Fuel")
     Gas_And_Fuel("Gas & Fuel"),
 
+    @Json(name = "Car Parts")
+    Car_Parts("Car Parts"),
+
+    @Json(name = "Toll Fee")
+    Toll_Fee("Toll Fee"),
+
     @Json(name = "Parking")
     Parking("Parking"),
+
+    @Json(name = "Traffic Tickets")
+    Traffic_Tickets("Traffic Tickets"),
 
     @Json(name = "Maintenance & Repairs")
     Maintenance_And_Repairs("Maintenance & Repairs"),
@@ -73,6 +88,12 @@ enum class CleanCategory(val value: kotlin.String){
 
     @Json(name = "Other Car")
     Other_Car("Other Car"),
+
+    @Json(name = "Taxi")
+    Taxi("Taxi"),
+
+    @Json(name = "Boat")
+    Boat("Boat"),
 
     @Json(name = "Air Travel")
     Air_Travel("Air Travel"),
@@ -134,6 +155,9 @@ enum class CleanCategory(val value: kotlin.String){
     @Json(name = "Rent Reimbursement")
     Rent_Reimbursement("Rent Reimbursement"),
 
+    @Json(name = "Yard & Garden")
+    Yard_And_Garden("Yard & Garden"),
+
     @Json(name = "Credit card payment")
     Credit_card_payment("Credit card payment"),
 
@@ -155,8 +179,44 @@ enum class CleanCategory(val value: kotlin.String){
     @Json(name = "Services")
     Services("Services"),
 
+    @Json(name = "Legal Services")
+    Legal_Services("Legal Services"),
+
+    @Json(name = "Accounting Services")
+    Accounting_Services("Accounting Services"),
+
+    @Json(name = "Real Estate Services")
+    Real_Estate_Services("Real Estate Services"),
+
+    @Json(name = "Business Services")
+    Business_Services("Business Services"),
+
+    @Json(name = "Computer Services")
+    Computer_Services("Computer Services"),
+
+    @Json(name = "Online Subscriptions")
+    Online_Subscriptions("Online Subscriptions"),
+
+    @Json(name = "Financial Services")
+    Financial_Services("Financial Services"),
+
+    @Json(name = "Cleaning Services")
+    Cleaning_Services("Cleaning Services"),
+
     @Json(name = "Internet")
     Internet("Internet"),
+
+    @Json(name = "Home Insurance")
+    Home_Insurance("Home Insurance"),
+
+    @Json(name = "Renter's Insurance")
+    RenterQuoteS_Insurance("Renter's Insurance"),
+
+    @Json(name = "Life Insurance")
+    Life_Insurance("Life Insurance"),
+
+    @Json(name = "Other Insurance")
+    Other_Insurance("Other Insurance"),
 
     @Json(name = "Phone Bill")
     Phone_Bill("Phone Bill"),
@@ -206,6 +266,18 @@ enum class CleanCategory(val value: kotlin.String){
     @Json(name = "Pharmacy")
     Pharmacy("Pharmacy"),
 
+    @Json(name = "Medical Labs")
+    Medical_Labs("Medical Labs"),
+
+    @Json(name = "Barber and Salon")
+    Barber_and_Salon("Barber and Salon"),
+
+    @Json(name = "Spa")
+    Spa("Spa"),
+
+    @Json(name = "Nail and Skin")
+    Nail_and_Skin("Nail and Skin"),
+
     @Json(name = "Other Health & Fitness")
     Other_Health_And_Fitness("Other Health & Fitness"),
 
@@ -221,11 +293,59 @@ enum class CleanCategory(val value: kotlin.String){
     @Json(name = "Alcohol")
     Alcohol("Alcohol"),
 
+    @Json(name = "Bars & Clubs")
+    Bars_And_Clubs("Bars & Clubs"),
+
     @Json(name = "Other Food & Dining")
     Other_Food_And_Dining("Other Food & Dining"),
 
+    @Json(name = "Clothes & Apparel")
+    Clothes_And_Apparel("Clothes & Apparel"),
+
+    @Json(name = "Sporting Goods")
+    Sporting_Goods("Sporting Goods"),
+
+    @Json(name = "Electronics")
+    Electronics("Electronics"),
+
+    @Json(name = "Games")
+    Games("Games"),
+
+    @Json(name = "Tobacco & Vaping")
+    Tobacco_And_Vaping("Tobacco & Vaping"),
+
+    @Json(name = "Cannabis")
+    Cannabis("Cannabis"),
+
+    @Json(name = "Beauty")
+    Beauty("Beauty"),
+
+    @Json(name = "Books")
+    Books("Books"),
+
+    @Json(name = "Business Equipment")
+    Business_Equipment("Business Equipment"),
+
+    @Json(name = "Home Hardware")
+    Home_Hardware("Home Hardware"),
+
+    @Json(name = "Shipping")
+    Shipping("Shipping"),
+
+    @Json(name = "Software")
+    Software("Software"),
+
+    @Json(name = "Guns & Weapons")
+    Guns_And_Weapons("Guns & Weapons"),
+
     @Json(name = "Taxes")
     Taxes("Taxes"),
+
+    @Json(name = "Government Services")
+    Government_Services("Government Services"),
+
+    @Json(name = "Fines")
+    Fines("Fines"),
 
     @Json(name = "Gifts & Donations")
     Gifts_And_Donations("Gifts & Donations"),
@@ -234,7 +354,13 @@ enum class CleanCategory(val value: kotlin.String){
     Shopping("Shopping"),
 
     @Json(name = "Other")
-    Other("Other");
+    Other("Other"),
+
+    @Json(name = "Pets")
+    Pets("Pets"),
+
+    @Json(name = "Child Care")
+    Child_Care("Child Care");
 
 }
 

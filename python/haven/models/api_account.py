@@ -37,6 +37,8 @@ class ApiAccount(object):
         'display_name_detailed': 'str',
         'institution': 'str',
         'institution_name': 'str',
+        'logo': 'str',
+        'colors': 'InstitutionColors',
         'account_type': 'AccountType',
         'account_sub_type': 'AccountSubType',
         'balance': 'Balance',
@@ -51,6 +53,8 @@ class ApiAccount(object):
         'display_name_detailed': 'displayNameDetailed',
         'institution': 'institution',
         'institution_name': 'institutionName',
+        'logo': 'logo',
+        'colors': 'colors',
         'account_type': 'accountType',
         'account_sub_type': 'accountSubType',
         'balance': 'balance',
@@ -58,7 +62,7 @@ class ApiAccount(object):
         'updated_at': 'updatedAt'
     }
 
-    def __init__(self, id=None, user=None, display_name=None, display_name_detailed=None, institution=None, institution_name=None, account_type=None, account_sub_type=None, balance=None, created_at=None, updated_at=None):  # noqa: E501
+    def __init__(self, id=None, user=None, display_name=None, display_name_detailed=None, institution=None, institution_name=None, logo=None, colors=None, account_type=None, account_sub_type=None, balance=None, created_at=None, updated_at=None):  # noqa: E501
         """ApiAccount - a model defined in OpenAPI"""  # noqa: E501
 
         self._id = None
@@ -67,6 +71,8 @@ class ApiAccount(object):
         self._display_name_detailed = None
         self._institution = None
         self._institution_name = None
+        self._logo = None
+        self._colors = None
         self._account_type = None
         self._account_sub_type = None
         self._balance = None
@@ -80,6 +86,10 @@ class ApiAccount(object):
         self.display_name_detailed = display_name_detailed
         self.institution = institution
         self.institution_name = institution_name
+        if logo is not None:
+            self.logo = logo
+        if colors is not None:
+            self.colors = colors
         self.account_type = account_type
         self.account_sub_type = account_sub_type
         self.balance = balance
@@ -223,6 +233,48 @@ class ApiAccount(object):
             raise ValueError("Invalid value for `institution_name`, must not be `None`")  # noqa: E501
 
         self._institution_name = institution_name
+
+    @property
+    def logo(self):
+        """Gets the logo of this ApiAccount.  # noqa: E501
+
+
+        :return: The logo of this ApiAccount.  # noqa: E501
+        :rtype: str
+        """
+        return self._logo
+
+    @logo.setter
+    def logo(self, logo):
+        """Sets the logo of this ApiAccount.
+
+
+        :param logo: The logo of this ApiAccount.  # noqa: E501
+        :type: str
+        """
+
+        self._logo = logo
+
+    @property
+    def colors(self):
+        """Gets the colors of this ApiAccount.  # noqa: E501
+
+
+        :return: The colors of this ApiAccount.  # noqa: E501
+        :rtype: InstitutionColors
+        """
+        return self._colors
+
+    @colors.setter
+    def colors(self, colors):
+        """Sets the colors of this ApiAccount.
+
+
+        :param colors: The colors of this ApiAccount.  # noqa: E501
+        :type: InstitutionColors
+        """
+
+        self._colors = colors
 
     @property
     def account_type(self):

@@ -13,6 +13,7 @@
 import { AccountSubType } from './accountSubType';
 import { AccountType } from './accountType';
 import { Balance } from './balance';
+import { InstitutionColors } from './institutionColors';
 
 export class ApiAccount {
     'id': string;
@@ -21,6 +22,8 @@ export class ApiAccount {
     'displayNameDetailed': string;
     'institution': string;
     'institutionName': string;
+    'logo'?: string;
+    'colors'?: InstitutionColors;
     'accountType': AccountType;
     'accountSubType': AccountSubType;
     'balance': Balance;
@@ -59,6 +62,16 @@ export class ApiAccount {
             "name": "institutionName",
             "baseName": "institutionName",
             "type": "string"
+        },
+        {
+            "name": "logo",
+            "baseName": "logo",
+            "type": "string"
+        },
+        {
+            "name": "colors",
+            "baseName": "colors",
+            "type": "InstitutionColors"
         },
         {
             "name": "accountType",

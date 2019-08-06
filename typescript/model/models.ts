@@ -1,6 +1,7 @@
 export * from './accountRequestWrapper';
 export * from './accountSubType';
 export * from './accountType';
+export * from './accountUpdate';
 export * from './addAnnotationRequest';
 export * from './addAnnotationResponse';
 export * from './address';
@@ -20,6 +21,7 @@ export * from './getAccountsResponse';
 export * from './getMerchantResponse';
 export * from './getTransactionsResponse';
 export * from './getWebhooksResponse';
+export * from './institutionColors';
 export * from './latLong';
 export * from './merchant';
 export * from './notFoundServiceError';
@@ -44,6 +46,7 @@ import localVarRequest = require('request');
 import { AccountRequestWrapper } from './accountRequestWrapper';
 import { AccountSubType } from './accountSubType';
 import { AccountType } from './accountType';
+import { AccountUpdate } from './accountUpdate';
 import { AddAnnotationRequest } from './addAnnotationRequest';
 import { AddAnnotationResponse } from './addAnnotationResponse';
 import { Address } from './address';
@@ -63,6 +66,7 @@ import { GetAccountsResponse } from './getAccountsResponse';
 import { GetMerchantResponse } from './getMerchantResponse';
 import { GetTransactionsResponse } from './getTransactionsResponse';
 import { GetWebhooksResponse } from './getWebhooksResponse';
+import { InstitutionColors } from './institutionColors';
 import { LatLong } from './latLong';
 import { Merchant } from './merchant';
 import { NotFoundServiceError } from './notFoundServiceError';
@@ -101,6 +105,7 @@ let typeMap: {[index: string]: any} = {
     "AccountRequestWrapper": AccountRequestWrapper,
     "AccountSubType": AccountSubType,
     "AccountType": AccountType,
+    "AccountUpdate": AccountUpdate,
     "AddAnnotationRequest": AddAnnotationRequest,
     "AddAnnotationResponse": AddAnnotationResponse,
     "Address": Address,
@@ -120,6 +125,7 @@ let typeMap: {[index: string]: any} = {
     "GetMerchantResponse": GetMerchantResponse,
     "GetTransactionsResponse": GetTransactionsResponse,
     "GetWebhooksResponse": GetWebhooksResponse,
+    "InstitutionColors": InstitutionColors,
     "LatLong": LatLong,
     "Merchant": Merchant,
     "NotFoundServiceError": NotFoundServiceError,

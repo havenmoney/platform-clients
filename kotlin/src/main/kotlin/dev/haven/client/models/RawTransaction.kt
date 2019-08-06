@@ -31,6 +31,7 @@ import com.squareup.moshi.Json
  * @param categories 
  * @param kind 
  * @param state 
+ * @param tags 
  */
 data class RawTransaction (
     @Json(name = "id")
@@ -49,6 +50,8 @@ data class RawTransaction (
     val kind: TransactionKind,
     @Json(name = "state")
     val state: TransactionState,
+    @Json(name = "tags")
+    val tags: kotlin.Array<kotlin.String>,
     @Json(name = "merchant")
     val merchant: RawMerchant? = null,
     @Json(name = "store")

@@ -28,6 +28,8 @@ type CleanTransaction struct {
 	BackgroundImage *string `json:"backgroundImage,omitempty"`
 	ExcludeFromBreakdowns bool `json:"excludeFromBreakdowns"`
 	Merchant *string `json:"merchant,omitempty"`
+	MerchantData *Merchant `json:"merchantData,omitempty"`
 	MerchantAddress *Address `json:"merchantAddress,omitempty"`
 	Historical []string `json:"historical"`
+	Tags []string `json:"tags"`
 }

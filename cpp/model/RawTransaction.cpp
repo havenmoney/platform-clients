@@ -80,6 +80,14 @@ web::json::value RawTransaction::toJson() const
     }
     val[utility::conversions::to_string_t("kind")] = ModelBase::toJson(m_Kind);
     val[utility::conversions::to_string_t("state")] = ModelBase::toJson(m_State);
+    {
+        std::vector<web::json::value> jsonArray;
+        for( auto& item : m_Tags )
+        {
+            jsonArray.push_back(ModelBase::toJson(item));
+        }
+        val[utility::conversions::to_string_t("tags")] = web::json::value::array(jsonArray);
+    }
 
     return val;
 }
@@ -141,6 +149,14 @@ void RawTransaction::fromJson(const web::json::value& val)
     std::shared_ptr<TransactionState> newState(new TransactionState());
     newState->fromJson(val.at(utility::conversions::to_string_t("state")));
     setState( newState );
+    {
+        m_Tags.clear();
+        std::vector<web::json::value> jsonArray;
+        for( auto& item : val.at(utility::conversions::to_string_t("tags")).as_array() )
+        {
+            m_Tags.push_back(ModelBase::stringFromJson(item));
+        }
+    }
 }
 
 void RawTransaction::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
@@ -188,6 +204,14 @@ void RawTransaction::toMultipart(std::shared_ptr<MultipartFormData> multipart, c
             }
     m_Kind->toMultipart(multipart, utility::conversions::to_string_t("kind."));
     m_State->toMultipart(multipart, utility::conversions::to_string_t("state."));
+    {
+        std::vector<web::json::value> jsonArray;
+        for( auto& item : m_Tags )
+        {
+            jsonArray.push_back(ModelBase::toJson(item));
+        }
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("tags"), web::json::value::array(jsonArray), utility::conversions::to_string_t("application/json")));
+            }
 }
 
 void RawTransaction::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
@@ -244,6 +268,15 @@ void RawTransaction::fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
     std::shared_ptr<TransactionState> newState(new TransactionState());
     newState->fromMultiPart(multipart, utility::conversions::to_string_t("state."));
     setState( newState );
+    {
+        m_Tags.clear();
+
+        web::json::value jsonArray = web::json::value::parse(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("tags"))));
+        for( auto& item : jsonArray.as_array() )
+        {
+            m_Tags.push_back(ModelBase::stringFromJson(item));
+        }
+    }
 }
 
 utility::string_t RawTransaction::getId() const
@@ -415,6 +448,17 @@ std::shared_ptr<TransactionState> RawTransaction::getState() const
 void RawTransaction::setState(const std::shared_ptr<TransactionState>& value)
 {
     m_State = value;
+    
+}
+
+std::vector<utility::string_t>& RawTransaction::getTags()
+{
+    return m_Tags;
+}
+
+void RawTransaction::setTags(const std::vector<utility::string_t>& value)
+{
+    m_Tags = value;
     
 }
 

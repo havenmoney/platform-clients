@@ -22,6 +22,7 @@
 #include "../ModelBase.h"
 
 #include "AccountType.h"
+#include "InstitutionColors.h"
 #include "AccountSubType.h"
 #include "Balance.h"
 #include <cpprest/details/basic_types.h>
@@ -101,6 +102,24 @@ public:
     /// <summary>
     /// 
     /// </summary>
+    utility::string_t getLogo() const;
+    bool logoIsSet() const;
+    void unsetLogo();
+
+    void setLogo(const utility::string_t& value);
+
+    /// <summary>
+    /// 
+    /// </summary>
+    std::shared_ptr<InstitutionColors> getColors() const;
+    bool colorsIsSet() const;
+    void unsetColors();
+
+    void setColors(const std::shared_ptr<InstitutionColors>& value);
+
+    /// <summary>
+    /// 
+    /// </summary>
     std::shared_ptr<AccountType> getAccountType() const;
     
     void setAccountType(const std::shared_ptr<AccountType>& value);
@@ -141,7 +160,11 @@ protected:
         utility::string_t m_DisplayNameDetailed;
         utility::string_t m_Institution;
         utility::string_t m_InstitutionName;
-        std::shared_ptr<AccountType> m_AccountType;
+        utility::string_t m_Logo;
+    bool m_LogoIsSet;
+    std::shared_ptr<InstitutionColors> m_Colors;
+    bool m_ColorsIsSet;
+    std::shared_ptr<AccountType> m_AccountType;
         std::shared_ptr<AccountSubType> m_AccountSubType;
         std::shared_ptr<Balance> m_Balance;
         utility::datetime m_CreatedAt;

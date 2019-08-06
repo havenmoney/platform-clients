@@ -3,7 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | 
 **name** | **str** |  | 
 **address** | [**Address**](Address.md) |  | [optional] 
 **hours** | [**OpenHours**](OpenHours.md) |  | [optional] 
@@ -16,7 +15,6 @@ Name | Type | Description | Notes
 **twitter** | **str** |  | [optional] 
 **instagram** | **str** |  | [optional] 
 **yelp** | **str** |  | [optional] 
-**updated_at** | **datetime** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

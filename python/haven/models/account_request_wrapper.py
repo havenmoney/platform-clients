@@ -31,7 +31,7 @@ class AccountRequestWrapper(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'account': 'ApiAccount'
+        'account': 'AccountUpdate'
     }
 
     attribute_map = {
@@ -52,7 +52,7 @@ class AccountRequestWrapper(object):
 
 
         :return: The account of this AccountRequestWrapper.  # noqa: E501
-        :rtype: ApiAccount
+        :rtype: AccountUpdate
         """
         return self._account
 
@@ -62,7 +62,7 @@ class AccountRequestWrapper(object):
 
 
         :param account: The account of this AccountRequestWrapper.  # noqa: E501
-        :type: ApiAccount
+        :type: AccountUpdate
         """
         if account is None:
             raise ValueError("Invalid value for `account`, must not be `None`")  # noqa: E501

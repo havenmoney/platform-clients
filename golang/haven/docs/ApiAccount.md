@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **DisplayNameDetailed** | **string** |  | 
 **Institution** | **string** |  | 
 **InstitutionName** | **string** |  | 
+**Logo** | **string** |  | [optional] 
+**Colors** | [**InstitutionColors**](InstitutionColors.md) |  | [optional] 
 **AccountType** | [**AccountType**](AccountType.md) |  | 
 **AccountSubType** | [**AccountSubType**](AccountSubType.md) |  | 
 **Balance** | [**Balance**](Balance.md) |  | 

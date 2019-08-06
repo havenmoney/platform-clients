@@ -767,7 +767,7 @@ components:
           updatedAt: 2000-01-23T04:56:07.000+00:00
       properties:
         account:
-          $ref: '#/components/schemas/ApiAccount'
+          $ref: '#/components/schemas/AccountUpdate'
       required:
       - account
       type: object
@@ -848,6 +848,58 @@ components:
       - LOAN
       - OTHER
       type: string
+    AccountUpdate:
+      example:
+        institution: institution
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        balance:
+          current: current
+          available: available
+          limit: limit
+        displayNameDetailed: displayNameDetailed
+        displayName: displayName
+        institutionName: institutionName
+        id: id
+        user: user
+        updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          type: string
+        user:
+          type: string
+        displayName:
+          type: string
+        displayNameDetailed:
+          type: string
+        institution:
+          type: string
+        institutionName:
+          type: string
+        accountType:
+          $ref: '#/components/schemas/AccountType'
+        accountSubType:
+          $ref: '#/components/schemas/AccountSubType'
+        balance:
+          $ref: '#/components/schemas/Balance'
+        createdAt:
+          format: date-time
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+      required:
+      - accountSubType
+      - accountType
+      - balance
+      - createdAt
+      - displayName
+      - displayNameDetailed
+      - id
+      - institution
+      - institutionName
+      - updatedAt
+      - user
+      type: object
     AddAnnotationRequest:
       example:
         memo: memo
@@ -876,8 +928,32 @@ components:
           historical:
           - historical
           - historical
+          merchantData:
+            image: image
+            hours:
+              description: description
+            twitter: twitter
+            address:
+              zip: zip
+              city: city
+              coordinates:
+                latitude: 0.8008281904610115
+                longitude: 6.027456183070403
+              state: state
+              line2: line2
+              line1: line1
+            phone: phone
+            backgroundImage: backgroundImage
+            facebook: facebook
+            name: name
+            yelp: yelp
+            instagram: instagram
+            url: url
           url: url
           network: network
+          tags:
+          - tags
+          - tags
           userTransactedAt: 2000-01-23T04:56:07.000+00:00
           merchantAddress:
             zip: zip
@@ -904,8 +980,32 @@ components:
           historical:
           - historical
           - historical
+          merchantData:
+            image: image
+            hours:
+              description: description
+            twitter: twitter
+            address:
+              zip: zip
+              city: city
+              coordinates:
+                latitude: 0.8008281904610115
+                longitude: 6.027456183070403
+              state: state
+              line2: line2
+              line1: line1
+            phone: phone
+            backgroundImage: backgroundImage
+            facebook: facebook
+            name: name
+            yelp: yelp
+            instagram: instagram
+            url: url
           url: url
           network: network
+          tags:
+          - tags
+          - tags
           userTransactedAt: 2000-01-23T04:56:07.000+00:00
           merchantAddress:
             zip: zip
@@ -962,15 +1062,21 @@ components:
       type: object
     ApiAccount:
       example:
+        displayNameDetailed: displayNameDetailed
+        displayName: displayName
+        colors:
+          darker: darker
+          light: light
+          dark: dark
+          primary: primary
         institution: institution
         createdAt: 2000-01-23T04:56:07.000+00:00
         balance:
           current: current
           available: available
           limit: limit
-        displayNameDetailed: displayNameDetailed
-        displayName: displayName
         institutionName: institutionName
+        logo: logo
         id: id
         user: user
         updatedAt: 2000-01-23T04:56:07.000+00:00
@@ -987,6 +1093,10 @@ components:
           type: string
         institutionName:
           type: string
+        logo:
+          type: string
+        colors:
+          $ref: '#/components/schemas/InstitutionColors'
         accountType:
           $ref: '#/components/schemas/AccountType'
         accountSubType:
@@ -1055,6 +1165,8 @@ components:
       - Movies & Television
       - Newspaper & Magazines
       - Other Entertainment
+      - Theater
+      - Gambling
       - Deposit
       - Withdrawal
       - Dividends
@@ -1062,12 +1174,17 @@ components:
       - Sell
       - Other Investments
       - Gas & Fuel
+      - Car Parts
+      - Toll Fee
       - Parking
+      - Traffic Tickets
       - Maintenance & Repairs
       - Auto Payment
       - Auto Insurance
       - Public Transportation
       - Other Car
+      - Taxi
+      - Boat
       - Air Travel
       - Lodging
       - Ride Share & Rental
@@ -1088,6 +1205,7 @@ components:
       - Mortgage
       - Other Housing
       - Rent Reimbursement
+      - Yard & Garden
       - Credit card payment
       - ATM Withdrawals
       - Internal Transfer
@@ -1095,7 +1213,19 @@ components:
       - Other Transfer
       - Loan Payment
       - Services
+      - Legal Services
+      - Accounting Services
+      - Real Estate Services
+      - Business Services
+      - Computer Services
+      - Online Subscriptions
+      - Financial Services
+      - Cleaning Services
       - Internet
+      - Home Insurance
+      - Renter's Insurance
+      - Life Insurance
+      - Other Insurance
       - Phone Bill
       - Utilities
       - TV
@@ -1112,21 +1242,42 @@ components:
       - Dentist
       - Doctor
       - Pharmacy
+      - Medical Labs
+      - Barber and Salon
+      - Spa
+      - Nail and Skin
       - Other Health & Fitness
       - Groceries
       - Coffee
       - Restaurants
       - Alcohol
+      - Bars & Clubs
       - Other Food & Dining
+      - Clothes & Apparel
+      - Sporting Goods
+      - Electronics
+      - Games
+      - Tobacco & Vaping
+      - Cannabis
+      - Beauty
+      - Books
+      - Business Equipment
+      - Home Hardware
+      - Shipping
+      - Software
+      - Guns & Weapons
       - Taxes
+      - Government Services
+      - Fines
       - Gifts & Donations
       - Shopping
       - Other
+      - Pets
+      - Child Care
       type: string
     CleanSingleTransactionRequest:
       example:
         transaction:
-          userTransactedAt: 2000-01-23T04:56:07.000+00:00
           amount: amount
           merchant:
             address:
@@ -1141,7 +1292,6 @@ components:
             name: name
             mid: mid
             mcc: mcc
-          id: id
           store:
             address:
               zip: zip
@@ -1154,13 +1304,18 @@ components:
               line1: line1
             name: name
             mid: mid
+          network: network
+          tags:
+          - tags
+          - tags
+          userTransactedAt: 2000-01-23T04:56:07.000+00:00
+          id: id
           categories:
           - categories
           - categories
           user: user
           account: account
           rawMemo: rawMemo
-          network: network
       properties:
         transaction:
           $ref: '#/components/schemas/RawTransaction'
@@ -1179,8 +1334,32 @@ components:
           historical:
           - historical
           - historical
+          merchantData:
+            image: image
+            hours:
+              description: description
+            twitter: twitter
+            address:
+              zip: zip
+              city: city
+              coordinates:
+                latitude: 0.8008281904610115
+                longitude: 6.027456183070403
+              state: state
+              line2: line2
+              line1: line1
+            phone: phone
+            backgroundImage: backgroundImage
+            facebook: facebook
+            name: name
+            yelp: yelp
+            instagram: instagram
+            url: url
           url: url
           network: network
+          tags:
+          - tags
+          - tags
           userTransactedAt: 2000-01-23T04:56:07.000+00:00
           merchantAddress:
             zip: zip
@@ -1215,8 +1394,32 @@ components:
         historical:
         - historical
         - historical
+        merchantData:
+          image: image
+          hours:
+            description: description
+          twitter: twitter
+          address:
+            zip: zip
+            city: city
+            coordinates:
+              latitude: 0.8008281904610115
+              longitude: 6.027456183070403
+            state: state
+            line2: line2
+            line1: line1
+          phone: phone
+          backgroundImage: backgroundImage
+          facebook: facebook
+          name: name
+          yelp: yelp
+          instagram: instagram
+          url: url
         url: url
         network: network
+        tags:
+        - tags
+        - tags
         userTransactedAt: 2000-01-23T04:56:07.000+00:00
         merchantAddress:
           zip: zip
@@ -1268,9 +1471,15 @@ components:
           type: boolean
         merchant:
           type: string
+        merchantData:
+          $ref: '#/components/schemas/Merchant'
         merchantAddress:
           $ref: '#/components/schemas/Address'
         historical:
+          items:
+            type: string
+          type: array
+        tags:
           items:
             type: string
           type: array
@@ -1284,6 +1493,7 @@ components:
       - id
       - memo
       - rawMemo
+      - tags
       - user
       type: object
     ConflictServiceError:
@@ -1338,27 +1548,39 @@ components:
     GetAccountsResponse:
       example:
         accounts:
-        - institution: institution
+        - displayNameDetailed: displayNameDetailed
+          displayName: displayName
+          colors:
+            darker: darker
+            light: light
+            dark: dark
+            primary: primary
+          institution: institution
           createdAt: 2000-01-23T04:56:07.000+00:00
           balance:
             current: current
             available: available
             limit: limit
-          displayNameDetailed: displayNameDetailed
-          displayName: displayName
           institutionName: institutionName
+          logo: logo
           id: id
           user: user
           updatedAt: 2000-01-23T04:56:07.000+00:00
-        - institution: institution
+        - displayNameDetailed: displayNameDetailed
+          displayName: displayName
+          colors:
+            darker: darker
+            light: light
+            dark: dark
+            primary: primary
+          institution: institution
           createdAt: 2000-01-23T04:56:07.000+00:00
           balance:
             current: current
             available: available
             limit: limit
-          displayNameDetailed: displayNameDetailed
-          displayName: displayName
           institutionName: institutionName
+          logo: logo
           id: id
           user: user
           updatedAt: 2000-01-23T04:56:07.000+00:00
@@ -1376,6 +1598,7 @@ components:
           image: image
           hours:
             description: description
+          twitter: twitter
           address:
             zip: zip
             city: city
@@ -1385,16 +1608,13 @@ components:
             state: state
             line2: line2
             line1: line1
+          phone: phone
           backgroundImage: backgroundImage
           facebook: facebook
+          name: name
           yelp: yelp
           instagram: instagram
           url: url
-          twitter: twitter
-          phone: phone
-          name: name
-          id: id
-          updatedAt: 2000-01-23T04:56:07.000+00:00
       properties:
         merchant:
           $ref: '#/components/schemas/Merchant'
@@ -1411,8 +1631,32 @@ components:
           historical:
           - historical
           - historical
+          merchantData:
+            image: image
+            hours:
+              description: description
+            twitter: twitter
+            address:
+              zip: zip
+              city: city
+              coordinates:
+                latitude: 0.8008281904610115
+                longitude: 6.027456183070403
+              state: state
+              line2: line2
+              line1: line1
+            phone: phone
+            backgroundImage: backgroundImage
+            facebook: facebook
+            name: name
+            yelp: yelp
+            instagram: instagram
+            url: url
           url: url
           network: network
+          tags:
+          - tags
+          - tags
           userTransactedAt: 2000-01-23T04:56:07.000+00:00
           merchantAddress:
             zip: zip
@@ -1439,8 +1683,32 @@ components:
           historical:
           - historical
           - historical
+          merchantData:
+            image: image
+            hours:
+              description: description
+            twitter: twitter
+            address:
+              zip: zip
+              city: city
+              coordinates:
+                latitude: 0.8008281904610115
+                longitude: 6.027456183070403
+              state: state
+              line2: line2
+              line1: line1
+            phone: phone
+            backgroundImage: backgroundImage
+            facebook: facebook
+            name: name
+            yelp: yelp
+            instagram: instagram
+            url: url
           url: url
           network: network
+          tags:
+          - tags
+          - tags
           userTransactedAt: 2000-01-23T04:56:07.000+00:00
           merchantAddress:
             zip: zip
@@ -1486,6 +1754,27 @@ components:
       required:
       - webhooks
       type: object
+    InstitutionColors:
+      example:
+        darker: darker
+        light: light
+        dark: dark
+        primary: primary
+      properties:
+        dark:
+          type: string
+        darker:
+          type: string
+        light:
+          type: string
+        primary:
+          type: string
+      required:
+      - dark
+      - darker
+      - light
+      - primary
+      type: object
     LOAN1:
       type: object
     LatLong:
@@ -1508,6 +1797,7 @@ components:
         image: image
         hours:
           description: description
+        twitter: twitter
         address:
           zip: zip
           city: city
@@ -1517,19 +1807,14 @@ components:
           state: state
           line2: line2
           line1: line1
+        phone: phone
         backgroundImage: backgroundImage
         facebook: facebook
+        name: name
         yelp: yelp
         instagram: instagram
         url: url
-        twitter: twitter
-        phone: phone
-        name: name
-        id: id
-        updatedAt: 2000-01-23T04:56:07.000+00:00
       properties:
-        id:
-          type: string
         name:
           type: string
         address:
@@ -1554,14 +1839,9 @@ components:
           type: string
         yelp:
           type: string
-        updatedAt:
-          format: date-time
-          type: string
       required:
       - category
-      - id
       - name
-      - updatedAt
       type: object
     NotFoundServiceError:
       properties:
@@ -1630,7 +1910,6 @@ components:
       type: object
     RawTransaction:
       example:
-        userTransactedAt: 2000-01-23T04:56:07.000+00:00
         amount: amount
         merchant:
           address:
@@ -1645,7 +1924,6 @@ components:
           name: name
           mid: mid
           mcc: mcc
-        id: id
         store:
           address:
             zip: zip
@@ -1658,13 +1936,18 @@ components:
             line1: line1
           name: name
           mid: mid
+        network: network
+        tags:
+        - tags
+        - tags
+        userTransactedAt: 2000-01-23T04:56:07.000+00:00
+        id: id
         categories:
         - categories
         - categories
         user: user
         account: account
         rawMemo: rawMemo
-        network: network
       properties:
         id:
           type: string
@@ -1693,6 +1976,10 @@ components:
           $ref: '#/components/schemas/TransactionKind'
         state:
           $ref: '#/components/schemas/TransactionState'
+        tags:
+          items:
+            type: string
+          type: array
       required:
       - account
       - amount
@@ -1701,6 +1988,7 @@ components:
       - kind
       - rawMemo
       - state
+      - tags
       - user
       type: object
     ServiceError:
@@ -1779,8 +2067,7 @@ components:
     UploadBatchTransactionsRequest:
       example:
         transactions:
-        - userTransactedAt: 2000-01-23T04:56:07.000+00:00
-          amount: amount
+        - amount: amount
           merchant:
             address:
               zip: zip
@@ -1794,7 +2081,6 @@ components:
             name: name
             mid: mid
             mcc: mcc
-          id: id
           store:
             address:
               zip: zip
@@ -1807,15 +2093,19 @@ components:
               line1: line1
             name: name
             mid: mid
+          network: network
+          tags:
+          - tags
+          - tags
+          userTransactedAt: 2000-01-23T04:56:07.000+00:00
+          id: id
           categories:
           - categories
           - categories
           user: user
           account: account
           rawMemo: rawMemo
-          network: network
-        - userTransactedAt: 2000-01-23T04:56:07.000+00:00
-          amount: amount
+        - amount: amount
           merchant:
             address:
               zip: zip
@@ -1829,7 +2119,6 @@ components:
             name: name
             mid: mid
             mcc: mcc
-          id: id
           store:
             address:
               zip: zip
@@ -1842,13 +2131,18 @@ components:
               line1: line1
             name: name
             mid: mid
+          network: network
+          tags:
+          - tags
+          - tags
+          userTransactedAt: 2000-01-23T04:56:07.000+00:00
+          id: id
           categories:
           - categories
           - categories
           user: user
           account: account
           rawMemo: rawMemo
-          network: network
       properties:
         transactions:
           items:

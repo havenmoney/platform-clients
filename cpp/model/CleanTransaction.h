@@ -23,6 +23,7 @@
 
 #include "CleanCategory.h"
 #include "Address.h"
+#include "Merchant.h"
 #include <cpprest/details/basic_types.h>
 #include <vector>
 
@@ -176,6 +177,15 @@ public:
     /// <summary>
     /// 
     /// </summary>
+    std::shared_ptr<Merchant> getMerchantData() const;
+    bool merchantDataIsSet() const;
+    void unsetMerchantData();
+
+    void setMerchantData(const std::shared_ptr<Merchant>& value);
+
+    /// <summary>
+    /// 
+    /// </summary>
     std::shared_ptr<Address> getMerchantAddress() const;
     bool merchantAddressIsSet() const;
     void unsetMerchantAddress();
@@ -188,6 +198,13 @@ public:
     std::vector<utility::string_t>& getHistorical();
     
     void setHistorical(const std::vector<utility::string_t>& value);
+
+    /// <summary>
+    /// 
+    /// </summary>
+    std::vector<utility::string_t>& getTags();
+    
+    void setTags(const std::vector<utility::string_t>& value);
 
 
 protected:
@@ -212,9 +229,12 @@ protected:
     bool m_ExcludeFromBreakdowns;
         utility::string_t m_Merchant;
     bool m_MerchantIsSet;
+    std::shared_ptr<Merchant> m_MerchantData;
+    bool m_MerchantDataIsSet;
     std::shared_ptr<Address> m_MerchantAddress;
     bool m_MerchantAddressIsSet;
     std::vector<utility::string_t> m_Historical;
+        std::vector<utility::string_t> m_Tags;
     };
 
 

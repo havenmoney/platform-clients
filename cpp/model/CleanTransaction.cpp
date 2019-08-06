@@ -42,6 +42,7 @@ CleanTransaction::CleanTransaction()
     m_ExcludeFromBreakdowns = false;
     m_Merchant = utility::conversions::to_string_t("");
     m_MerchantIsSet = false;
+    m_MerchantDataIsSet = false;
     m_MerchantAddressIsSet = false;
 }
 
@@ -98,6 +99,10 @@ web::json::value CleanTransaction::toJson() const
     {
         val[utility::conversions::to_string_t("merchant")] = ModelBase::toJson(m_Merchant);
     }
+    if(m_MerchantDataIsSet)
+    {
+        val[utility::conversions::to_string_t("merchantData")] = ModelBase::toJson(m_MerchantData);
+    }
     if(m_MerchantAddressIsSet)
     {
         val[utility::conversions::to_string_t("merchantAddress")] = ModelBase::toJson(m_MerchantAddress);
@@ -109,6 +114,14 @@ web::json::value CleanTransaction::toJson() const
             jsonArray.push_back(ModelBase::toJson(item));
         }
         val[utility::conversions::to_string_t("historical")] = web::json::value::array(jsonArray);
+    }
+    {
+        std::vector<web::json::value> jsonArray;
+        for( auto& item : m_Tags )
+        {
+            jsonArray.push_back(ModelBase::toJson(item));
+        }
+        val[utility::conversions::to_string_t("tags")] = web::json::value::array(jsonArray);
     }
 
     return val;
@@ -182,6 +195,16 @@ void CleanTransaction::fromJson(const web::json::value& val)
             setMerchant(ModelBase::stringFromJson(fieldValue));
         }
     }
+    if(val.has_field(utility::conversions::to_string_t("merchantData")))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("merchantData"));
+        if(!fieldValue.is_null())
+        {
+            std::shared_ptr<Merchant> newItem(new Merchant());
+            newItem->fromJson(fieldValue);
+            setMerchantData( newItem );
+        }
+    }
     if(val.has_field(utility::conversions::to_string_t("merchantAddress")))
     {
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("merchantAddress"));
@@ -198,6 +221,14 @@ void CleanTransaction::fromJson(const web::json::value& val)
         for( auto& item : val.at(utility::conversions::to_string_t("historical")).as_array() )
         {
             m_Historical.push_back(ModelBase::stringFromJson(item));
+        }
+    }
+    {
+        m_Tags.clear();
+        std::vector<web::json::value> jsonArray;
+        for( auto& item : val.at(utility::conversions::to_string_t("tags")).as_array() )
+        {
+            m_Tags.push_back(ModelBase::stringFromJson(item));
         }
     }
 }
@@ -250,6 +281,13 @@ void CleanTransaction::toMultipart(std::shared_ptr<MultipartFormData> multipart,
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("merchant"), m_Merchant));
     }
+    if(m_MerchantDataIsSet)
+    {
+        if (m_MerchantData.get())
+        {
+            m_MerchantData->toMultipart(multipart, utility::conversions::to_string_t("merchantData."));
+        }
+    }
     if(m_MerchantAddressIsSet)
     {
         if (m_MerchantAddress.get())
@@ -264,6 +302,14 @@ void CleanTransaction::toMultipart(std::shared_ptr<MultipartFormData> multipart,
             jsonArray.push_back(ModelBase::toJson(item));
         }
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("historical"), web::json::value::array(jsonArray), utility::conversions::to_string_t("application/json")));
+            }
+    {
+        std::vector<web::json::value> jsonArray;
+        for( auto& item : m_Tags )
+        {
+            jsonArray.push_back(ModelBase::toJson(item));
+        }
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("tags"), web::json::value::array(jsonArray), utility::conversions::to_string_t("application/json")));
             }
 }
 
@@ -318,6 +364,15 @@ void CleanTransaction::fromMultiPart(std::shared_ptr<MultipartFormData> multipar
     {
         setMerchant(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("merchant"))));
     }
+    if(multipart->hasContent(utility::conversions::to_string_t("merchantData")))
+    {
+        if(multipart->hasContent(utility::conversions::to_string_t("merchantData")))
+        {
+            std::shared_ptr<Merchant> newItem(new Merchant());
+            newItem->fromMultiPart(multipart, utility::conversions::to_string_t("merchantData."));
+            setMerchantData( newItem );
+        }
+    }
     if(multipart->hasContent(utility::conversions::to_string_t("merchantAddress")))
     {
         if(multipart->hasContent(utility::conversions::to_string_t("merchantAddress")))
@@ -334,6 +389,15 @@ void CleanTransaction::fromMultiPart(std::shared_ptr<MultipartFormData> multipar
         for( auto& item : jsonArray.as_array() )
         {
             m_Historical.push_back(ModelBase::stringFromJson(item));
+        }
+    }
+    {
+        m_Tags.clear();
+
+        web::json::value jsonArray = web::json::value::parse(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("tags"))));
+        for( auto& item : jsonArray.as_array() )
+        {
+            m_Tags.push_back(ModelBase::stringFromJson(item));
         }
     }
 }
@@ -563,6 +627,27 @@ void CleanTransaction::unsetMerchant()
     m_MerchantIsSet = false;
 }
 
+std::shared_ptr<Merchant> CleanTransaction::getMerchantData() const
+{
+    return m_MerchantData;
+}
+
+void CleanTransaction::setMerchantData(const std::shared_ptr<Merchant>& value)
+{
+    m_MerchantData = value;
+    m_MerchantDataIsSet = true;
+}
+
+bool CleanTransaction::merchantDataIsSet() const
+{
+    return m_MerchantDataIsSet;
+}
+
+void CleanTransaction::unsetMerchantData()
+{
+    m_MerchantDataIsSet = false;
+}
+
 std::shared_ptr<Address> CleanTransaction::getMerchantAddress() const
 {
     return m_MerchantAddress;
@@ -592,6 +677,17 @@ std::vector<utility::string_t>& CleanTransaction::getHistorical()
 void CleanTransaction::setHistorical(const std::vector<utility::string_t>& value)
 {
     m_Historical = value;
+    
+}
+
+std::vector<utility::string_t>& CleanTransaction::getTags()
+{
+    return m_Tags;
+}
+
+void CleanTransaction::setTags(const std::vector<utility::string_t>& value)
+{
+    m_Tags = value;
     
 }
 

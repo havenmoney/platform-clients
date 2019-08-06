@@ -19,6 +19,8 @@ type ApiAccount struct {
 	DisplayNameDetailed string `json:"displayNameDetailed"`
 	Institution string `json:"institution"`
 	InstitutionName string `json:"institutionName"`
+	Logo *string `json:"logo,omitempty"`
+	Colors *InstitutionColors `json:"colors,omitempty"`
 	AccountType AccountType `json:"accountType"`
 	AccountSubType AccountSubType `json:"accountSubType"`
 	Balance Balance `json:"balance"`

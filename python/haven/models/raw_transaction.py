@@ -42,7 +42,8 @@ class RawTransaction(object):
         'amount': 'str',
         'categories': 'list[str]',
         'kind': 'TransactionKind',
-        'state': 'TransactionState'
+        'state': 'TransactionState',
+        'tags': 'list[str]'
     }
 
     attribute_map = {
@@ -57,10 +58,11 @@ class RawTransaction(object):
         'amount': 'amount',
         'categories': 'categories',
         'kind': 'kind',
-        'state': 'state'
+        'state': 'state',
+        'tags': 'tags'
     }
 
-    def __init__(self, id=None, account=None, user=None, raw_memo=None, merchant=None, store=None, network=None, user_transacted_at=None, amount=None, categories=None, kind=None, state=None):  # noqa: E501
+    def __init__(self, id=None, account=None, user=None, raw_memo=None, merchant=None, store=None, network=None, user_transacted_at=None, amount=None, categories=None, kind=None, state=None, tags=None):  # noqa: E501
         """RawTransaction - a model defined in OpenAPI"""  # noqa: E501
 
         self._id = None
@@ -75,6 +77,7 @@ class RawTransaction(object):
         self._categories = None
         self._kind = None
         self._state = None
+        self._tags = None
         self.discriminator = None
 
         self.id = id
@@ -93,6 +96,7 @@ class RawTransaction(object):
         self.categories = categories
         self.kind = kind
         self.state = state
+        self.tags = tags
 
     @property
     def id(self):
@@ -361,6 +365,29 @@ class RawTransaction(object):
             raise ValueError("Invalid value for `state`, must not be `None`")  # noqa: E501
 
         self._state = state
+
+    @property
+    def tags(self):
+        """Gets the tags of this RawTransaction.  # noqa: E501
+
+
+        :return: The tags of this RawTransaction.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this RawTransaction.
+
+
+        :param tags: The tags of this RawTransaction.  # noqa: E501
+        :type: list[str]
+        """
+        if tags is None:
+            raise ValueError("Invalid value for `tags`, must not be `None`")  # noqa: E501
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

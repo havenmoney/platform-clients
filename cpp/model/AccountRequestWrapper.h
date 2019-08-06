@@ -21,7 +21,7 @@
 
 #include "../ModelBase.h"
 
-#include "ApiAccount.h"
+#include "AccountUpdate.h"
 
 namespace dev {
 namespace haven {
@@ -56,13 +56,13 @@ public:
     /// <summary>
     /// 
     /// </summary>
-    std::shared_ptr<ApiAccount> getAccount() const;
+    std::shared_ptr<AccountUpdate> getAccount() const;
     
-    void setAccount(const std::shared_ptr<ApiAccount>& value);
+    void setAccount(const std::shared_ptr<AccountUpdate>& value);
 
 
 protected:
-    std::shared_ptr<ApiAccount> m_Account;
+    std::shared_ptr<AccountUpdate> m_Account;
     };
 
 

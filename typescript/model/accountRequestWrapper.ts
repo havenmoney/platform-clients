@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 
-import { ApiAccount } from './apiAccount';
+import { AccountUpdate } from './accountUpdate';
 
 export class AccountRequestWrapper {
-    'account': ApiAccount;
+    'account': AccountUpdate;
 
     static discriminator: string | undefined = undefined;
 
@@ -21,7 +21,7 @@ export class AccountRequestWrapper {
         {
             "name": "account",
             "baseName": "account",
-            "type": "ApiAccount"
+            "type": "AccountUpdate"
         }    ];
 
     static getAttributeTypeMap() {

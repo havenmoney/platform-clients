@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **categories** | **list[str]** |  | 
 **kind** | [**TransactionKind**](TransactionKind.md) |  | 
 **state** | [**TransactionState**](TransactionState.md) |  | 
+**tags** | **list[str]** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

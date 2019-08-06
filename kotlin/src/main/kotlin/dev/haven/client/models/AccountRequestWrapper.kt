@@ -11,7 +11,7 @@
 */
 package dev.haven.client.models
 
-import dev.haven.client.models.ApiAccount
+import dev.haven.client.models.AccountUpdate
 
 import com.squareup.moshi.Json
 /**
@@ -20,7 +20,7 @@ import com.squareup.moshi.Json
  */
 data class AccountRequestWrapper (
     @Json(name = "account")
-    val account: ApiAccount
+    val account: AccountUpdate
 ) {
 
 }

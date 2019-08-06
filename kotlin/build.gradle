@@ -1,7 +1,3 @@
-apply plugin: 'kotlin'
-apply plugin: 'maven-publish'
-apply plugin: 'signing'
-
 group 'dev.haven'
 version '1.0.0'
 
@@ -21,8 +17,14 @@ buildscript {
     }
 }
 
+apply plugin: 'kotlin'
+
 repositories {
     mavenCentral()
+}
+
+test {
+    useJUnitPlatform()
 }
 
 dependencies {
@@ -31,117 +33,7 @@ dependencies {
     compile "com.squareup.moshi:moshi-kotlin:1.8.0"
     compile "com.squareup.moshi:moshi-adapters:1.8.0"
     compile "com.squareup.okhttp3:okhttp:3.14.2"
+    testImplementation "io.kotlintest:kotlintest-runner-junit5:3.1.0"
 }
-
 apply plugin: 'application'
 mainClassName = 'dev.haven.client.example.HelloWorldKt'
-
-task sourcesJar(type: Jar) {
-    classifier = "sources"
-    from sourceSets.main.allSource
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier "javadoc"
-    from javadoc.destinationDir
-}
-
-artifacts {
-    archives jar, sourcesJar, javadocJar
-}
-
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            customizePom(pom)
-            groupId 'dev.haven'
-            artifactId 'api-client'
-
-            from components.java
-
-            pom.withXml {
-                // MavenJava == the pub name (camelCased version of the outer scope here)
-                def pomFile = file("${project.buildDir}/publications/MavenJava/generated-pom.xml")
-                writeTo(pomFile)
-            }
-
-            artifact(sourcesJar) {
-                classifier = 'sources'
-            }
-
-            artifact(javadocJar) {
-                classifier = 'javadoc'
-            }
-        }
-    }
-
-    repositories {
-        maven {
-            credentials {
-                username sonatypeUsername
-                password sonatypePassword
-            }
-
-            def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2"
-            // def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots"
-            def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots"
-            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
-        }
-    }
-}
-
-model {
-    tasks.generatePomFileForMavenJavaPublication {
-        destination = file("$buildDir/publications/MavenJava/generated-pom.xml")
-    }
-}
-
-signing {
-    sign publishing.publications.mavenJava
-}
-
-def customizePom(pom) {
-        pom.withXml {
-        def root = asNode()
-
-        // eliminate test-scoped dependencies (no need in maven central POMs)
-        root.dependencies.removeAll { dep ->
-            dep.scope == "test"
-        }
-
-        // add all items necessary for maven central publication
-        root.children().last() + {
-            resolveStrategy = Closure.DELEGATE_FIRST
-
-            description 'Client for using the https://haven.dev API'
-            name 'haven.dev Api Client'
-            url 'https://github.com/havenmoney/platform-clients'
-            organization {
-                name 'dev.haven'
-                url 'https://github.com/havenmoney'
-            }
-            issueManagement {
-                system 'GitHub'
-                url 'https://github.com/havenmoney/platform-clients/issues'
-            }
-            licenses {
-                license {
-                    name 'Apache License 2.0'
-                    url 'https://github.com/havenmoney/platform-clients/blob/master/LICENSE'
-                    distribution 'repo'
-                }
-            }
-            scm {
-                url 'https://github.com/havenmoney/platform-clients'
-                connection 'scm:git:git://github.com/havenmoney/platform-clients.git'
-                developerConnection 'scm:git:ssh://git@github.com:havenmoney/platform-clients.git'
-            }
-            developers {
-                developer {
-                    name 'Haven Money'
-                }
-            }
-        }
-    }
-
-}

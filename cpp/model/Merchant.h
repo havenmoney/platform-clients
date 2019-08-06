@@ -59,13 +59,6 @@ public:
     /// <summary>
     /// 
     /// </summary>
-    utility::string_t getId() const;
-    
-    void setId(const utility::string_t& value);
-
-    /// <summary>
-    /// 
-    /// </summary>
     utility::string_t getName() const;
     
     void setName(const utility::string_t& value);
@@ -167,17 +160,9 @@ public:
 
     void setYelp(const utility::string_t& value);
 
-    /// <summary>
-    /// 
-    /// </summary>
-    utility::datetime getUpdatedAt() const;
-    
-    void setUpdatedAt(const utility::datetime& value);
-
 
 protected:
-    utility::string_t m_Id;
-        utility::string_t m_Name;
+    utility::string_t m_Name;
         std::shared_ptr<Address> m_Address;
     bool m_AddressIsSet;
     std::shared_ptr<OpenHours> m_Hours;
@@ -199,8 +184,7 @@ protected:
     bool m_InstagramIsSet;
     utility::string_t m_Yelp;
     bool m_YelpIsSet;
-    utility::datetime m_UpdatedAt;
-    };
+};
 
 
 }

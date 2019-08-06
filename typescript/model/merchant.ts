@@ -15,7 +15,6 @@ import { CleanCategory } from './cleanCategory';
 import { OpenHours } from './openHours';
 
 export class Merchant {
-    'id': string;
     'name': string;
     'address'?: Address;
     'hours'?: OpenHours;
@@ -28,16 +27,10 @@ export class Merchant {
     'twitter'?: string;
     'instagram'?: string;
     'yelp'?: string;
-    'updatedAt': Date;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            "name": "id",
-            "baseName": "id",
-            "type": "string"
-        },
         {
             "name": "name",
             "baseName": "name",
@@ -97,11 +90,6 @@ export class Merchant {
             "name": "yelp",
             "baseName": "yelp",
             "type": "string"
-        },
-        {
-            "name": "updatedAt",
-            "baseName": "updatedAt",
-            "type": "Date"
         }    ];
 
     static getAttributeTypeMap() {

@@ -28,6 +28,7 @@ export class RawTransaction {
     'categories': Array<string>;
     'kind': TransactionKind;
     'state': TransactionState;
+    'tags': Array<string>;
 
     static discriminator: string | undefined = undefined;
 
@@ -91,6 +92,11 @@ export class RawTransaction {
             "name": "state",
             "baseName": "state",
             "type": "TransactionState"
+        },
+        {
+            "name": "tags",
+            "baseName": "tags",
+            "type": "Array<string>"
         }    ];
 
     static getAttributeTypeMap() {
