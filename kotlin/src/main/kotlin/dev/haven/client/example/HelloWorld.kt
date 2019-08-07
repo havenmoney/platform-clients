@@ -21,9 +21,11 @@ fun main(args: Array<String>) {
     val client: DefaultApi = makeAuthedClient(id, secret).first
     println(client.getWebhooks())
 
-    client.upsertOneTransaction(CleanSingleTransactionRequest(
-            transaction = RawTransaction(
-                    id = "txn-0001",
+    println(client.upsertBatchTransactions(
+        UploadBatchTransactionsRequest(
+            transactions = arrayOf(
+                RawTransaction(
+                    id = "txn-0004",
                     account = "account-1",
                     user = "user-1",
                     rawMemo = "uber ride",
@@ -34,8 +36,12 @@ fun main(args: Array<String>) {
                     merchant = null,
                     store = null,
                     network = "VISA",
-                    userTransactedAt = Instant.now())))
+                    tags = arrayOf(),
+                    userTransactedAt = Instant.now()
+                )
+            )
+        )
+    ))
 
-    println(client.getTransactions("user-1", null, 100))
     kotlin.system.exitProcess(0)
 }
