@@ -54,7 +54,7 @@ const (
 	CARD_MEMBERSHIP_FEE CleanCategory = "Card Membership Fee"
 	OTHER_FEE CleanCategory = "Other Fee"
 	RENT CleanCategory = "Rent"
-	MORTGAGE CleanCategory = "Mortgage"
+	MORTGAGE_CATEGORY CleanCategory = "Mortgage"
 	OTHER_HOUSING CleanCategory = "Other Housing"
 	RENT_REIMBURSEMENT CleanCategory = "Rent Reimbursement"
 	YARD__GARDEN CleanCategory = "Yard & Garden"
@@ -123,7 +123,7 @@ const (
 	FINES CleanCategory = "Fines"
 	GIFTS__DONATIONS CleanCategory = "Gifts & Donations"
 	SHOPPING CleanCategory = "Shopping"
-	OTHER CleanCategory = "Other"
+	OTHER_CATEGORY CleanCategory = "Other"
 	PETS CleanCategory = "Pets"
 	CHILD_CARE CleanCategory = "Child Care"
 )
