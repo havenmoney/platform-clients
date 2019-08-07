@@ -1,4 +1,5 @@
-module github.com/havenmoney/platform-clients
+module github.com/havenmoney/platform-clients/golang/haven
+
 
 require (
     github.com/antihax/optional v0.0.0-20180406194304-ca021399b1a6
