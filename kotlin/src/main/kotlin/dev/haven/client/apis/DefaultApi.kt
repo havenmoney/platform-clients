@@ -301,7 +301,15 @@ class DefaultApi(basePath: kotlin.String, token: kotlin.String? = null) : ApiCli
     @Suppress("UNCHECKED_CAST")
     fun getTransactions(endUserId: kotlin.String, highWaterMark: kotlin.String?, limit: kotlin.Int?) : GetTransactionsResponse {
         val localVariableBody: kotlin.Any? = null
-        val localVariableQuery: MultiValueMap = mapOf("highWaterMark" to listOf("$highWaterMark"), "limit" to listOf("$limit"))
+        var localVariableQuery: MultiValueMap = mapOf()
+        if (highWaterMark != null) {
+            localVariableQuery = localVariableQuery.plus("highWaterMark" to listOf("$highWaterMark"))
+        }
+
+        if (limit != null) {
+            localVariableQuery = localVariableQuery.plus("limit" to listOf("$limit"))
+        }
+
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         val localVariableConfig = RequestConfig(
             RequestMethod.GET,
