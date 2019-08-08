@@ -3,7 +3,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'signing'
 
 group 'dev.haven'
-version '1.1.0'
+version '1.1.1'
 
 wrapper {
     gradleVersion = '4.9'

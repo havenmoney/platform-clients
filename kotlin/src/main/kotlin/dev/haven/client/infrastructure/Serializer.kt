@@ -13,6 +13,7 @@ object Serializer {
         .add(LocalDateAdapter())
         .add(UUIDAdapter())
         .add(ByteArrayAdapter())
+        .add(BigDecimalAdapter())
         .add(KotlinJsonAdapterFactory())
         .build()
 }
