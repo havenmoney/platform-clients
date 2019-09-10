@@ -38,7 +38,7 @@ func main() {
 			UserTransactedAt: &now,
 			Amount:           "100.0",
 			Categories:       []string{},
-			Kind:             haven.ACH,
+			Kind:             "ACH",
 			State:            haven.COMPLETED,
 		},
 	})
@@ -80,7 +80,7 @@ func main() {
 			UserTransactedAt: &now,
 			Amount:           "ASDFASDF", // <- this should be a number, causes the 400.
 			Categories:       []string{},
-			Kind:             haven.ACH,
+			Kind:             "ACH",
 			State:            haven.COMPLETED,
 		},
 	})

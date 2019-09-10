@@ -980,8 +980,6 @@ components:
       - none
     CREDIT1:
       type: object
-    CREDIT_CARD1:
-      type: object
     CleanCategory:
       type: string
       enum:
@@ -1033,6 +1031,7 @@ components:
       - Yard & Garden
       - Credit card payment
       - ATM Withdrawals
+      - Prepaid Card Load
       - Internal Transfer
       - External Transfer
       - Other Transfer
@@ -1057,6 +1056,8 @@ components:
       - Other Bills
       - Paycheck
       - Interest
+      - Refund
+      - Rewards
       - Reimbursement
       - Other Income
       - Tuition
@@ -1322,6 +1323,8 @@ components:
       properties:
         description:
           type: string
+    REWARDS1:
+      type: object
     RawMerchant:
       type: object
       properties:
@@ -1379,7 +1382,7 @@ components:
           items:
             type: string
         kind:
-          $ref: '#/components/schemas/TransactionKind'
+          type: string
         state:
           $ref: '#/components/schemas/TransactionState'
         tags:
@@ -1422,16 +1425,6 @@ components:
       properties:
         message:
           type: string
-    TransactionKind:
-      type: string
-      enum:
-      - ACH
-      - FEE
-      - DEBIT_CARD
-      - CREDIT_CARD
-      - REVERSAL
-      - CHARGE_BACK
-      - UNKNOWN
     TransactionState:
       type: string
       enum:
