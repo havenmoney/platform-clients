@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **UserTransactedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **Amount** | **string** |  | 
 **Categories** | **[]string** |  | 
-**Kind** | [**TransactionKind**](TransactionKind.md) |  | 
+**Kind** | **string** |  | 
 **State** | [**TransactionState**](TransactionState.md) |  | 
 **Tags** | **[]string** |  | 
 

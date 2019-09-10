@@ -1156,8 +1156,6 @@ components:
       type: string
     CREDIT1:
       type: object
-    CREDIT_CARD1:
-      type: object
     CleanCategory:
       enum:
       - Arts
@@ -1208,6 +1206,7 @@ components:
       - Yard & Garden
       - Credit card payment
       - ATM Withdrawals
+      - Prepaid Card Load
       - Internal Transfer
       - External Transfer
       - Other Transfer
@@ -1232,6 +1231,8 @@ components:
       - Other Bills
       - Paycheck
       - Interest
+      - Refund
+      - Rewards
       - Reimbursement
       - Other Income
       - Tuition
@@ -1279,6 +1280,7 @@ components:
       example:
         transaction:
           amount: amount
+          kind: kind
           merchant:
             address:
               zip: zip
@@ -1863,6 +1865,8 @@ components:
       required:
       - description
       type: object
+    REWARDS1:
+      type: object
     RawMerchant:
       example:
         address:
@@ -1911,6 +1915,7 @@ components:
     RawTransaction:
       example:
         amount: amount
+        kind: kind
         merchant:
           address:
             zip: zip
@@ -1973,7 +1978,7 @@ components:
             type: string
           type: array
         kind:
-          $ref: '#/components/schemas/TransactionKind'
+          type: string
         state:
           $ref: '#/components/schemas/TransactionState'
         tags:
@@ -2033,16 +2038,6 @@ components:
       required:
       - message
       type: object
-    TransactionKind:
-      enum:
-      - ACH
-      - FEE
-      - DEBIT_CARD
-      - CREDIT_CARD
-      - REVERSAL
-      - CHARGE_BACK
-      - UNKNOWN
-      type: string
     TransactionState:
       enum:
       - PENDING
@@ -2068,6 +2063,7 @@ components:
       example:
         transactions:
         - amount: amount
+          kind: kind
           merchant:
             address:
               zip: zip
@@ -2106,6 +2102,7 @@ components:
           account: account
           rawMemo: rawMemo
         - amount: amount
+          kind: kind
           merchant:
             address:
               zip: zip

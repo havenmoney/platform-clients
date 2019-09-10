@@ -23,7 +23,7 @@ type RawTransaction struct {
 	UserTransactedAt *time.Time `json:"userTransactedAt,omitempty"`
 	Amount string `json:"amount"`
 	Categories []string `json:"categories"`
-	Kind TransactionKind `json:"kind"`
+	Kind string `json:"kind"`
 	State TransactionState `json:"state"`
 	Tags []string `json:"tags"`
 }
