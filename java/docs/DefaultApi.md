@@ -31,12 +31,12 @@ Method | HTTP request | Description
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
+import dev.haven.jclient.ApiClient;
+import dev.haven.jclient.ApiException;
+import dev.haven.jclient.Configuration;
+import dev.haven.jclient.auth.*;
+import dev.haven.jclient.models.*;
+import dev.haven.jclient.api.DefaultApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -106,12 +106,12 @@ Name | Type | Description  | Notes
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
+import dev.haven.jclient.ApiClient;
+import dev.haven.jclient.ApiException;
+import dev.haven.jclient.Configuration;
+import dev.haven.jclient.auth.*;
+import dev.haven.jclient.models.*;
+import dev.haven.jclient.api.DefaultApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -181,12 +181,12 @@ Name | Type | Description  | Notes
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
+import dev.haven.jclient.ApiClient;
+import dev.haven.jclient.ApiException;
+import dev.haven.jclient.Configuration;
+import dev.haven.jclient.auth.*;
+import dev.haven.jclient.models.*;
+import dev.haven.jclient.api.DefaultApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -256,12 +256,12 @@ Name | Type | Description  | Notes
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
+import dev.haven.jclient.ApiClient;
+import dev.haven.jclient.ApiException;
+import dev.haven.jclient.Configuration;
+import dev.haven.jclient.auth.*;
+import dev.haven.jclient.models.*;
+import dev.haven.jclient.api.DefaultApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -331,12 +331,12 @@ Name | Type | Description  | Notes
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
+import dev.haven.jclient.ApiClient;
+import dev.haven.jclient.ApiException;
+import dev.haven.jclient.Configuration;
+import dev.haven.jclient.auth.*;
+import dev.haven.jclient.models.*;
+import dev.haven.jclient.api.DefaultApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -406,12 +406,12 @@ Name | Type | Description  | Notes
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
+import dev.haven.jclient.ApiClient;
+import dev.haven.jclient.ApiException;
+import dev.haven.jclient.Configuration;
+import dev.haven.jclient.auth.*;
+import dev.haven.jclient.models.*;
+import dev.haven.jclient.api.DefaultApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -481,12 +481,12 @@ Name | Type | Description  | Notes
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
+import dev.haven.jclient.ApiClient;
+import dev.haven.jclient.ApiException;
+import dev.haven.jclient.Configuration;
+import dev.haven.jclient.auth.*;
+import dev.haven.jclient.models.*;
+import dev.haven.jclient.api.DefaultApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -556,12 +556,12 @@ Name | Type | Description  | Notes
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
+import dev.haven.jclient.ApiClient;
+import dev.haven.jclient.ApiException;
+import dev.haven.jclient.Configuration;
+import dev.haven.jclient.auth.*;
+import dev.haven.jclient.models.*;
+import dev.haven.jclient.api.DefaultApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -631,12 +631,12 @@ Name | Type | Description  | Notes
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
+import dev.haven.jclient.ApiClient;
+import dev.haven.jclient.ApiException;
+import dev.haven.jclient.Configuration;
+import dev.haven.jclient.auth.*;
+import dev.haven.jclient.models.*;
+import dev.haven.jclient.api.DefaultApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -710,12 +710,12 @@ Name | Type | Description  | Notes
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
+import dev.haven.jclient.ApiClient;
+import dev.haven.jclient.ApiException;
+import dev.haven.jclient.Configuration;
+import dev.haven.jclient.auth.*;
+import dev.haven.jclient.models.*;
+import dev.haven.jclient.api.DefaultApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -781,12 +781,12 @@ This endpoint does not need any parameter.
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
+import dev.haven.jclient.ApiClient;
+import dev.haven.jclient.ApiException;
+import dev.haven.jclient.Configuration;
+import dev.haven.jclient.auth.*;
+import dev.haven.jclient.models.*;
+import dev.haven.jclient.api.DefaultApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -856,12 +856,12 @@ Name | Type | Description  | Notes
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
+import dev.haven.jclient.ApiClient;
+import dev.haven.jclient.ApiException;
+import dev.haven.jclient.Configuration;
+import dev.haven.jclient.auth.*;
+import dev.haven.jclient.models.*;
+import dev.haven.jclient.api.DefaultApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -931,12 +931,12 @@ Name | Type | Description  | Notes
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
+import dev.haven.jclient.ApiClient;
+import dev.haven.jclient.ApiException;
+import dev.haven.jclient.Configuration;
+import dev.haven.jclient.auth.*;
+import dev.haven.jclient.models.*;
+import dev.haven.jclient.api.DefaultApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1006,12 +1006,12 @@ Name | Type | Description  | Notes
 
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.DefaultApi;
+import dev.haven.jclient.ApiClient;
+import dev.haven.jclient.ApiException;
+import dev.haven.jclient.Configuration;
+import dev.haven.jclient.auth.*;
+import dev.haven.jclient.models.*;
+import dev.haven.jclient.api.DefaultApi;
 
 public class Example {
     public static void main(String[] args) {
