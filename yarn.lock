@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@openapitools/openapi-generator-cli@^0.0.14-4.0.2":
-  version "0.0.14-4.0.2"
-  resolved "https://registry.yarnpkg.com/@openapitools/openapi-generator-cli/-/openapi-generator-cli-0.0.14-4.0.2.tgz#244394f7487a7744a267165828d3d5249842d2a7"
-  integrity sha512-x4gKaGNgG5Eqt43B4V814Bp0zUBT5h9/K0Tz4oTi5wGy+5sqU5/gElKys0jmM6wvEio2OXJm728BIFuKPuFi5w==
+"@openapitools/openapi-generator-cli@1.0.15-4.3.1":
+  version "1.0.15-4.3.1"
+  resolved "https://registry.yarnpkg.com/@openapitools/openapi-generator-cli/-/openapi-generator-cli-1.0.15-4.3.1.tgz#25ef943eba3c82e82379b30f858bb05ed97dae0b"
+  integrity sha512-U+sanspDmeBElVNjYHQ4U7BbSEJUQzjNKmiTzXpcEw/r93sgxmzS2Sew5t+Zj6kyN1YTvjhRjJikNcW9/bmTKA==
