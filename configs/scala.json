@@ -1,0 +1,4 @@
+{
+  "modelPackage": "dev.haven.models",
+  "apiPackage": "dev.haven.api"
+}

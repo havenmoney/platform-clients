@@ -14,6 +14,7 @@
         "build-kotlin": "./node_modules/.bin/openapi-generator generate -i open-api.yaml -g kotlin -c configs/kotlin.json -o kotlin/  && ./kotlin/fix_dates.sh && ./kotlin/fix_gradle.sh && ./kotlin/fix_client.sh && ./kotlin/fix_enums.sh",
         "build-java": "./node_modules/.bin/openapi-generator generate -i open-api.yaml -g java -c configs/java.json -o java/",
         "build-cpp": "./node_modules/.bin/openapi-generator generate -i open-api.yaml -g cpp-restsdk -c configs/cpp.json -o cpp/",
+        "build-scala": "./node_modules/.bin/openapi-generator generate -i open-api.yaml -g scala-sttp -c configs/scala.json -o scala/",
         "build": "yarn build-go && yarn build-python && yarn build-kotlin && yarn build-typescript && yarn build-cpp"
     }
 }
